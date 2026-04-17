@@ -1,0 +1,15 @@
+# Ignore artifacts:
+build
+dist
+coverage
+
+# Ignore configuration files:
+*.config.js
+*.config.ts
+*.json
+
+# Ignore node_modules:
+node_modules
+
+# Ignore log files:
+*.log
