@@ -3,7 +3,7 @@ import { login, setPassword } from "../controller/authController.js";
 import {
   loginValidationChain,
   passwordValidationChain,
-} from "../model/authModel.js";
+} from "../validators/authValidators.js";
 
 const authRouter = express.Router();
 

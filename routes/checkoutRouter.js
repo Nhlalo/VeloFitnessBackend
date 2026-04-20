@@ -1,5 +1,5 @@
 import express from "express";
-import { registerValidationChain } from "../model/checkoutModel.js";
+import { registerValidationChain } from "../validators/checkoutValidators.js";
 import { checkout } from "../controller/checkoutController.js";
 import { createUserProfile } from "../controller/createUserProfileController.js";
 

@@ -1,5 +1,5 @@
 import express from "express";
-import { registerValidationChain } from "../model/createUserProfileModel.js";
+import { registerValidationChain } from "../validators/createUserProfileValidators.js";
 import { createUserProfile } from "../controller/createUserProfileController.js";
 
 const createUserProfileRouter = express.Router();
