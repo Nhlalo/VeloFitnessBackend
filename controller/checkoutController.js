@@ -1,7 +1,6 @@
 import Stripe from "stripe";
 import logger from "../utils/logger.js";
 import { membershipPrices } from "../data/membershipPrice.js";
-import createAccount from "../service/accountservice.js";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 

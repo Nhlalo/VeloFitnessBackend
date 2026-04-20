@@ -1,23 +1,19 @@
 import logger from "../utils/logger.js";
-import { prisma } from "../lib/prisma.js";
-import bcrypt from "bcryptjs";
+import userModel from "../model/userModels.js";
 
 const login = async (req, res, next) => {
   try {
     const { email, password } = req.validatedData;
     logger.info(email, `Initiating login setup`);
 
-    const user = await prisma.user.findUnique({
-      where: { email: email },
-      select: { password },
-    });
+    const user = await userModel.findUserWithPassword(email);
 
     if (!user) {
       logger.error(email, `Login Failure, User has no profile`);
       return res.status(401).json({ message: "Invalid email or password" });
     }
 
-    const match = await bcrypt.compare(password, user.password);
+    const match = await userModel.validatePassword(password, user.password);
 
     if (!match) {
       logger.error(email, `Login Failure, incorrect password`);
@@ -27,6 +23,7 @@ const login = async (req, res, next) => {
     logger.info(email, `login successful`);
     return res.status(200).json({
       message: "Login successful",
+      userId: user.id,
     });
   } catch (error) {
     next(error);
@@ -46,6 +43,7 @@ const setPassword = async (req, res, next) => {
         message: "Password must be a valid string",
       });
     }
+
     if (password !== confirmPassword) {
       logger.error(
         { email },
@@ -59,9 +57,7 @@ const setPassword = async (req, res, next) => {
       });
     }
 
-    const user = await prisma.user.findUnique({
-      where: { email: email },
-    });
+    const user = await userModel.findByEmail(email);
 
     if (!user) {
       logger.error({ email }, "Password setup failure: User has no profile");
@@ -72,14 +68,9 @@ const setPassword = async (req, res, next) => {
       });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await userModel.hashPassword(password);
 
-    const updatedUser = await prisma.user.update({
-      where: { email: email },
-      data: {
-        password: hashedPassword,
-      },
-    });
+    const updatedUser = await userModel.updatePassword(email, hashedPassword);
 
     logger.info({ email, userId: updatedUser.id }, "Password setup successful");
 

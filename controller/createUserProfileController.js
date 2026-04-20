@@ -1,8 +1,8 @@
 import Stripe from "stripe";
-import logger from "../utils/logger.js";
 import { prisma } from "../lib/prisma.js";
+import logger from "../utils/logger.js";
+import userModel from "../model/userModels.js";
 import { membershipPrices } from "../data/membershipPrice.js";
-import createAccount from "../service/accountservice.js";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -46,11 +46,9 @@ const createUserProfile = async (req, res, next) => {
       });
     }
 
-    const doesUserExists = await prisma.user.findUnique({
-      where: { email: email },
-    });
+    const user = userModel.findByEmail(email);
 
-    if (doesUserExists) {
+    if (user) {
       logger.info(`${email}: User already exists`);
       return res.status(409).json({
         success: false,
@@ -60,15 +58,14 @@ const createUserProfile = async (req, res, next) => {
       });
     }
 
-    if (!doesUserExists) {
-      await createAccount(
+    if (user) {
+      await userModel.createAccount(
         name,
         surname,
         email,
         zipCode,
         phoneNumber,
         lowercaseUserClub,
-        next,
       );
     }
 
