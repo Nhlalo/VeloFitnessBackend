@@ -24,11 +24,11 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 7.6.0
+ * Prisma Client JS version: 7.7.0
  * Query Engine version: 75cbdc1eb7150937890ad5465d861175c6624711
  */
 Prisma.prismaVersion = {
-  client: "7.6.0",
+  client: "7.7.0",
   engine: "75cbdc1eb7150937890ad5465d861175c6624711"
 }
 
@@ -122,16 +122,29 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 
 exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
+  name: 'name',
+  surname: 'surname',
   email: 'email',
-  name: 'name'
+  zipCode: 'zipCode',
+  phoneNumber: 'phoneNumber',
+  password: 'password',
+  currentMembershipId: 'currentMembershipId',
+  membershipStatus: 'membershipStatus',
+  membershipStartDate: 'membershipStartDate',
+  membershipEndDate: 'membershipEndDate',
+  nextBillingDate: 'nextBillingDate',
+  billingCycle: 'billingCycle',
+  createdAt: 'createdAt'
 };
 
-exports.Prisma.PostScalarFieldEnum = {
+exports.Prisma.MembershipScalarFieldEnum = {
   id: 'id',
   title: 'title',
-  content: 'content',
-  published: 'published',
-  authorId: 'authorId'
+  clubName: 'clubName',
+  price: 'price',
+  currency: 'currency',
+  isActive: 'isActive',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -152,7 +165,7 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  Post: 'Post'
+  Membership: 'Membership'
 };
 
 /**

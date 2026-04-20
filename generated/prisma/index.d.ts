@@ -19,10 +19,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
- * Model Post
+ * Model Membership
  * 
  */
-export type Post = $Result.DefaultSelection<Prisma.$PostPayload>
+export type Membership = $Result.DefaultSelection<Prisma.$MembershipPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -156,14 +156,14 @@ export class PrismaClient<
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.post`: Exposes CRUD operations for the **Post** model.
+   * `prisma.membership`: Exposes CRUD operations for the **Membership** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Posts
-    * const posts = await prisma.post.findMany()
+    * // Fetch zero or more Memberships
+    * const memberships = await prisma.membership.findMany()
     * ```
     */
-  get post(): Prisma.PostDelegate<ExtArgs, ClientOptions>;
+  get membership(): Prisma.MembershipDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -214,7 +214,7 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 7.6.0
+   * Prisma Client JS version: 7.7.0
    * Query Engine version: 75cbdc1eb7150937890ad5465d861175c6624711
    */
   export type PrismaVersion = {
@@ -599,7 +599,7 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
-    Post: 'Post'
+    Membership: 'Membership'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -615,7 +615,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "post"
+      modelProps: "user" | "membership"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -693,77 +693,77 @@ export namespace Prisma {
           }
         }
       }
-      Post: {
-        payload: Prisma.$PostPayload<ExtArgs>
-        fields: Prisma.PostFieldRefs
+      Membership: {
+        payload: Prisma.$MembershipPayload<ExtArgs>
+        fields: Prisma.MembershipFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.PostFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload> | null
+            args: Prisma.MembershipFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.PostFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.MembershipFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>
           }
           findFirst: {
-            args: Prisma.PostFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload> | null
+            args: Prisma.MembershipFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.PostFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.MembershipFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>
           }
           findMany: {
-            args: Prisma.PostFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>[]
+            args: Prisma.MembershipFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>[]
           }
           create: {
-            args: Prisma.PostCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.MembershipCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>
           }
           createMany: {
-            args: Prisma.PostCreateManyArgs<ExtArgs>
+            args: Prisma.MembershipCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.PostCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>[]
+            args: Prisma.MembershipCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>[]
           }
           delete: {
-            args: Prisma.PostDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.MembershipDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>
           }
           update: {
-            args: Prisma.PostUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.MembershipUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>
           }
           deleteMany: {
-            args: Prisma.PostDeleteManyArgs<ExtArgs>
+            args: Prisma.MembershipDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.PostUpdateManyArgs<ExtArgs>
+            args: Prisma.MembershipUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.PostUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>[]
+            args: Prisma.MembershipUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>[]
           }
           upsert: {
-            args: Prisma.PostUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.MembershipUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>
           }
           aggregate: {
-            args: Prisma.PostAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregatePost>
+            args: Prisma.MembershipAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMembership>
           }
           groupBy: {
-            args: Prisma.PostGroupByArgs<ExtArgs>
-            result: $Utils.Optional<PostGroupByOutputType>[]
+            args: Prisma.MembershipGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MembershipGroupByOutputType>[]
           }
           count: {
-            args: Prisma.PostCountArgs<ExtArgs>
-            result: $Utils.Optional<PostCountAggregateOutputType> | number
+            args: Prisma.MembershipCountArgs<ExtArgs>
+            result: $Utils.Optional<MembershipCountAggregateOutputType> | number
           }
         }
       }
@@ -876,7 +876,7 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     user?: UserOmit
-    post?: PostOmit
+    membership?: MembershipOmit
   }
 
   /* Types for Logging */
@@ -953,33 +953,33 @@ export namespace Prisma {
 
 
   /**
-   * Count Type UserCountOutputType
+   * Count Type MembershipCountOutputType
    */
 
-  export type UserCountOutputType = {
-    posts: number
+  export type MembershipCountOutputType = {
+    users: number
   }
 
-  export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    posts?: boolean | UserCountOutputTypeCountPostsArgs
+  export type MembershipCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    users?: boolean | MembershipCountOutputTypeCountUsersArgs
   }
 
   // Custom InputTypes
   /**
-   * UserCountOutputType without action
+   * MembershipCountOutputType without action
    */
-  export type UserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MembershipCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the UserCountOutputType
+     * Select specific fields to fetch from the MembershipCountOutputType
      */
-    select?: UserCountOutputTypeSelect<ExtArgs> | null
+    select?: MembershipCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * UserCountOutputType without action
+   * MembershipCountOutputType without action
    */
-  export type UserCountOutputTypeCountPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PostWhereInput
+  export type MembershipCountOutputTypeCountUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserWhereInput
   }
 
 
@@ -1001,56 +1001,126 @@ export namespace Prisma {
 
   export type UserAvgAggregateOutputType = {
     id: number | null
+    currentMembershipId: number | null
   }
 
   export type UserSumAggregateOutputType = {
     id: number | null
+    currentMembershipId: number | null
   }
 
   export type UserMinAggregateOutputType = {
     id: number | null
-    email: string | null
     name: string | null
+    surname: string | null
+    email: string | null
+    zipCode: string | null
+    phoneNumber: string | null
+    password: string | null
+    currentMembershipId: number | null
+    membershipStatus: string | null
+    membershipStartDate: Date | null
+    membershipEndDate: Date | null
+    nextBillingDate: Date | null
+    billingCycle: string | null
+    createdAt: Date | null
   }
 
   export type UserMaxAggregateOutputType = {
     id: number | null
-    email: string | null
     name: string | null
+    surname: string | null
+    email: string | null
+    zipCode: string | null
+    phoneNumber: string | null
+    password: string | null
+    currentMembershipId: number | null
+    membershipStatus: string | null
+    membershipStartDate: Date | null
+    membershipEndDate: Date | null
+    nextBillingDate: Date | null
+    billingCycle: string | null
+    createdAt: Date | null
   }
 
   export type UserCountAggregateOutputType = {
     id: number
-    email: number
     name: number
+    surname: number
+    email: number
+    zipCode: number
+    phoneNumber: number
+    password: number
+    currentMembershipId: number
+    membershipStatus: number
+    membershipStartDate: number
+    membershipEndDate: number
+    nextBillingDate: number
+    billingCycle: number
+    createdAt: number
     _all: number
   }
 
 
   export type UserAvgAggregateInputType = {
     id?: true
+    currentMembershipId?: true
   }
 
   export type UserSumAggregateInputType = {
     id?: true
+    currentMembershipId?: true
   }
 
   export type UserMinAggregateInputType = {
     id?: true
-    email?: true
     name?: true
+    surname?: true
+    email?: true
+    zipCode?: true
+    phoneNumber?: true
+    password?: true
+    currentMembershipId?: true
+    membershipStatus?: true
+    membershipStartDate?: true
+    membershipEndDate?: true
+    nextBillingDate?: true
+    billingCycle?: true
+    createdAt?: true
   }
 
   export type UserMaxAggregateInputType = {
     id?: true
-    email?: true
     name?: true
+    surname?: true
+    email?: true
+    zipCode?: true
+    phoneNumber?: true
+    password?: true
+    currentMembershipId?: true
+    membershipStatus?: true
+    membershipStartDate?: true
+    membershipEndDate?: true
+    nextBillingDate?: true
+    billingCycle?: true
+    createdAt?: true
   }
 
   export type UserCountAggregateInputType = {
     id?: true
-    email?: true
     name?: true
+    surname?: true
+    email?: true
+    zipCode?: true
+    phoneNumber?: true
+    password?: true
+    currentMembershipId?: true
+    membershipStatus?: true
+    membershipStartDate?: true
+    membershipEndDate?: true
+    nextBillingDate?: true
+    billingCycle?: true
+    createdAt?: true
     _all?: true
   }
 
@@ -1142,8 +1212,19 @@ export namespace Prisma {
 
   export type UserGroupByOutputType = {
     id: number
+    name: string
+    surname: string
     email: string
-    name: string | null
+    zipCode: string
+    phoneNumber: string
+    password: string | null
+    currentMembershipId: number | null
+    membershipStatus: string
+    membershipStartDate: Date | null
+    membershipEndDate: Date | null
+    nextBillingDate: Date | null
+    billingCycle: string
+    createdAt: Date
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -1167,47 +1248,106 @@ export namespace Prisma {
 
   export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    email?: boolean
     name?: boolean
-    posts?: boolean | User$postsArgs<ExtArgs>
-    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+    surname?: boolean
+    email?: boolean
+    zipCode?: boolean
+    phoneNumber?: boolean
+    password?: boolean
+    currentMembershipId?: boolean
+    membershipStatus?: boolean
+    membershipStartDate?: boolean
+    membershipEndDate?: boolean
+    nextBillingDate?: boolean
+    billingCycle?: boolean
+    createdAt?: boolean
+    currentMembership?: boolean | User$currentMembershipArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    email?: boolean
     name?: boolean
+    surname?: boolean
+    email?: boolean
+    zipCode?: boolean
+    phoneNumber?: boolean
+    password?: boolean
+    currentMembershipId?: boolean
+    membershipStatus?: boolean
+    membershipStartDate?: boolean
+    membershipEndDate?: boolean
+    nextBillingDate?: boolean
+    billingCycle?: boolean
+    createdAt?: boolean
+    currentMembership?: boolean | User$currentMembershipArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    email?: boolean
     name?: boolean
+    surname?: boolean
+    email?: boolean
+    zipCode?: boolean
+    phoneNumber?: boolean
+    password?: boolean
+    currentMembershipId?: boolean
+    membershipStatus?: boolean
+    membershipStartDate?: boolean
+    membershipEndDate?: boolean
+    nextBillingDate?: boolean
+    billingCycle?: boolean
+    createdAt?: boolean
+    currentMembership?: boolean | User$currentMembershipArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
     id?: boolean
-    email?: boolean
     name?: boolean
+    surname?: boolean
+    email?: boolean
+    zipCode?: boolean
+    phoneNumber?: boolean
+    password?: boolean
+    currentMembershipId?: boolean
+    membershipStatus?: boolean
+    membershipStartDate?: boolean
+    membershipEndDate?: boolean
+    nextBillingDate?: boolean
+    billingCycle?: boolean
+    createdAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "surname" | "email" | "zipCode" | "phoneNumber" | "password" | "currentMembershipId" | "membershipStatus" | "membershipStartDate" | "membershipEndDate" | "nextBillingDate" | "billingCycle" | "createdAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    posts?: boolean | User$postsArgs<ExtArgs>
-    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+    currentMembership?: boolean | User$currentMembershipArgs<ExtArgs>
   }
-  export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type UserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    currentMembership?: boolean | User$currentMembershipArgs<ExtArgs>
+  }
+  export type UserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    currentMembership?: boolean | User$currentMembershipArgs<ExtArgs>
+  }
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      posts: Prisma.$PostPayload<ExtArgs>[]
+      currentMembership: Prisma.$MembershipPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      name: string
+      surname: string
       email: string
-      name: string | null
+      zipCode: string
+      phoneNumber: string
+      password: string | null
+      currentMembershipId: number | null
+      membershipStatus: string
+      membershipStartDate: Date | null
+      membershipEndDate: Date | null
+      nextBillingDate: Date | null
+      billingCycle: string
+      createdAt: Date
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -1602,7 +1742,7 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    posts<T extends User$postsArgs<ExtArgs> = {}>(args?: Subset<T, User$postsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    currentMembership<T extends User$currentMembershipArgs<ExtArgs> = {}>(args?: Subset<T, User$currentMembershipArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1633,8 +1773,19 @@ export namespace Prisma {
    */
   interface UserFieldRefs {
     readonly id: FieldRef<"User", 'Int'>
-    readonly email: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
+    readonly surname: FieldRef<"User", 'String'>
+    readonly email: FieldRef<"User", 'String'>
+    readonly zipCode: FieldRef<"User", 'String'>
+    readonly phoneNumber: FieldRef<"User", 'String'>
+    readonly password: FieldRef<"User", 'String'>
+    readonly currentMembershipId: FieldRef<"User", 'Int'>
+    readonly membershipStatus: FieldRef<"User", 'String'>
+    readonly membershipStartDate: FieldRef<"User", 'DateTime'>
+    readonly membershipEndDate: FieldRef<"User", 'DateTime'>
+    readonly nextBillingDate: FieldRef<"User", 'DateTime'>
+    readonly billingCycle: FieldRef<"User", 'String'>
+    readonly createdAt: FieldRef<"User", 'DateTime'>
   }
     
 
@@ -1889,6 +2040,10 @@ export namespace Prisma {
      */
     data: UserCreateManyInput | UserCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -1959,6 +2114,10 @@ export namespace Prisma {
      * Limit how many Users to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -2028,27 +2187,22 @@ export namespace Prisma {
   }
 
   /**
-   * User.posts
+   * User.currentMembership
    */
-  export type User$postsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$currentMembershipArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Membership
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: MembershipSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Membership
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: MembershipOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
-    where?: PostWhereInput
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
-    cursor?: PostWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+    include?: MembershipInclude<ExtArgs> | null
+    where?: MembershipWhereInput
   }
 
   /**
@@ -2071,388 +2225,408 @@ export namespace Prisma {
 
 
   /**
-   * Model Post
+   * Model Membership
    */
 
-  export type AggregatePost = {
-    _count: PostCountAggregateOutputType | null
-    _avg: PostAvgAggregateOutputType | null
-    _sum: PostSumAggregateOutputType | null
-    _min: PostMinAggregateOutputType | null
-    _max: PostMaxAggregateOutputType | null
+  export type AggregateMembership = {
+    _count: MembershipCountAggregateOutputType | null
+    _avg: MembershipAvgAggregateOutputType | null
+    _sum: MembershipSumAggregateOutputType | null
+    _min: MembershipMinAggregateOutputType | null
+    _max: MembershipMaxAggregateOutputType | null
   }
 
-  export type PostAvgAggregateOutputType = {
+  export type MembershipAvgAggregateOutputType = {
     id: number | null
-    authorId: number | null
+    price: number | null
   }
 
-  export type PostSumAggregateOutputType = {
+  export type MembershipSumAggregateOutputType = {
     id: number | null
-    authorId: number | null
+    price: number | null
   }
 
-  export type PostMinAggregateOutputType = {
-    id: number | null
-    title: string | null
-    content: string | null
-    published: boolean | null
-    authorId: number | null
-  }
-
-  export type PostMaxAggregateOutputType = {
+  export type MembershipMinAggregateOutputType = {
     id: number | null
     title: string | null
-    content: string | null
-    published: boolean | null
-    authorId: number | null
+    clubName: string | null
+    price: number | null
+    currency: string | null
+    isActive: boolean | null
+    createdAt: Date | null
   }
 
-  export type PostCountAggregateOutputType = {
+  export type MembershipMaxAggregateOutputType = {
+    id: number | null
+    title: string | null
+    clubName: string | null
+    price: number | null
+    currency: string | null
+    isActive: boolean | null
+    createdAt: Date | null
+  }
+
+  export type MembershipCountAggregateOutputType = {
     id: number
     title: number
-    content: number
-    published: number
-    authorId: number
+    clubName: number
+    price: number
+    currency: number
+    isActive: number
+    createdAt: number
     _all: number
   }
 
 
-  export type PostAvgAggregateInputType = {
+  export type MembershipAvgAggregateInputType = {
     id?: true
-    authorId?: true
+    price?: true
   }
 
-  export type PostSumAggregateInputType = {
+  export type MembershipSumAggregateInputType = {
     id?: true
-    authorId?: true
+    price?: true
   }
 
-  export type PostMinAggregateInputType = {
+  export type MembershipMinAggregateInputType = {
     id?: true
     title?: true
-    content?: true
-    published?: true
-    authorId?: true
+    clubName?: true
+    price?: true
+    currency?: true
+    isActive?: true
+    createdAt?: true
   }
 
-  export type PostMaxAggregateInputType = {
+  export type MembershipMaxAggregateInputType = {
     id?: true
     title?: true
-    content?: true
-    published?: true
-    authorId?: true
+    clubName?: true
+    price?: true
+    currency?: true
+    isActive?: true
+    createdAt?: true
   }
 
-  export type PostCountAggregateInputType = {
+  export type MembershipCountAggregateInputType = {
     id?: true
     title?: true
-    content?: true
-    published?: true
-    authorId?: true
+    clubName?: true
+    price?: true
+    currency?: true
+    isActive?: true
+    createdAt?: true
     _all?: true
   }
 
-  export type PostAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MembershipAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Post to aggregate.
+     * Filter which Membership to aggregate.
      */
-    where?: PostWhereInput
+    where?: MembershipWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Posts to fetch.
+     * Determine the order of Memberships to fetch.
      */
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
+    orderBy?: MembershipOrderByWithRelationInput | MembershipOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: PostWhereUniqueInput
+    cursor?: MembershipWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Posts from the position of the cursor.
+     * Take `±n` Memberships from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Posts.
+     * Skip the first `n` Memberships.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Posts
+     * Count returned Memberships
     **/
-    _count?: true | PostCountAggregateInputType
+    _count?: true | MembershipCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: PostAvgAggregateInputType
+    _avg?: MembershipAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: PostSumAggregateInputType
+    _sum?: MembershipSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: PostMinAggregateInputType
+    _min?: MembershipMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: PostMaxAggregateInputType
+    _max?: MembershipMaxAggregateInputType
   }
 
-  export type GetPostAggregateType<T extends PostAggregateArgs> = {
-        [P in keyof T & keyof AggregatePost]: P extends '_count' | 'count'
+  export type GetMembershipAggregateType<T extends MembershipAggregateArgs> = {
+        [P in keyof T & keyof AggregateMembership]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregatePost[P]>
-      : GetScalarType<T[P], AggregatePost[P]>
+        : GetScalarType<T[P], AggregateMembership[P]>
+      : GetScalarType<T[P], AggregateMembership[P]>
   }
 
 
 
 
-  export type PostGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PostWhereInput
-    orderBy?: PostOrderByWithAggregationInput | PostOrderByWithAggregationInput[]
-    by: PostScalarFieldEnum[] | PostScalarFieldEnum
-    having?: PostScalarWhereWithAggregatesInput
+  export type MembershipGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MembershipWhereInput
+    orderBy?: MembershipOrderByWithAggregationInput | MembershipOrderByWithAggregationInput[]
+    by: MembershipScalarFieldEnum[] | MembershipScalarFieldEnum
+    having?: MembershipScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: PostCountAggregateInputType | true
-    _avg?: PostAvgAggregateInputType
-    _sum?: PostSumAggregateInputType
-    _min?: PostMinAggregateInputType
-    _max?: PostMaxAggregateInputType
+    _count?: MembershipCountAggregateInputType | true
+    _avg?: MembershipAvgAggregateInputType
+    _sum?: MembershipSumAggregateInputType
+    _min?: MembershipMinAggregateInputType
+    _max?: MembershipMaxAggregateInputType
   }
 
-  export type PostGroupByOutputType = {
+  export type MembershipGroupByOutputType = {
     id: number
     title: string
-    content: string | null
-    published: boolean
-    authorId: number
-    _count: PostCountAggregateOutputType | null
-    _avg: PostAvgAggregateOutputType | null
-    _sum: PostSumAggregateOutputType | null
-    _min: PostMinAggregateOutputType | null
-    _max: PostMaxAggregateOutputType | null
+    clubName: string
+    price: number
+    currency: string
+    isActive: boolean
+    createdAt: Date
+    _count: MembershipCountAggregateOutputType | null
+    _avg: MembershipAvgAggregateOutputType | null
+    _sum: MembershipSumAggregateOutputType | null
+    _min: MembershipMinAggregateOutputType | null
+    _max: MembershipMaxAggregateOutputType | null
   }
 
-  type GetPostGroupByPayload<T extends PostGroupByArgs> = Prisma.PrismaPromise<
+  type GetMembershipGroupByPayload<T extends MembershipGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<PostGroupByOutputType, T['by']> &
+      PickEnumerable<MembershipGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof PostGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof MembershipGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], PostGroupByOutputType[P]>
-            : GetScalarType<T[P], PostGroupByOutputType[P]>
+              : GetScalarType<T[P], MembershipGroupByOutputType[P]>
+            : GetScalarType<T[P], MembershipGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type PostSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type MembershipSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    content?: boolean
-    published?: boolean
-    authorId?: boolean
-    author?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["post"]>
+    clubName?: boolean
+    price?: boolean
+    currency?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    users?: boolean | Membership$usersArgs<ExtArgs>
+    _count?: boolean | MembershipCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["membership"]>
 
-  export type PostSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type MembershipSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    content?: boolean
-    published?: boolean
-    authorId?: boolean
-    author?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["post"]>
+    clubName?: boolean
+    price?: boolean
+    currency?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["membership"]>
 
-  export type PostSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type MembershipSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    content?: boolean
-    published?: boolean
-    authorId?: boolean
-    author?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["post"]>
+    clubName?: boolean
+    price?: boolean
+    currency?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["membership"]>
 
-  export type PostSelectScalar = {
+  export type MembershipSelectScalar = {
     id?: boolean
     title?: boolean
-    content?: boolean
-    published?: boolean
-    authorId?: boolean
+    clubName?: boolean
+    price?: boolean
+    currency?: boolean
+    isActive?: boolean
+    createdAt?: boolean
   }
 
-  export type PostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "published" | "authorId", ExtArgs["result"]["post"]>
-  export type PostInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    author?: boolean | UserDefaultArgs<ExtArgs>
+  export type MembershipOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "clubName" | "price" | "currency" | "isActive" | "createdAt", ExtArgs["result"]["membership"]>
+  export type MembershipInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    users?: boolean | Membership$usersArgs<ExtArgs>
+    _count?: boolean | MembershipCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type PostIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    author?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type PostIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    author?: boolean | UserDefaultArgs<ExtArgs>
-  }
+  export type MembershipIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type MembershipIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $PostPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Post"
+  export type $MembershipPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Membership"
     objects: {
-      author: Prisma.$UserPayload<ExtArgs>
+      users: Prisma.$UserPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       title: string
-      content: string | null
-      published: boolean
-      authorId: number
-    }, ExtArgs["result"]["post"]>
+      clubName: string
+      price: number
+      currency: string
+      isActive: boolean
+      createdAt: Date
+    }, ExtArgs["result"]["membership"]>
     composites: {}
   }
 
-  type PostGetPayload<S extends boolean | null | undefined | PostDefaultArgs> = $Result.GetResult<Prisma.$PostPayload, S>
+  type MembershipGetPayload<S extends boolean | null | undefined | MembershipDefaultArgs> = $Result.GetResult<Prisma.$MembershipPayload, S>
 
-  type PostCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<PostFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: PostCountAggregateInputType | true
+  type MembershipCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MembershipFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MembershipCountAggregateInputType | true
     }
 
-  export interface PostDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Post'], meta: { name: 'Post' } }
+  export interface MembershipDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Membership'], meta: { name: 'Membership' } }
     /**
-     * Find zero or one Post that matches the filter.
-     * @param {PostFindUniqueArgs} args - Arguments to find a Post
+     * Find zero or one Membership that matches the filter.
+     * @param {MembershipFindUniqueArgs} args - Arguments to find a Membership
      * @example
-     * // Get one Post
-     * const post = await prisma.post.findUnique({
+     * // Get one Membership
+     * const membership = await prisma.membership.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends PostFindUniqueArgs>(args: SelectSubset<T, PostFindUniqueArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends MembershipFindUniqueArgs>(args: SelectSubset<T, MembershipFindUniqueArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Post that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Membership that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {PostFindUniqueOrThrowArgs} args - Arguments to find a Post
+     * @param {MembershipFindUniqueOrThrowArgs} args - Arguments to find a Membership
      * @example
-     * // Get one Post
-     * const post = await prisma.post.findUniqueOrThrow({
+     * // Get one Membership
+     * const membership = await prisma.membership.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends PostFindUniqueOrThrowArgs>(args: SelectSubset<T, PostFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends MembershipFindUniqueOrThrowArgs>(args: SelectSubset<T, MembershipFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Post that matches the filter.
+     * Find the first Membership that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostFindFirstArgs} args - Arguments to find a Post
+     * @param {MembershipFindFirstArgs} args - Arguments to find a Membership
      * @example
-     * // Get one Post
-     * const post = await prisma.post.findFirst({
+     * // Get one Membership
+     * const membership = await prisma.membership.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends PostFindFirstArgs>(args?: SelectSubset<T, PostFindFirstArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends MembershipFindFirstArgs>(args?: SelectSubset<T, MembershipFindFirstArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Post that matches the filter or
+     * Find the first Membership that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostFindFirstOrThrowArgs} args - Arguments to find a Post
+     * @param {MembershipFindFirstOrThrowArgs} args - Arguments to find a Membership
      * @example
-     * // Get one Post
-     * const post = await prisma.post.findFirstOrThrow({
+     * // Get one Membership
+     * const membership = await prisma.membership.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends PostFindFirstOrThrowArgs>(args?: SelectSubset<T, PostFindFirstOrThrowArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends MembershipFindFirstOrThrowArgs>(args?: SelectSubset<T, MembershipFindFirstOrThrowArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Posts that matches the filter.
+     * Find zero or more Memberships that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {MembershipFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Posts
-     * const posts = await prisma.post.findMany()
+     * // Get all Memberships
+     * const memberships = await prisma.membership.findMany()
      * 
-     * // Get first 10 Posts
-     * const posts = await prisma.post.findMany({ take: 10 })
+     * // Get first 10 Memberships
+     * const memberships = await prisma.membership.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const postWithIdOnly = await prisma.post.findMany({ select: { id: true } })
+     * const membershipWithIdOnly = await prisma.membership.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends PostFindManyArgs>(args?: SelectSubset<T, PostFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends MembershipFindManyArgs>(args?: SelectSubset<T, MembershipFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Post.
-     * @param {PostCreateArgs} args - Arguments to create a Post.
+     * Create a Membership.
+     * @param {MembershipCreateArgs} args - Arguments to create a Membership.
      * @example
-     * // Create one Post
-     * const Post = await prisma.post.create({
+     * // Create one Membership
+     * const Membership = await prisma.membership.create({
      *   data: {
-     *     // ... data to create a Post
+     *     // ... data to create a Membership
      *   }
      * })
      * 
      */
-    create<T extends PostCreateArgs>(args: SelectSubset<T, PostCreateArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends MembershipCreateArgs>(args: SelectSubset<T, MembershipCreateArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Posts.
-     * @param {PostCreateManyArgs} args - Arguments to create many Posts.
+     * Create many Memberships.
+     * @param {MembershipCreateManyArgs} args - Arguments to create many Memberships.
      * @example
-     * // Create many Posts
-     * const post = await prisma.post.createMany({
+     * // Create many Memberships
+     * const membership = await prisma.membership.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends PostCreateManyArgs>(args?: SelectSubset<T, PostCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends MembershipCreateManyArgs>(args?: SelectSubset<T, MembershipCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Posts and returns the data saved in the database.
-     * @param {PostCreateManyAndReturnArgs} args - Arguments to create many Posts.
+     * Create many Memberships and returns the data saved in the database.
+     * @param {MembershipCreateManyAndReturnArgs} args - Arguments to create many Memberships.
      * @example
-     * // Create many Posts
-     * const post = await prisma.post.createManyAndReturn({
+     * // Create many Memberships
+     * const membership = await prisma.membership.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Posts and only return the `id`
-     * const postWithIdOnly = await prisma.post.createManyAndReturn({
+     * // Create many Memberships and only return the `id`
+     * const membershipWithIdOnly = await prisma.membership.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -2462,28 +2636,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends PostCreateManyAndReturnArgs>(args?: SelectSubset<T, PostCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends MembershipCreateManyAndReturnArgs>(args?: SelectSubset<T, MembershipCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Post.
-     * @param {PostDeleteArgs} args - Arguments to delete one Post.
+     * Delete a Membership.
+     * @param {MembershipDeleteArgs} args - Arguments to delete one Membership.
      * @example
-     * // Delete one Post
-     * const Post = await prisma.post.delete({
+     * // Delete one Membership
+     * const Membership = await prisma.membership.delete({
      *   where: {
-     *     // ... filter to delete one Post
+     *     // ... filter to delete one Membership
      *   }
      * })
      * 
      */
-    delete<T extends PostDeleteArgs>(args: SelectSubset<T, PostDeleteArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends MembershipDeleteArgs>(args: SelectSubset<T, MembershipDeleteArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Post.
-     * @param {PostUpdateArgs} args - Arguments to update one Post.
+     * Update one Membership.
+     * @param {MembershipUpdateArgs} args - Arguments to update one Membership.
      * @example
-     * // Update one Post
-     * const post = await prisma.post.update({
+     * // Update one Membership
+     * const membership = await prisma.membership.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2493,30 +2667,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends PostUpdateArgs>(args: SelectSubset<T, PostUpdateArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends MembershipUpdateArgs>(args: SelectSubset<T, MembershipUpdateArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Posts.
-     * @param {PostDeleteManyArgs} args - Arguments to filter Posts to delete.
+     * Delete zero or more Memberships.
+     * @param {MembershipDeleteManyArgs} args - Arguments to filter Memberships to delete.
      * @example
-     * // Delete a few Posts
-     * const { count } = await prisma.post.deleteMany({
+     * // Delete a few Memberships
+     * const { count } = await prisma.membership.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends PostDeleteManyArgs>(args?: SelectSubset<T, PostDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends MembershipDeleteManyArgs>(args?: SelectSubset<T, MembershipDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Posts.
+     * Update zero or more Memberships.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {MembershipUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Posts
-     * const post = await prisma.post.updateMany({
+     * // Update many Memberships
+     * const membership = await prisma.membership.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2526,14 +2700,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends PostUpdateManyArgs>(args: SelectSubset<T, PostUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends MembershipUpdateManyArgs>(args: SelectSubset<T, MembershipUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Posts and returns the data updated in the database.
-     * @param {PostUpdateManyAndReturnArgs} args - Arguments to update many Posts.
+     * Update zero or more Memberships and returns the data updated in the database.
+     * @param {MembershipUpdateManyAndReturnArgs} args - Arguments to update many Memberships.
      * @example
-     * // Update many Posts
-     * const post = await prisma.post.updateManyAndReturn({
+     * // Update many Memberships
+     * const membership = await prisma.membership.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2542,8 +2716,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Posts and only return the `id`
-     * const postWithIdOnly = await prisma.post.updateManyAndReturn({
+     * // Update zero or more Memberships and only return the `id`
+     * const membershipWithIdOnly = await prisma.membership.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -2556,56 +2730,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends PostUpdateManyAndReturnArgs>(args: SelectSubset<T, PostUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends MembershipUpdateManyAndReturnArgs>(args: SelectSubset<T, MembershipUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Post.
-     * @param {PostUpsertArgs} args - Arguments to update or create a Post.
+     * Create or update one Membership.
+     * @param {MembershipUpsertArgs} args - Arguments to update or create a Membership.
      * @example
-     * // Update or create a Post
-     * const post = await prisma.post.upsert({
+     * // Update or create a Membership
+     * const membership = await prisma.membership.upsert({
      *   create: {
-     *     // ... data to create a Post
+     *     // ... data to create a Membership
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Post we want to update
+     *     // ... the filter for the Membership we want to update
      *   }
      * })
      */
-    upsert<T extends PostUpsertArgs>(args: SelectSubset<T, PostUpsertArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends MembershipUpsertArgs>(args: SelectSubset<T, MembershipUpsertArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Posts.
+     * Count the number of Memberships.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostCountArgs} args - Arguments to filter Posts to count.
+     * @param {MembershipCountArgs} args - Arguments to filter Memberships to count.
      * @example
-     * // Count the number of Posts
-     * const count = await prisma.post.count({
+     * // Count the number of Memberships
+     * const count = await prisma.membership.count({
      *   where: {
-     *     // ... the filter for the Posts we want to count
+     *     // ... the filter for the Memberships we want to count
      *   }
      * })
     **/
-    count<T extends PostCountArgs>(
-      args?: Subset<T, PostCountArgs>,
+    count<T extends MembershipCountArgs>(
+      args?: Subset<T, MembershipCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], PostCountAggregateOutputType>
+          : GetScalarType<T['select'], MembershipCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Post.
+     * Allows you to perform aggregations operations on a Membership.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {MembershipAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2625,13 +2799,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends PostAggregateArgs>(args: Subset<T, PostAggregateArgs>): Prisma.PrismaPromise<GetPostAggregateType<T>>
+    aggregate<T extends MembershipAggregateArgs>(args: Subset<T, MembershipAggregateArgs>): Prisma.PrismaPromise<GetMembershipAggregateType<T>>
 
     /**
-     * Group by Post.
+     * Group by Membership.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostGroupByArgs} args - Group by arguments.
+     * @param {MembershipGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2646,14 +2820,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends PostGroupByArgs,
+      T extends MembershipGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: PostGroupByArgs['orderBy'] }
-        : { orderBy?: PostGroupByArgs['orderBy'] },
+        ? { orderBy: MembershipGroupByArgs['orderBy'] }
+        : { orderBy?: MembershipGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2702,22 +2876,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, PostGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPostGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, MembershipGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMembershipGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Post model
+   * Fields of the Membership model
    */
-  readonly fields: PostFieldRefs;
+  readonly fields: MembershipFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Post.
+   * The delegate class that acts as a "Promise-like" for Membership.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__PostClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__MembershipClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    author<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    users<T extends Membership$usersArgs<ExtArgs> = {}>(args?: Subset<T, Membership$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2744,430 +2918,448 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Post model
+   * Fields of the Membership model
    */
-  interface PostFieldRefs {
-    readonly id: FieldRef<"Post", 'Int'>
-    readonly title: FieldRef<"Post", 'String'>
-    readonly content: FieldRef<"Post", 'String'>
-    readonly published: FieldRef<"Post", 'Boolean'>
-    readonly authorId: FieldRef<"Post", 'Int'>
+  interface MembershipFieldRefs {
+    readonly id: FieldRef<"Membership", 'Int'>
+    readonly title: FieldRef<"Membership", 'String'>
+    readonly clubName: FieldRef<"Membership", 'String'>
+    readonly price: FieldRef<"Membership", 'Float'>
+    readonly currency: FieldRef<"Membership", 'String'>
+    readonly isActive: FieldRef<"Membership", 'Boolean'>
+    readonly createdAt: FieldRef<"Membership", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * Post findUnique
+   * Membership findUnique
    */
-  export type PostFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MembershipFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Membership
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: MembershipSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Membership
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: MembershipOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: MembershipInclude<ExtArgs> | null
     /**
-     * Filter, which Post to fetch.
+     * Filter, which Membership to fetch.
      */
-    where: PostWhereUniqueInput
+    where: MembershipWhereUniqueInput
   }
 
   /**
-   * Post findUniqueOrThrow
+   * Membership findUniqueOrThrow
    */
-  export type PostFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MembershipFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Membership
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: MembershipSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Membership
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: MembershipOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: MembershipInclude<ExtArgs> | null
     /**
-     * Filter, which Post to fetch.
+     * Filter, which Membership to fetch.
      */
-    where: PostWhereUniqueInput
+    where: MembershipWhereUniqueInput
   }
 
   /**
-   * Post findFirst
+   * Membership findFirst
    */
-  export type PostFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MembershipFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Membership
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: MembershipSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Membership
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: MembershipOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: MembershipInclude<ExtArgs> | null
     /**
-     * Filter, which Post to fetch.
+     * Filter, which Membership to fetch.
      */
-    where?: PostWhereInput
+    where?: MembershipWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Posts to fetch.
+     * Determine the order of Memberships to fetch.
      */
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
+    orderBy?: MembershipOrderByWithRelationInput | MembershipOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Posts.
+     * Sets the position for searching for Memberships.
      */
-    cursor?: PostWhereUniqueInput
+    cursor?: MembershipWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Posts from the position of the cursor.
+     * Take `±n` Memberships from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Posts.
+     * Skip the first `n` Memberships.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Posts.
+     * Filter by unique combinations of Memberships.
      */
-    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+    distinct?: MembershipScalarFieldEnum | MembershipScalarFieldEnum[]
   }
 
   /**
-   * Post findFirstOrThrow
+   * Membership findFirstOrThrow
    */
-  export type PostFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MembershipFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Membership
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: MembershipSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Membership
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: MembershipOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: MembershipInclude<ExtArgs> | null
     /**
-     * Filter, which Post to fetch.
+     * Filter, which Membership to fetch.
      */
-    where?: PostWhereInput
+    where?: MembershipWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Posts to fetch.
+     * Determine the order of Memberships to fetch.
      */
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
+    orderBy?: MembershipOrderByWithRelationInput | MembershipOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Posts.
+     * Sets the position for searching for Memberships.
      */
-    cursor?: PostWhereUniqueInput
+    cursor?: MembershipWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Posts from the position of the cursor.
+     * Take `±n` Memberships from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Posts.
+     * Skip the first `n` Memberships.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Posts.
+     * Filter by unique combinations of Memberships.
      */
-    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+    distinct?: MembershipScalarFieldEnum | MembershipScalarFieldEnum[]
   }
 
   /**
-   * Post findMany
+   * Membership findMany
    */
-  export type PostFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MembershipFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Membership
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: MembershipSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Membership
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: MembershipOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: MembershipInclude<ExtArgs> | null
     /**
-     * Filter, which Posts to fetch.
+     * Filter, which Memberships to fetch.
      */
-    where?: PostWhereInput
+    where?: MembershipWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Posts to fetch.
+     * Determine the order of Memberships to fetch.
      */
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
+    orderBy?: MembershipOrderByWithRelationInput | MembershipOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Posts.
+     * Sets the position for listing Memberships.
      */
-    cursor?: PostWhereUniqueInput
+    cursor?: MembershipWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Posts from the position of the cursor.
+     * Take `±n` Memberships from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Posts.
+     * Skip the first `n` Memberships.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Posts.
+     * Filter by unique combinations of Memberships.
      */
-    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+    distinct?: MembershipScalarFieldEnum | MembershipScalarFieldEnum[]
   }
 
   /**
-   * Post create
+   * Membership create
    */
-  export type PostCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MembershipCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Membership
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: MembershipSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Membership
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: MembershipOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: MembershipInclude<ExtArgs> | null
     /**
-     * The data needed to create a Post.
+     * The data needed to create a Membership.
      */
-    data: XOR<PostCreateInput, PostUncheckedCreateInput>
+    data: XOR<MembershipCreateInput, MembershipUncheckedCreateInput>
   }
 
   /**
-   * Post createMany
+   * Membership createMany
    */
-  export type PostCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MembershipCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Posts.
+     * The data used to create many Memberships.
      */
-    data: PostCreateManyInput | PostCreateManyInput[]
+    data: MembershipCreateManyInput | MembershipCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Post createManyAndReturn
+   * Membership createManyAndReturn
    */
-  export type PostCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MembershipCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Membership
      */
-    select?: PostSelectCreateManyAndReturn<ExtArgs> | null
+    select?: MembershipSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Membership
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: MembershipOmit<ExtArgs> | null
     /**
-     * The data used to create many Posts.
+     * The data used to create many Memberships.
      */
-    data: PostCreateManyInput | PostCreateManyInput[]
+    data: MembershipCreateManyInput | MembershipCreateManyInput[]
     skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PostIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Post update
+   * Membership update
    */
-  export type PostUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MembershipUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Membership
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: MembershipSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Membership
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: MembershipOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: MembershipInclude<ExtArgs> | null
     /**
-     * The data needed to update a Post.
+     * The data needed to update a Membership.
      */
-    data: XOR<PostUpdateInput, PostUncheckedUpdateInput>
+    data: XOR<MembershipUpdateInput, MembershipUncheckedUpdateInput>
     /**
-     * Choose, which Post to update.
+     * Choose, which Membership to update.
      */
-    where: PostWhereUniqueInput
+    where: MembershipWhereUniqueInput
   }
 
   /**
-   * Post updateMany
+   * Membership updateMany
    */
-  export type PostUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MembershipUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Posts.
+     * The data used to update Memberships.
      */
-    data: XOR<PostUpdateManyMutationInput, PostUncheckedUpdateManyInput>
+    data: XOR<MembershipUpdateManyMutationInput, MembershipUncheckedUpdateManyInput>
     /**
-     * Filter which Posts to update
+     * Filter which Memberships to update
      */
-    where?: PostWhereInput
+    where?: MembershipWhereInput
     /**
-     * Limit how many Posts to update.
+     * Limit how many Memberships to update.
      */
     limit?: number
   }
 
   /**
-   * Post updateManyAndReturn
+   * Membership updateManyAndReturn
    */
-  export type PostUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MembershipUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Membership
      */
-    select?: PostSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: MembershipSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Membership
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: MembershipOmit<ExtArgs> | null
     /**
-     * The data used to update Posts.
+     * The data used to update Memberships.
      */
-    data: XOR<PostUpdateManyMutationInput, PostUncheckedUpdateManyInput>
+    data: XOR<MembershipUpdateManyMutationInput, MembershipUncheckedUpdateManyInput>
     /**
-     * Filter which Posts to update
+     * Filter which Memberships to update
      */
-    where?: PostWhereInput
+    where?: MembershipWhereInput
     /**
-     * Limit how many Posts to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PostIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Post upsert
-   */
-  export type PostUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Post
-     */
-    select?: PostSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Post
-     */
-    omit?: PostOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PostInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Post to update in case it exists.
-     */
-    where: PostWhereUniqueInput
-    /**
-     * In case the Post found by the `where` argument doesn't exist, create a new Post with this data.
-     */
-    create: XOR<PostCreateInput, PostUncheckedCreateInput>
-    /**
-     * In case the Post was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<PostUpdateInput, PostUncheckedUpdateInput>
-  }
-
-  /**
-   * Post delete
-   */
-  export type PostDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Post
-     */
-    select?: PostSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Post
-     */
-    omit?: PostOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PostInclude<ExtArgs> | null
-    /**
-     * Filter which Post to delete.
-     */
-    where: PostWhereUniqueInput
-  }
-
-  /**
-   * Post deleteMany
-   */
-  export type PostDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Posts to delete
-     */
-    where?: PostWhereInput
-    /**
-     * Limit how many Posts to delete.
+     * Limit how many Memberships to update.
      */
     limit?: number
   }
 
   /**
-   * Post without action
+   * Membership upsert
    */
-  export type PostDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MembershipUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the Membership
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: MembershipSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the Membership
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: MembershipOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: MembershipInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Membership to update in case it exists.
+     */
+    where: MembershipWhereUniqueInput
+    /**
+     * In case the Membership found by the `where` argument doesn't exist, create a new Membership with this data.
+     */
+    create: XOR<MembershipCreateInput, MembershipUncheckedCreateInput>
+    /**
+     * In case the Membership was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MembershipUpdateInput, MembershipUncheckedUpdateInput>
+  }
+
+  /**
+   * Membership delete
+   */
+  export type MembershipDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Membership
+     */
+    select?: MembershipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Membership
+     */
+    omit?: MembershipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MembershipInclude<ExtArgs> | null
+    /**
+     * Filter which Membership to delete.
+     */
+    where: MembershipWhereUniqueInput
+  }
+
+  /**
+   * Membership deleteMany
+   */
+  export type MembershipDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Memberships to delete
+     */
+    where?: MembershipWhereInput
+    /**
+     * Limit how many Memberships to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Membership.users
+   */
+  export type Membership$usersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    cursor?: UserWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * Membership without action
+   */
+  export type MembershipDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Membership
+     */
+    select?: MembershipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Membership
+     */
+    omit?: MembershipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MembershipInclude<ExtArgs> | null
   }
 
 
@@ -3187,22 +3379,35 @@ export namespace Prisma {
 
   export const UserScalarFieldEnum: {
     id: 'id',
+    name: 'name',
+    surname: 'surname',
     email: 'email',
-    name: 'name'
+    zipCode: 'zipCode',
+    phoneNumber: 'phoneNumber',
+    password: 'password',
+    currentMembershipId: 'currentMembershipId',
+    membershipStatus: 'membershipStatus',
+    membershipStartDate: 'membershipStartDate',
+    membershipEndDate: 'membershipEndDate',
+    nextBillingDate: 'nextBillingDate',
+    billingCycle: 'billingCycle',
+    createdAt: 'createdAt'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-  export const PostScalarFieldEnum: {
+  export const MembershipScalarFieldEnum: {
     id: 'id',
     title: 'title',
-    content: 'content',
-    published: 'published',
-    authorId: 'authorId'
+    clubName: 'clubName',
+    price: 'price',
+    currency: 'currency',
+    isActive: 'isActive',
+    createdAt: 'createdAt'
   };
 
-  export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum]
+  export type MembershipScalarFieldEnum = (typeof MembershipScalarFieldEnum)[keyof typeof MembershipScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3263,9 +3468,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Boolean'
+   * Reference to a field of type 'DateTime'
    */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
     
 
 
@@ -3281,6 +3493,13 @@ export namespace Prisma {
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
   /**
    * Deep Input Types
    */
@@ -3291,16 +3510,38 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     id?: IntFilter<"User"> | number
+    name?: StringFilter<"User"> | string
+    surname?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
-    name?: StringNullableFilter<"User"> | string | null
-    posts?: PostListRelationFilter
+    zipCode?: StringFilter<"User"> | string
+    phoneNumber?: StringFilter<"User"> | string
+    password?: StringNullableFilter<"User"> | string | null
+    currentMembershipId?: IntNullableFilter<"User"> | number | null
+    membershipStatus?: StringFilter<"User"> | string
+    membershipStartDate?: DateTimeNullableFilter<"User"> | Date | string | null
+    membershipEndDate?: DateTimeNullableFilter<"User"> | Date | string | null
+    nextBillingDate?: DateTimeNullableFilter<"User"> | Date | string | null
+    billingCycle?: StringFilter<"User"> | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    currentMembership?: XOR<MembershipNullableScalarRelationFilter, MembershipWhereInput> | null
   }
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
+    name?: SortOrder
+    surname?: SortOrder
     email?: SortOrder
-    name?: SortOrderInput | SortOrder
-    posts?: PostOrderByRelationAggregateInput
+    zipCode?: SortOrder
+    phoneNumber?: SortOrder
+    password?: SortOrderInput | SortOrder
+    currentMembershipId?: SortOrderInput | SortOrder
+    membershipStatus?: SortOrder
+    membershipStartDate?: SortOrderInput | SortOrder
+    membershipEndDate?: SortOrderInput | SortOrder
+    nextBillingDate?: SortOrderInput | SortOrder
+    billingCycle?: SortOrder
+    createdAt?: SortOrder
+    currentMembership?: MembershipOrderByWithRelationInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -3309,14 +3550,36 @@ export namespace Prisma {
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
-    name?: StringNullableFilter<"User"> | string | null
-    posts?: PostListRelationFilter
+    name?: StringFilter<"User"> | string
+    surname?: StringFilter<"User"> | string
+    zipCode?: StringFilter<"User"> | string
+    phoneNumber?: StringFilter<"User"> | string
+    password?: StringNullableFilter<"User"> | string | null
+    currentMembershipId?: IntNullableFilter<"User"> | number | null
+    membershipStatus?: StringFilter<"User"> | string
+    membershipStartDate?: DateTimeNullableFilter<"User"> | Date | string | null
+    membershipEndDate?: DateTimeNullableFilter<"User"> | Date | string | null
+    nextBillingDate?: DateTimeNullableFilter<"User"> | Date | string | null
+    billingCycle?: StringFilter<"User"> | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    currentMembership?: XOR<MembershipNullableScalarRelationFilter, MembershipWhereInput> | null
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
+    name?: SortOrder
+    surname?: SortOrder
     email?: SortOrder
-    name?: SortOrderInput | SortOrder
+    zipCode?: SortOrder
+    phoneNumber?: SortOrder
+    password?: SortOrderInput | SortOrder
+    currentMembershipId?: SortOrderInput | SortOrder
+    membershipStatus?: SortOrder
+    membershipStartDate?: SortOrderInput | SortOrder
+    membershipEndDate?: SortOrderInput | SortOrder
+    nextBillingDate?: SortOrderInput | SortOrder
+    billingCycle?: SortOrder
+    createdAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -3329,160 +3592,272 @@ export namespace Prisma {
     OR?: UserScalarWhereWithAggregatesInput[]
     NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"User"> | number
+    name?: StringWithAggregatesFilter<"User"> | string
+    surname?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
-    name?: StringNullableWithAggregatesFilter<"User"> | string | null
+    zipCode?: StringWithAggregatesFilter<"User"> | string
+    phoneNumber?: StringWithAggregatesFilter<"User"> | string
+    password?: StringNullableWithAggregatesFilter<"User"> | string | null
+    currentMembershipId?: IntNullableWithAggregatesFilter<"User"> | number | null
+    membershipStatus?: StringWithAggregatesFilter<"User"> | string
+    membershipStartDate?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
+    membershipEndDate?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
+    nextBillingDate?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
+    billingCycle?: StringWithAggregatesFilter<"User"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
-  export type PostWhereInput = {
-    AND?: PostWhereInput | PostWhereInput[]
-    OR?: PostWhereInput[]
-    NOT?: PostWhereInput | PostWhereInput[]
-    id?: IntFilter<"Post"> | number
-    title?: StringFilter<"Post"> | string
-    content?: StringNullableFilter<"Post"> | string | null
-    published?: BoolFilter<"Post"> | boolean
-    authorId?: IntFilter<"Post"> | number
-    author?: XOR<UserScalarRelationFilter, UserWhereInput>
+  export type MembershipWhereInput = {
+    AND?: MembershipWhereInput | MembershipWhereInput[]
+    OR?: MembershipWhereInput[]
+    NOT?: MembershipWhereInput | MembershipWhereInput[]
+    id?: IntFilter<"Membership"> | number
+    title?: StringFilter<"Membership"> | string
+    clubName?: StringFilter<"Membership"> | string
+    price?: FloatFilter<"Membership"> | number
+    currency?: StringFilter<"Membership"> | string
+    isActive?: BoolFilter<"Membership"> | boolean
+    createdAt?: DateTimeFilter<"Membership"> | Date | string
+    users?: UserListRelationFilter
   }
 
-  export type PostOrderByWithRelationInput = {
+  export type MembershipOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
-    content?: SortOrderInput | SortOrder
-    published?: SortOrder
-    authorId?: SortOrder
-    author?: UserOrderByWithRelationInput
+    clubName?: SortOrder
+    price?: SortOrder
+    currency?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    users?: UserOrderByRelationAggregateInput
   }
 
-  export type PostWhereUniqueInput = Prisma.AtLeast<{
+  export type MembershipWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: PostWhereInput | PostWhereInput[]
-    OR?: PostWhereInput[]
-    NOT?: PostWhereInput | PostWhereInput[]
-    title?: StringFilter<"Post"> | string
-    content?: StringNullableFilter<"Post"> | string | null
-    published?: BoolFilter<"Post"> | boolean
-    authorId?: IntFilter<"Post"> | number
-    author?: XOR<UserScalarRelationFilter, UserWhereInput>
+    AND?: MembershipWhereInput | MembershipWhereInput[]
+    OR?: MembershipWhereInput[]
+    NOT?: MembershipWhereInput | MembershipWhereInput[]
+    title?: StringFilter<"Membership"> | string
+    clubName?: StringFilter<"Membership"> | string
+    price?: FloatFilter<"Membership"> | number
+    currency?: StringFilter<"Membership"> | string
+    isActive?: BoolFilter<"Membership"> | boolean
+    createdAt?: DateTimeFilter<"Membership"> | Date | string
+    users?: UserListRelationFilter
   }, "id">
 
-  export type PostOrderByWithAggregationInput = {
+  export type MembershipOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
-    content?: SortOrderInput | SortOrder
-    published?: SortOrder
-    authorId?: SortOrder
-    _count?: PostCountOrderByAggregateInput
-    _avg?: PostAvgOrderByAggregateInput
-    _max?: PostMaxOrderByAggregateInput
-    _min?: PostMinOrderByAggregateInput
-    _sum?: PostSumOrderByAggregateInput
+    clubName?: SortOrder
+    price?: SortOrder
+    currency?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    _count?: MembershipCountOrderByAggregateInput
+    _avg?: MembershipAvgOrderByAggregateInput
+    _max?: MembershipMaxOrderByAggregateInput
+    _min?: MembershipMinOrderByAggregateInput
+    _sum?: MembershipSumOrderByAggregateInput
   }
 
-  export type PostScalarWhereWithAggregatesInput = {
-    AND?: PostScalarWhereWithAggregatesInput | PostScalarWhereWithAggregatesInput[]
-    OR?: PostScalarWhereWithAggregatesInput[]
-    NOT?: PostScalarWhereWithAggregatesInput | PostScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Post"> | number
-    title?: StringWithAggregatesFilter<"Post"> | string
-    content?: StringNullableWithAggregatesFilter<"Post"> | string | null
-    published?: BoolWithAggregatesFilter<"Post"> | boolean
-    authorId?: IntWithAggregatesFilter<"Post"> | number
+  export type MembershipScalarWhereWithAggregatesInput = {
+    AND?: MembershipScalarWhereWithAggregatesInput | MembershipScalarWhereWithAggregatesInput[]
+    OR?: MembershipScalarWhereWithAggregatesInput[]
+    NOT?: MembershipScalarWhereWithAggregatesInput | MembershipScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Membership"> | number
+    title?: StringWithAggregatesFilter<"Membership"> | string
+    clubName?: StringWithAggregatesFilter<"Membership"> | string
+    price?: FloatWithAggregatesFilter<"Membership"> | number
+    currency?: StringWithAggregatesFilter<"Membership"> | string
+    isActive?: BoolWithAggregatesFilter<"Membership"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Membership"> | Date | string
   }
 
   export type UserCreateInput = {
+    name: string
+    surname: string
     email: string
-    name?: string | null
-    posts?: PostCreateNestedManyWithoutAuthorInput
+    zipCode: string
+    phoneNumber: string
+    password?: string | null
+    membershipStatus?: string
+    membershipStartDate?: Date | string | null
+    membershipEndDate?: Date | string | null
+    nextBillingDate?: Date | string | null
+    billingCycle?: string
+    createdAt?: Date | string
+    currentMembership?: MembershipCreateNestedOneWithoutUsersInput
   }
 
   export type UserUncheckedCreateInput = {
     id?: number
+    name: string
+    surname: string
     email: string
-    name?: string | null
-    posts?: PostUncheckedCreateNestedManyWithoutAuthorInput
+    zipCode: string
+    phoneNumber: string
+    password?: string | null
+    currentMembershipId?: number | null
+    membershipStatus?: string
+    membershipStartDate?: Date | string | null
+    membershipEndDate?: Date | string | null
+    nextBillingDate?: Date | string | null
+    billingCycle?: string
+    createdAt?: Date | string
   }
 
   export type UserUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    surname?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    posts?: PostUpdateManyWithoutAuthorNestedInput
+    zipCode?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    membershipStatus?: StringFieldUpdateOperationsInput | string
+    membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    billingCycle?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    currentMembership?: MembershipUpdateOneWithoutUsersNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    surname?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    posts?: PostUncheckedUpdateManyWithoutAuthorNestedInput
+    zipCode?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    currentMembershipId?: NullableIntFieldUpdateOperationsInput | number | null
+    membershipStatus?: StringFieldUpdateOperationsInput | string
+    membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    billingCycle?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserCreateManyInput = {
     id?: number
+    name: string
+    surname: string
     email: string
-    name?: string | null
+    zipCode: string
+    phoneNumber: string
+    password?: string | null
+    currentMembershipId?: number | null
+    membershipStatus?: string
+    membershipStartDate?: Date | string | null
+    membershipEndDate?: Date | string | null
+    nextBillingDate?: Date | string | null
+    billingCycle?: string
+    createdAt?: Date | string
   }
 
   export type UserUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    surname?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    zipCode?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    membershipStatus?: StringFieldUpdateOperationsInput | string
+    membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    billingCycle?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    surname?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    zipCode?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    currentMembershipId?: NullableIntFieldUpdateOperationsInput | number | null
+    membershipStatus?: StringFieldUpdateOperationsInput | string
+    membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    billingCycle?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PostCreateInput = {
+  export type MembershipCreateInput = {
     title: string
-    content?: string | null
-    published?: boolean
-    author: UserCreateNestedOneWithoutPostsInput
+    clubName: string
+    price: number
+    currency?: string
+    isActive?: boolean
+    createdAt?: Date | string
+    users?: UserCreateNestedManyWithoutCurrentMembershipInput
   }
 
-  export type PostUncheckedCreateInput = {
+  export type MembershipUncheckedCreateInput = {
     id?: number
     title: string
-    content?: string | null
-    published?: boolean
-    authorId: number
+    clubName: string
+    price: number
+    currency?: string
+    isActive?: boolean
+    createdAt?: Date | string
+    users?: UserUncheckedCreateNestedManyWithoutCurrentMembershipInput
   }
 
-  export type PostUpdateInput = {
+  export type MembershipUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
-    published?: BoolFieldUpdateOperationsInput | boolean
-    author?: UserUpdateOneRequiredWithoutPostsNestedInput
+    clubName?: StringFieldUpdateOperationsInput | string
+    price?: FloatFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    users?: UserUpdateManyWithoutCurrentMembershipNestedInput
   }
 
-  export type PostUncheckedUpdateInput = {
+  export type MembershipUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
-    published?: BoolFieldUpdateOperationsInput | boolean
-    authorId?: IntFieldUpdateOperationsInput | number
+    clubName?: StringFieldUpdateOperationsInput | string
+    price?: FloatFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    users?: UserUncheckedUpdateManyWithoutCurrentMembershipNestedInput
   }
 
-  export type PostCreateManyInput = {
+  export type MembershipCreateManyInput = {
     id?: number
     title: string
-    content?: string | null
-    published?: boolean
-    authorId: number
+    clubName: string
+    price: number
+    currency?: string
+    isActive?: boolean
+    createdAt?: Date | string
   }
 
-  export type PostUpdateManyMutationInput = {
+  export type MembershipUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
-    published?: BoolFieldUpdateOperationsInput | boolean
+    clubName?: StringFieldUpdateOperationsInput | string
+    price?: FloatFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PostUncheckedUpdateManyInput = {
+  export type MembershipUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
-    published?: BoolFieldUpdateOperationsInput | boolean
-    authorId?: IntFieldUpdateOperationsInput | number
+    clubName?: StringFieldUpdateOperationsInput | string
+    price?: FloatFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -3526,10 +3901,42 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type PostListRelationFilter = {
-    every?: PostWhereInput
-    some?: PostWhereInput
-    none?: PostWhereInput
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type MembershipNullableScalarRelationFilter = {
+    is?: MembershipWhereInput | null
+    isNot?: MembershipWhereInput | null
   }
 
   export type SortOrderInput = {
@@ -3537,34 +3944,65 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type PostOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
-    email?: SortOrder
     name?: SortOrder
+    surname?: SortOrder
+    email?: SortOrder
+    zipCode?: SortOrder
+    phoneNumber?: SortOrder
+    password?: SortOrder
+    currentMembershipId?: SortOrder
+    membershipStatus?: SortOrder
+    membershipStartDate?: SortOrder
+    membershipEndDate?: SortOrder
+    nextBillingDate?: SortOrder
+    billingCycle?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
     id?: SortOrder
+    currentMembershipId?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
-    email?: SortOrder
     name?: SortOrder
+    surname?: SortOrder
+    email?: SortOrder
+    zipCode?: SortOrder
+    phoneNumber?: SortOrder
+    password?: SortOrder
+    currentMembershipId?: SortOrder
+    membershipStatus?: SortOrder
+    membershipStartDate?: SortOrder
+    membershipEndDate?: SortOrder
+    nextBillingDate?: SortOrder
+    billingCycle?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
     id?: SortOrder
-    email?: SortOrder
     name?: SortOrder
+    surname?: SortOrder
+    email?: SortOrder
+    zipCode?: SortOrder
+    phoneNumber?: SortOrder
+    password?: SortOrder
+    currentMembershipId?: SortOrder
+    membershipStatus?: SortOrder
+    membershipStartDate?: SortOrder
+    membershipEndDate?: SortOrder
+    nextBillingDate?: SortOrder
+    billingCycle?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
     id?: SortOrder
+    currentMembershipId?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -3619,48 +4057,130 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
   export type BoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type UserScalarRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
+  export type UserListRelationFilter = {
+    every?: UserWhereInput
+    some?: UserWhereInput
+    none?: UserWhereInput
   }
 
-  export type PostCountOrderByAggregateInput = {
+  export type UserOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type MembershipCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    content?: SortOrder
-    published?: SortOrder
-    authorId?: SortOrder
+    clubName?: SortOrder
+    price?: SortOrder
+    currency?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
   }
 
-  export type PostAvgOrderByAggregateInput = {
+  export type MembershipAvgOrderByAggregateInput = {
     id?: SortOrder
-    authorId?: SortOrder
+    price?: SortOrder
   }
 
-  export type PostMaxOrderByAggregateInput = {
-    id?: SortOrder
-    title?: SortOrder
-    content?: SortOrder
-    published?: SortOrder
-    authorId?: SortOrder
-  }
-
-  export type PostMinOrderByAggregateInput = {
+  export type MembershipMaxOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    content?: SortOrder
-    published?: SortOrder
-    authorId?: SortOrder
+    clubName?: SortOrder
+    price?: SortOrder
+    currency?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
   }
 
-  export type PostSumOrderByAggregateInput = {
+  export type MembershipMinOrderByAggregateInput = {
     id?: SortOrder
-    authorId?: SortOrder
+    title?: SortOrder
+    clubName?: SortOrder
+    price?: SortOrder
+    currency?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type MembershipSumOrderByAggregateInput = {
+    id?: SortOrder
+    price?: SortOrder
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -3671,18 +4191,10 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type PostCreateNestedManyWithoutAuthorInput = {
-    create?: XOR<PostCreateWithoutAuthorInput, PostUncheckedCreateWithoutAuthorInput> | PostCreateWithoutAuthorInput[] | PostUncheckedCreateWithoutAuthorInput[]
-    connectOrCreate?: PostCreateOrConnectWithoutAuthorInput | PostCreateOrConnectWithoutAuthorInput[]
-    createMany?: PostCreateManyAuthorInputEnvelope
-    connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-  }
-
-  export type PostUncheckedCreateNestedManyWithoutAuthorInput = {
-    create?: XOR<PostCreateWithoutAuthorInput, PostUncheckedCreateWithoutAuthorInput> | PostCreateWithoutAuthorInput[] | PostUncheckedCreateWithoutAuthorInput[]
-    connectOrCreate?: PostCreateOrConnectWithoutAuthorInput | PostCreateOrConnectWithoutAuthorInput[]
-    createMany?: PostCreateManyAuthorInputEnvelope
-    connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
+  export type MembershipCreateNestedOneWithoutUsersInput = {
+    create?: XOR<MembershipCreateWithoutUsersInput, MembershipUncheckedCreateWithoutUsersInput>
+    connectOrCreate?: MembershipCreateOrConnectWithoutUsersInput
+    connect?: MembershipWhereUniqueInput
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -3693,18 +4205,22 @@ export namespace Prisma {
     set?: string | null
   }
 
-  export type PostUpdateManyWithoutAuthorNestedInput = {
-    create?: XOR<PostCreateWithoutAuthorInput, PostUncheckedCreateWithoutAuthorInput> | PostCreateWithoutAuthorInput[] | PostUncheckedCreateWithoutAuthorInput[]
-    connectOrCreate?: PostCreateOrConnectWithoutAuthorInput | PostCreateOrConnectWithoutAuthorInput[]
-    upsert?: PostUpsertWithWhereUniqueWithoutAuthorInput | PostUpsertWithWhereUniqueWithoutAuthorInput[]
-    createMany?: PostCreateManyAuthorInputEnvelope
-    set?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    disconnect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    delete?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    update?: PostUpdateWithWhereUniqueWithoutAuthorInput | PostUpdateWithWhereUniqueWithoutAuthorInput[]
-    updateMany?: PostUpdateManyWithWhereWithoutAuthorInput | PostUpdateManyWithWhereWithoutAuthorInput[]
-    deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type MembershipUpdateOneWithoutUsersNestedInput = {
+    create?: XOR<MembershipCreateWithoutUsersInput, MembershipUncheckedCreateWithoutUsersInput>
+    connectOrCreate?: MembershipCreateOrConnectWithoutUsersInput
+    upsert?: MembershipUpsertWithoutUsersInput
+    disconnect?: MembershipWhereInput | boolean
+    delete?: MembershipWhereInput | boolean
+    connect?: MembershipWhereUniqueInput
+    update?: XOR<XOR<MembershipUpdateToOneWithWhereWithoutUsersInput, MembershipUpdateWithoutUsersInput>, MembershipUncheckedUpdateWithoutUsersInput>
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -3715,36 +4231,66 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type PostUncheckedUpdateManyWithoutAuthorNestedInput = {
-    create?: XOR<PostCreateWithoutAuthorInput, PostUncheckedCreateWithoutAuthorInput> | PostCreateWithoutAuthorInput[] | PostUncheckedCreateWithoutAuthorInput[]
-    connectOrCreate?: PostCreateOrConnectWithoutAuthorInput | PostCreateOrConnectWithoutAuthorInput[]
-    upsert?: PostUpsertWithWhereUniqueWithoutAuthorInput | PostUpsertWithWhereUniqueWithoutAuthorInput[]
-    createMany?: PostCreateManyAuthorInputEnvelope
-    set?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    disconnect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    delete?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    update?: PostUpdateWithWhereUniqueWithoutAuthorInput | PostUpdateWithWhereUniqueWithoutAuthorInput[]
-    updateMany?: PostUpdateManyWithWhereWithoutAuthorInput | PostUpdateManyWithWhereWithoutAuthorInput[]
-    deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
-  export type UserCreateNestedOneWithoutPostsInput = {
-    create?: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutPostsInput
-    connect?: UserWhereUniqueInput
+  export type UserCreateNestedManyWithoutCurrentMembershipInput = {
+    create?: XOR<UserCreateWithoutCurrentMembershipInput, UserUncheckedCreateWithoutCurrentMembershipInput> | UserCreateWithoutCurrentMembershipInput[] | UserUncheckedCreateWithoutCurrentMembershipInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutCurrentMembershipInput | UserCreateOrConnectWithoutCurrentMembershipInput[]
+    createMany?: UserCreateManyCurrentMembershipInputEnvelope
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  }
+
+  export type UserUncheckedCreateNestedManyWithoutCurrentMembershipInput = {
+    create?: XOR<UserCreateWithoutCurrentMembershipInput, UserUncheckedCreateWithoutCurrentMembershipInput> | UserCreateWithoutCurrentMembershipInput[] | UserUncheckedCreateWithoutCurrentMembershipInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutCurrentMembershipInput | UserCreateOrConnectWithoutCurrentMembershipInput[]
+    createMany?: UserCreateManyCurrentMembershipInputEnvelope
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  }
+
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
   }
 
-  export type UserUpdateOneRequiredWithoutPostsNestedInput = {
-    create?: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutPostsInput
-    upsert?: UserUpsertWithoutPostsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPostsInput, UserUpdateWithoutPostsInput>, UserUncheckedUpdateWithoutPostsInput>
+  export type UserUpdateManyWithoutCurrentMembershipNestedInput = {
+    create?: XOR<UserCreateWithoutCurrentMembershipInput, UserUncheckedCreateWithoutCurrentMembershipInput> | UserCreateWithoutCurrentMembershipInput[] | UserUncheckedCreateWithoutCurrentMembershipInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutCurrentMembershipInput | UserCreateOrConnectWithoutCurrentMembershipInput[]
+    upsert?: UserUpsertWithWhereUniqueWithoutCurrentMembershipInput | UserUpsertWithWhereUniqueWithoutCurrentMembershipInput[]
+    createMany?: UserCreateManyCurrentMembershipInputEnvelope
+    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    update?: UserUpdateWithWhereUniqueWithoutCurrentMembershipInput | UserUpdateWithWhereUniqueWithoutCurrentMembershipInput[]
+    updateMany?: UserUpdateManyWithWhereWithoutCurrentMembershipInput | UserUpdateManyWithWhereWithoutCurrentMembershipInput[]
+    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  }
+
+  export type UserUncheckedUpdateManyWithoutCurrentMembershipNestedInput = {
+    create?: XOR<UserCreateWithoutCurrentMembershipInput, UserUncheckedCreateWithoutCurrentMembershipInput> | UserCreateWithoutCurrentMembershipInput[] | UserUncheckedCreateWithoutCurrentMembershipInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutCurrentMembershipInput | UserCreateOrConnectWithoutCurrentMembershipInput[]
+    upsert?: UserUpsertWithWhereUniqueWithoutCurrentMembershipInput | UserUpsertWithWhereUniqueWithoutCurrentMembershipInput[]
+    createMany?: UserCreateManyCurrentMembershipInputEnvelope
+    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    update?: UserUpdateWithWhereUniqueWithoutCurrentMembershipInput | UserUpdateWithWhereUniqueWithoutCurrentMembershipInput[]
+    updateMany?: UserUpdateManyWithWhereWithoutCurrentMembershipInput | UserUpdateManyWithWhereWithoutCurrentMembershipInput[]
+    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -3784,6 +4330,39 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -3847,7 +4426,7 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -3855,12 +4434,72 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NestedBoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
   }
 
   export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -3871,119 +4510,198 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type PostCreateWithoutAuthorInput = {
+  export type MembershipCreateWithoutUsersInput = {
     title: string
-    content?: string | null
-    published?: boolean
+    clubName: string
+    price: number
+    currency?: string
+    isActive?: boolean
+    createdAt?: Date | string
   }
 
-  export type PostUncheckedCreateWithoutAuthorInput = {
+  export type MembershipUncheckedCreateWithoutUsersInput = {
     id?: number
     title: string
-    content?: string | null
-    published?: boolean
+    clubName: string
+    price: number
+    currency?: string
+    isActive?: boolean
+    createdAt?: Date | string
   }
 
-  export type PostCreateOrConnectWithoutAuthorInput = {
-    where: PostWhereUniqueInput
-    create: XOR<PostCreateWithoutAuthorInput, PostUncheckedCreateWithoutAuthorInput>
+  export type MembershipCreateOrConnectWithoutUsersInput = {
+    where: MembershipWhereUniqueInput
+    create: XOR<MembershipCreateWithoutUsersInput, MembershipUncheckedCreateWithoutUsersInput>
   }
 
-  export type PostCreateManyAuthorInputEnvelope = {
-    data: PostCreateManyAuthorInput | PostCreateManyAuthorInput[]
+  export type MembershipUpsertWithoutUsersInput = {
+    update: XOR<MembershipUpdateWithoutUsersInput, MembershipUncheckedUpdateWithoutUsersInput>
+    create: XOR<MembershipCreateWithoutUsersInput, MembershipUncheckedCreateWithoutUsersInput>
+    where?: MembershipWhereInput
+  }
+
+  export type MembershipUpdateToOneWithWhereWithoutUsersInput = {
+    where?: MembershipWhereInput
+    data: XOR<MembershipUpdateWithoutUsersInput, MembershipUncheckedUpdateWithoutUsersInput>
+  }
+
+  export type MembershipUpdateWithoutUsersInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    clubName?: StringFieldUpdateOperationsInput | string
+    price?: FloatFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MembershipUncheckedUpdateWithoutUsersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    clubName?: StringFieldUpdateOperationsInput | string
+    price?: FloatFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserCreateWithoutCurrentMembershipInput = {
+    name: string
+    surname: string
+    email: string
+    zipCode: string
+    phoneNumber: string
+    password?: string | null
+    membershipStatus?: string
+    membershipStartDate?: Date | string | null
+    membershipEndDate?: Date | string | null
+    nextBillingDate?: Date | string | null
+    billingCycle?: string
+    createdAt?: Date | string
+  }
+
+  export type UserUncheckedCreateWithoutCurrentMembershipInput = {
+    id?: number
+    name: string
+    surname: string
+    email: string
+    zipCode: string
+    phoneNumber: string
+    password?: string | null
+    membershipStatus?: string
+    membershipStartDate?: Date | string | null
+    membershipEndDate?: Date | string | null
+    nextBillingDate?: Date | string | null
+    billingCycle?: string
+    createdAt?: Date | string
+  }
+
+  export type UserCreateOrConnectWithoutCurrentMembershipInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutCurrentMembershipInput, UserUncheckedCreateWithoutCurrentMembershipInput>
+  }
+
+  export type UserCreateManyCurrentMembershipInputEnvelope = {
+    data: UserCreateManyCurrentMembershipInput | UserCreateManyCurrentMembershipInput[]
     skipDuplicates?: boolean
   }
 
-  export type PostUpsertWithWhereUniqueWithoutAuthorInput = {
-    where: PostWhereUniqueInput
-    update: XOR<PostUpdateWithoutAuthorInput, PostUncheckedUpdateWithoutAuthorInput>
-    create: XOR<PostCreateWithoutAuthorInput, PostUncheckedCreateWithoutAuthorInput>
-  }
-
-  export type PostUpdateWithWhereUniqueWithoutAuthorInput = {
-    where: PostWhereUniqueInput
-    data: XOR<PostUpdateWithoutAuthorInput, PostUncheckedUpdateWithoutAuthorInput>
-  }
-
-  export type PostUpdateManyWithWhereWithoutAuthorInput = {
-    where: PostScalarWhereInput
-    data: XOR<PostUpdateManyMutationInput, PostUncheckedUpdateManyWithoutAuthorInput>
-  }
-
-  export type PostScalarWhereInput = {
-    AND?: PostScalarWhereInput | PostScalarWhereInput[]
-    OR?: PostScalarWhereInput[]
-    NOT?: PostScalarWhereInput | PostScalarWhereInput[]
-    id?: IntFilter<"Post"> | number
-    title?: StringFilter<"Post"> | string
-    content?: StringNullableFilter<"Post"> | string | null
-    published?: BoolFilter<"Post"> | boolean
-    authorId?: IntFilter<"Post"> | number
-  }
-
-  export type UserCreateWithoutPostsInput = {
-    email: string
-    name?: string | null
-  }
-
-  export type UserUncheckedCreateWithoutPostsInput = {
-    id?: number
-    email: string
-    name?: string | null
-  }
-
-  export type UserCreateOrConnectWithoutPostsInput = {
+  export type UserUpsertWithWhereUniqueWithoutCurrentMembershipInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
+    update: XOR<UserUpdateWithoutCurrentMembershipInput, UserUncheckedUpdateWithoutCurrentMembershipInput>
+    create: XOR<UserCreateWithoutCurrentMembershipInput, UserUncheckedCreateWithoutCurrentMembershipInput>
   }
 
-  export type UserUpsertWithoutPostsInput = {
-    update: XOR<UserUpdateWithoutPostsInput, UserUncheckedUpdateWithoutPostsInput>
-    create: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
-    where?: UserWhereInput
+  export type UserUpdateWithWhereUniqueWithoutCurrentMembershipInput = {
+    where: UserWhereUniqueInput
+    data: XOR<UserUpdateWithoutCurrentMembershipInput, UserUncheckedUpdateWithoutCurrentMembershipInput>
   }
 
-  export type UserUpdateToOneWithWhereWithoutPostsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutPostsInput, UserUncheckedUpdateWithoutPostsInput>
+  export type UserUpdateManyWithWhereWithoutCurrentMembershipInput = {
+    where: UserScalarWhereInput
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutCurrentMembershipInput>
   }
 
-  export type UserUpdateWithoutPostsInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+  export type UserScalarWhereInput = {
+    AND?: UserScalarWhereInput | UserScalarWhereInput[]
+    OR?: UserScalarWhereInput[]
+    NOT?: UserScalarWhereInput | UserScalarWhereInput[]
+    id?: IntFilter<"User"> | number
+    name?: StringFilter<"User"> | string
+    surname?: StringFilter<"User"> | string
+    email?: StringFilter<"User"> | string
+    zipCode?: StringFilter<"User"> | string
+    phoneNumber?: StringFilter<"User"> | string
+    password?: StringNullableFilter<"User"> | string | null
+    currentMembershipId?: IntNullableFilter<"User"> | number | null
+    membershipStatus?: StringFilter<"User"> | string
+    membershipStartDate?: DateTimeNullableFilter<"User"> | Date | string | null
+    membershipEndDate?: DateTimeNullableFilter<"User"> | Date | string | null
+    nextBillingDate?: DateTimeNullableFilter<"User"> | Date | string | null
+    billingCycle?: StringFilter<"User"> | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
   }
 
-  export type UserUncheckedUpdateWithoutPostsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type PostCreateManyAuthorInput = {
+  export type UserCreateManyCurrentMembershipInput = {
     id?: number
-    title: string
-    content?: string | null
-    published?: boolean
+    name: string
+    surname: string
+    email: string
+    zipCode: string
+    phoneNumber: string
+    password?: string | null
+    membershipStatus?: string
+    membershipStartDate?: Date | string | null
+    membershipEndDate?: Date | string | null
+    nextBillingDate?: Date | string | null
+    billingCycle?: string
+    createdAt?: Date | string
   }
 
-  export type PostUpdateWithoutAuthorInput = {
-    title?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
-    published?: BoolFieldUpdateOperationsInput | boolean
+  export type UserUpdateWithoutCurrentMembershipInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    surname?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    zipCode?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    membershipStatus?: StringFieldUpdateOperationsInput | string
+    membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    billingCycle?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PostUncheckedUpdateWithoutAuthorInput = {
+  export type UserUncheckedUpdateWithoutCurrentMembershipInput = {
     id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
-    published?: BoolFieldUpdateOperationsInput | boolean
+    name?: StringFieldUpdateOperationsInput | string
+    surname?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    zipCode?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    membershipStatus?: StringFieldUpdateOperationsInput | string
+    membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    billingCycle?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PostUncheckedUpdateManyWithoutAuthorInput = {
+  export type UserUncheckedUpdateManyWithoutCurrentMembershipInput = {
     id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
-    published?: BoolFieldUpdateOperationsInput | boolean
+    name?: StringFieldUpdateOperationsInput | string
+    surname?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    zipCode?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    membershipStatus?: StringFieldUpdateOperationsInput | string
+    membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    billingCycle?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

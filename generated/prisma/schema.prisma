@@ -13,17 +13,33 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  posts Post[]
+  id          Int     @id @default(autoincrement())
+  name        String
+  surname     String
+  email       String  @unique
+  zipCode     String
+  phoneNumber String
+  password    String?
+
+  currentMembershipId Int?
+  membershipStatus    String    @default("active")
+  membershipStartDate DateTime?
+  membershipEndDate   DateTime?
+  nextBillingDate     DateTime?
+  billingCycle        String    @default("monthly")
+
+  createdAt DateTime @default(now())
+
+  currentMembership Membership? @relation(fields: [currentMembershipId], references: [id])
 }
 
-model Post {
-  id        Int     @id @default(autoincrement())
+model Membership {
+  id        Int      @id @default(autoincrement())
   title     String
-  content   String?
-  published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  Int
+  clubName  String
+  price     Float
+  currency  String   @default("USD")
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  users     User[]
 }

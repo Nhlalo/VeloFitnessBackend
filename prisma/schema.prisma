@@ -11,3 +11,48 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model User {
+  id                    Int       @id @default(autoincrement())
+  name                  String
+  surname               String
+  email                 String    @unique
+  zipCode               String
+  phoneNumber           String
+  password              String? 
+  
+  currentMembershipId   Int?      
+  membershipStatus      String    @default("active")
+  membershipStartDate   DateTime?
+  membershipEndDate     DateTime?
+  nextBillingDate       DateTime?
+  billingCycle          String     @default("monthly")
+  
+  createdAt             DateTime  @default(now())
+  
+  currentMembership     Membership? @relation(fields: [currentMembershipId], references: [id])
+  refreshtokens           RefreshToken[]
+
+}
+
+model Membership {
+  id                    Int       @id @default(autoincrement())
+  title                 String
+  clubName              String
+  price                 Float     
+  currency              String @default("USD")
+  isActive              Boolean   @default(true)
+  createdAt             DateTime  @default(now())
+  users                 User[]    
+ 
+}
+
+model RefreshToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  expiresAt DateTime
+  revoked   Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
