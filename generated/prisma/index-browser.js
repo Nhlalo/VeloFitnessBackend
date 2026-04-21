@@ -147,6 +147,15 @@ exports.Prisma.MembershipScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.RefreshTokenScalarFieldEnum = {
+  id: 'id',
+  token: 'token',
+  userId: 'userId',
+  expiresAt: 'expiresAt',
+  revoked: 'revoked',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -165,7 +174,8 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  Membership: 'Membership'
+  Membership: 'Membership',
+  RefreshToken: 'RefreshToken'
 };
 
 /**
