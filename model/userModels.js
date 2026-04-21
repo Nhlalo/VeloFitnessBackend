@@ -52,10 +52,32 @@ const userModel = {
     logger.info(`User created successfully: ${email}`);
     return user;
   },
+  addRefreshToken: async (token, userId, expiresAt) => {
+    return await prisma.refreshToken.create({
+      data: {
+        token,
+        userId,
+        expiresAt,
+      },
+    });
+  },
 
-  findByEmail: async (email) => {
+  findByEmail: async (email, includeMembership = false) => {
     return await prisma.user.findUnique({
       where: { email },
+      ...(includeMembership && { include: { currentMembership: true } }),
+    });
+  },
+  findByToken: async (token) => {
+    return await prisma.refreshToken.findUnique({
+      where: { token },
+      include: {
+        user: {
+          include: {
+            currentMembership: true,
+          },
+        },
+      },
     });
   },
 
@@ -63,6 +85,17 @@ const userModel = {
     return await prisma.user.update({
       where: { email },
       data: { password: hashedPassword },
+    });
+  },
+  updateMembershipStatus: async (email) => {
+    return await prisma.user.update({
+      where: { email },
+      data: { membershipStatus: "inactive", nextBillingDate: null },
+    });
+  },
+  deleteRefreshToken: async (token) => {
+    return await prisma.refreshToken.delete({
+      where: { token },
     });
   },
 
