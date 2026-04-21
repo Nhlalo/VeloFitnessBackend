@@ -46,7 +46,7 @@ const createUserProfile = async (req, res, next) => {
       });
     }
 
-    const user = userModel.findByEmail(email);
+    const user = await userModel.findByEmail(email);
 
     if (user) {
       logger.info(`${email}: User already exists`);
@@ -54,20 +54,18 @@ const createUserProfile = async (req, res, next) => {
         success: false,
         error: "User already exists",
         message: "An account with this email already exists",
-        userId: doesUserExists.id,
+        userId: user.id,
       });
     }
 
-    if (user) {
-      await userModel.createAccount(
-        name,
-        surname,
-        email,
-        zipCode,
-        phoneNumber,
-        lowercaseUserClub,
-      );
-    }
+    const newUser = await userModel.createAccount(
+      name,
+      surname,
+      email,
+      zipCode,
+      phoneNumber,
+      lowercaseUserClub,
+    );
 
     logger.info(`${email}: Profile successful created`);
 
