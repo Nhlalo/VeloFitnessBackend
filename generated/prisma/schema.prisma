@@ -30,7 +30,8 @@ model User {
 
   createdAt DateTime @default(now())
 
-  currentMembership Membership? @relation(fields: [currentMembershipId], references: [id])
+  currentMembership Membership?    @relation(fields: [currentMembershipId], references: [id])
+  refreshtokens     RefreshToken[]
 }
 
 model Membership {
@@ -42,4 +43,14 @@ model Membership {
   isActive  Boolean  @default(true)
   createdAt DateTime @default(now())
   users     User[]
+}
+
+model RefreshToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  expiresAt DateTime
+  revoked   Boolean  @default(false)
+  createdAt DateTime @default(now())
 }
