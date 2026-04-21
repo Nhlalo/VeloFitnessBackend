@@ -7,7 +7,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const checkout = async (req, res, next) => {
   try {
     const { email, userClub } = req.validatedData;
-    logger.info(email, `Process payment commence`);
+    logger.info({ email }, `Process payment commence`);
 
     const lowercaseUserClub = userClub.toLowerCase();
     const price = membershipPrices[lowercaseUserClub];
@@ -26,6 +26,11 @@ const checkout = async (req, res, next) => {
       },
       payment_method_types: ["card"],
     });
+
+    // const confirmedPayment = await stripe.paymentIntents.confirm(
+    //   paymentIntent.id,
+    //   { payment_method: "pm_card_visa" },
+    // );
 
     req.paymentIntentId = paymentIntent.id;
     res.json({
