@@ -1,9 +1,11 @@
 import logger from "../utils/logger.js";
 import userModel from "../model/userModels.js";
 import jwt from "jsonwebtoken";
+import crypto from "crypto";
+import { createResetPasswordEmail } from "../utils/emailTemplate.js";
 
-const SECRET_KEY = process.env.JWT_SECRET || "my-secret-key";
-const REFRESH_SECRET_KEY = process.env.REFRESH_SECRET || "my-refresh-secret";
+const SECRET_KEY = process.env.JWT_SECRET;
+const REFRESH_SECRET_KEY = process.env.REFRESH_SECRET_KEY;
 
 const cookieOptions = {
   httpOnly: true,
@@ -26,40 +28,19 @@ const refreshCookieOptions = {
  */
 
 const setPassword = async (req, res, next) => {
+  const { token, email, password, confirmPassword } = req.validatedData;
+
+  logger.info({ email }, "Initiating password setup");
+
   try {
-    const { email, password, confirmPassword } = req.validatedData;
-    logger.info({ email }, "Initiating password setup");
+    const setTokenRecord = await userModel.findValidSetPasswordToken(token);
 
-    if (typeof password !== "string" || typeof confirmPassword !== "string") {
-      logger.error({ email }, "Password must be a string");
-      return res.status(400).json({
-        success: false,
-        error: "INVALID_PASSWORD_FORMAT",
-        message: "Password must be a valid string",
-      });
-    }
+    if (!setTokenRecord) {
+      logger.error("Invalid token");
 
-    if (password !== confirmPassword) {
-      logger.error(
-        { email },
-        "Password setup failure: password does not match confirm password",
-      );
-
-      return res.status(400).json({
-        success: false,
-        message: "Passwords do not match",
-        error: "PASSWORD_MISMATCH",
-      });
-    }
-
-    const user = await userModel.findByEmail(email);
-
-    if (!user) {
-      logger.error({ email }, "Password setup failure: User has no profile");
       return res.status(401).json({
         success: false,
-        error: "USER_NOT_FOUND",
-        message: "Invalid email",
+        message: "Invalid token",
       });
     }
 
@@ -68,6 +49,8 @@ const setPassword = async (req, res, next) => {
     const updatedUser = await userModel.updatePassword(email, hashedPassword);
 
     logger.info({ email, userId: updatedUser.id }, "Password setup successful");
+
+    await userModel.deleteSetPasswordToken(token);
 
     return res.status(200).json({
       success: true,
@@ -78,20 +61,22 @@ const setPassword = async (req, res, next) => {
       },
     });
   } catch (error) {
+    logger.error({ err: error, email }, "Failed to set a password");
     next(error);
   }
 };
 
-const generateNewToken = async (req, res, next) => {
+const generateNewAccessToken = async (req, res, next) => {
+  const { email } = req.validatedData;
+  const refreshToken = req.cookies.refreshToken;
+
+  logger.info({ email }, `Initiating new token generation`);
+
+  if (!refreshToken) {
+    return res.status(401).json({ error: "Refresh token required" });
+  }
+
   try {
-    const refreshToken = req.cookies.refreshToken;
-
-    logger.info(`Initiating new token generation`);
-
-    if (!refreshToken) {
-      return res.status(401).json({ error: "Refresh token required" });
-    }
-
     const storedToken = await userModel.findByToken(refreshToken);
 
     if (!storedToken) {
@@ -115,6 +100,7 @@ const generateNewToken = async (req, res, next) => {
           name: user.name,
           surname: user.surname,
           email: user.email,
+          clubName: user.clubName,
           membershipStatus: user.membershipStatus,
           membershipEndDate: user.membershipEndDate,
           nextBillingDate: user.nextBillingDate,
@@ -129,18 +115,19 @@ const generateNewToken = async (req, res, next) => {
       res.json({ message: "Access token refreshed successfully" });
     });
   } catch (error) {
+    logger.error({ err: error, email }, "Failed to generate new access token");
     next(error);
   }
 };
 
 const login = async (req, res, next) => {
-  try {
-    const { email, password } = req.validatedData;
-    logger.info({ email }, `Initiating login setup`);
+  const { email, password } = req.validatedData;
+  logger.info({ email }, `Initiating login setup`);
 
+  try {
     const user = await userModel.findByEmail(email, true);
 
-    if (!user) {
+    if (!user || !user.password) {
       logger.error({ email }, `Login Failure, User has no profile`);
       return res.status(401).json({ message: "Invalid email or password" });
     }
@@ -158,7 +145,9 @@ const login = async (req, res, next) => {
         name: user.name,
         surname: user.surname,
         email: user.email,
+        clubName: user.clubName,
         membershipStatus: user.membershipStatus,
+        membershipStartDate: user.membershipStartDate,
         membershipEndDate: user.membershipEndDate,
         nextBillingDate: user.nextBillingDate,
         membershipTitle: user.currentMembership.title,
@@ -166,7 +155,9 @@ const login = async (req, res, next) => {
       SECRET_KEY,
       { expiresIn: "15m" },
     );
-
+    if (!REFRESH_SECRET_KEY) {
+      logger.info("REFRESH_SECRET_KEY INVALID");
+    }
     const refreshToken = jwt.sign({ userId: user.id }, REFRESH_SECRET_KEY, {
       expiresIn: "7d",
     });
@@ -183,15 +174,27 @@ const login = async (req, res, next) => {
       userId: user.id,
     });
   } catch (error) {
+    logger.error({ err: error, email }, "Failed to login");
     next(error);
   }
 };
 
 const logout = async (req, res, next) => {
-  try {
-    logger.info({ userId: req.user?.id }, "Initiating logout process");
-    const refreshToken = req.cookies.refreshToken;
+  const email = req.user?.email;
+  if (!email) {
+    logger.error("No email found in request user object");
 
+    return res.status(400).json({
+      success: false,
+      message: "User email is required",
+    });
+  }
+
+  logger.info({ email }, "Initiating logout process");
+
+  const refreshToken = req.cookies.refreshToken;
+
+  try {
     if (refreshToken) {
       await userModel.deleteRefreshToken(refreshToken);
       logger.info({ refreshToken }, "Refresh token deleted");
@@ -200,12 +203,150 @@ const logout = async (req, res, next) => {
     res.clearCookie("accessToken", cookieOptions);
     res.clearCookie("refreshToken", refreshCookieOptions);
 
-    logger.info(`Logged out successfully`);
+    logger.info({ email }, `Logged out successfully`);
     res.json({ message: "Logged out successfully" });
   } catch (error) {
-    logger.info(`Logout failed`);
+    logger.error({ err: error, email }, "Failed to logout");
     next(error);
   }
 };
 
-export { login, setPassword, generateNewToken, logout };
+const resetPasswordRequest = async (req, res, next) => {
+  const { email } = req.validatedData;
+  logger.info({ email }, `Initiating password reset request`);
+
+  if (!process.env.APP_URL || !process.env.RESEND_API_KEY) {
+    logger.error({ email }, "APP_URL environment variable is not set");
+    throw new Error("Server configuration error");
+  }
+
+  try {
+    const user = await userModel.findByEmail(email);
+
+    if (!user) {
+      logger.warn({ email }, "Password setup attempted for non-existent user");
+      return res.status(200).json({
+        success: true,
+        message: "If an account exists, a password reset link has been sent.",
+      });
+    }
+
+    const token = crypto.randomBytes(32).toString("hex");
+
+    const expiresAt = new Date(Date.now() + 3600000); //in an hour
+
+    const updatedUser = await userModel.addPasswordResetToken(
+      token,
+      user.id,
+      expiresAt,
+    );
+
+    const resetLink = `${process.env.APP_URL}/set-password/reset?token=${token}`;
+
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "onboarding@resend.dev",
+        to: email,
+        subject: "Reset Password",
+        html: createResetPasswordEmail(resetLink),
+      }),
+    });
+
+    if (!response.ok) {
+      if (response.status === 401) {
+        logger.error({ email }, "Invalid or missing Resend API key");
+        throw new Error("Invalid or missing Resend API key");
+      }
+      if (response.status === 429) {
+        logger.error({ email }, "Rate limited by Resend");
+        throw new Error("Rate limited by Resend");
+      }
+      logger.error({ email }, "Resend Server down");
+      throw new Error("Resend Server down");
+    }
+
+    logger.info({ email }, "Email sent successfully");
+
+    return res.status(200).json({
+      success: true,
+      message: "Email sent successfully",
+      data: {
+        email: updatedUser.email,
+        emailSentAt: new Date().toISOString(),
+      },
+    });
+  } catch (error) {
+    logger.error({ err: error, email }, "Failed to send email");
+    next(error);
+  }
+};
+
+const resetPassword = async (req, res, next) => {
+  const { token, password, confirmPassword } = req.validatedData;
+
+  let email;
+  try {
+    //Clean up expired tokens
+    await userModel.deleteAllPasswordResetToken();
+
+    const resetTokenRecord = await userModel.findValidPasswordResetToken(token);
+
+    if (!resetTokenRecord || resetTokenRecord.expiresAt < new Date()) {
+      logger.error("Invalid or expired token");
+
+      return res.status(401).json({
+        success: false,
+        message: "Invalid or expired token",
+      });
+    }
+
+    email = resetTokenRecord.user.email;
+
+    logger.info({ email }, `Initiating password reset`);
+
+    const hashedPassword = await userModel.hashPassword(password);
+
+    const updatedUser = await userModel.updatePassword(email, hashedPassword);
+
+    await userModel.deletePasswordResetToken(token);
+
+    logger.info({ email }, "Password setup successful");
+
+    return res.status(200).json({
+      success: true,
+      message: "Password set successfully",
+      data: {
+        email: updatedUser.email,
+        passwordSetAt: new Date().toISOString(),
+      },
+    });
+  } catch (error) {
+    logger.error({ err: error, email }, "Failed to reset email");
+    next(error);
+  }
+};
+
+const verify = (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Authentication confirmed",
+    data: {
+      user: req.user,
+    },
+  });
+};
+
+export {
+  login,
+  setPassword,
+  generateNewAccessToken,
+  logout,
+  resetPasswordRequest,
+  resetPassword,
+  verify,
+};
