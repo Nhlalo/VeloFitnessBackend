@@ -28,6 +28,16 @@ export type Membership = $Result.DefaultSelection<Prisma.$MembershipPayload>
  * 
  */
 export type RefreshToken = $Result.DefaultSelection<Prisma.$RefreshTokenPayload>
+/**
+ * Model PasswordResetToken
+ * 
+ */
+export type PasswordResetToken = $Result.DefaultSelection<Prisma.$PasswordResetTokenPayload>
+/**
+ * Model SetPasswordToken
+ * 
+ */
+export type SetPasswordToken = $Result.DefaultSelection<Prisma.$SetPasswordTokenPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -179,6 +189,26 @@ export class PrismaClient<
     * ```
     */
   get refreshToken(): Prisma.RefreshTokenDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.passwordResetToken`: Exposes CRUD operations for the **PasswordResetToken** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PasswordResetTokens
+    * const passwordResetTokens = await prisma.passwordResetToken.findMany()
+    * ```
+    */
+  get passwordResetToken(): Prisma.PasswordResetTokenDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.setPasswordToken`: Exposes CRUD operations for the **SetPasswordToken** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SetPasswordTokens
+    * const setPasswordTokens = await prisma.setPasswordToken.findMany()
+    * ```
+    */
+  get setPasswordToken(): Prisma.SetPasswordTokenDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -615,7 +645,9 @@ export namespace Prisma {
   export const ModelName: {
     User: 'User',
     Membership: 'Membership',
-    RefreshToken: 'RefreshToken'
+    RefreshToken: 'RefreshToken',
+    PasswordResetToken: 'PasswordResetToken',
+    SetPasswordToken: 'SetPasswordToken'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -631,7 +663,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "membership" | "refreshToken"
+      modelProps: "user" | "membership" | "refreshToken" | "passwordResetToken" | "setPasswordToken"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -857,6 +889,154 @@ export namespace Prisma {
           }
         }
       }
+      PasswordResetToken: {
+        payload: Prisma.$PasswordResetTokenPayload<ExtArgs>
+        fields: Prisma.PasswordResetTokenFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PasswordResetTokenFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordResetTokenPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PasswordResetTokenFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordResetTokenPayload>
+          }
+          findFirst: {
+            args: Prisma.PasswordResetTokenFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordResetTokenPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PasswordResetTokenFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordResetTokenPayload>
+          }
+          findMany: {
+            args: Prisma.PasswordResetTokenFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordResetTokenPayload>[]
+          }
+          create: {
+            args: Prisma.PasswordResetTokenCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordResetTokenPayload>
+          }
+          createMany: {
+            args: Prisma.PasswordResetTokenCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PasswordResetTokenCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordResetTokenPayload>[]
+          }
+          delete: {
+            args: Prisma.PasswordResetTokenDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordResetTokenPayload>
+          }
+          update: {
+            args: Prisma.PasswordResetTokenUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordResetTokenPayload>
+          }
+          deleteMany: {
+            args: Prisma.PasswordResetTokenDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PasswordResetTokenUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PasswordResetTokenUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordResetTokenPayload>[]
+          }
+          upsert: {
+            args: Prisma.PasswordResetTokenUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordResetTokenPayload>
+          }
+          aggregate: {
+            args: Prisma.PasswordResetTokenAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePasswordResetToken>
+          }
+          groupBy: {
+            args: Prisma.PasswordResetTokenGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PasswordResetTokenGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PasswordResetTokenCountArgs<ExtArgs>
+            result: $Utils.Optional<PasswordResetTokenCountAggregateOutputType> | number
+          }
+        }
+      }
+      SetPasswordToken: {
+        payload: Prisma.$SetPasswordTokenPayload<ExtArgs>
+        fields: Prisma.SetPasswordTokenFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SetPasswordTokenFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SetPasswordTokenPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SetPasswordTokenFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SetPasswordTokenPayload>
+          }
+          findFirst: {
+            args: Prisma.SetPasswordTokenFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SetPasswordTokenPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SetPasswordTokenFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SetPasswordTokenPayload>
+          }
+          findMany: {
+            args: Prisma.SetPasswordTokenFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SetPasswordTokenPayload>[]
+          }
+          create: {
+            args: Prisma.SetPasswordTokenCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SetPasswordTokenPayload>
+          }
+          createMany: {
+            args: Prisma.SetPasswordTokenCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SetPasswordTokenCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SetPasswordTokenPayload>[]
+          }
+          delete: {
+            args: Prisma.SetPasswordTokenDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SetPasswordTokenPayload>
+          }
+          update: {
+            args: Prisma.SetPasswordTokenUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SetPasswordTokenPayload>
+          }
+          deleteMany: {
+            args: Prisma.SetPasswordTokenDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SetPasswordTokenUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SetPasswordTokenUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SetPasswordTokenPayload>[]
+          }
+          upsert: {
+            args: Prisma.SetPasswordTokenUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SetPasswordTokenPayload>
+          }
+          aggregate: {
+            args: Prisma.SetPasswordTokenAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSetPasswordToken>
+          }
+          groupBy: {
+            args: Prisma.SetPasswordTokenGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SetPasswordTokenGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SetPasswordTokenCountArgs<ExtArgs>
+            result: $Utils.Optional<SetPasswordTokenCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -968,6 +1148,8 @@ export namespace Prisma {
     user?: UserOmit
     membership?: MembershipOmit
     refreshToken?: RefreshTokenOmit
+    passwordResetToken?: PasswordResetTokenOmit
+    setPasswordToken?: SetPasswordTokenOmit
   }
 
   /* Types for Logging */
@@ -1048,11 +1230,15 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    refreshtokens: number
+    refreshTokens: number
+    passwordResetTokens: number
+    setPasswordTokens: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    refreshtokens?: boolean | UserCountOutputTypeCountRefreshtokensArgs
+    refreshTokens?: boolean | UserCountOutputTypeCountRefreshTokensArgs
+    passwordResetTokens?: boolean | UserCountOutputTypeCountPasswordResetTokensArgs
+    setPasswordTokens?: boolean | UserCountOutputTypeCountSetPasswordTokensArgs
   }
 
   // Custom InputTypes
@@ -1069,8 +1255,22 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountRefreshtokensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserCountOutputTypeCountRefreshTokensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: RefreshTokenWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountPasswordResetTokensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PasswordResetTokenWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountSetPasswordTokensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SetPasswordTokenWhereInput
   }
 
 
@@ -1139,12 +1339,14 @@ export namespace Prisma {
     zipCode: string | null
     phoneNumber: string | null
     password: string | null
+    clubName: string | null
     currentMembershipId: number | null
     membershipStatus: string | null
     membershipStartDate: Date | null
     membershipEndDate: Date | null
     nextBillingDate: Date | null
     billingCycle: string | null
+    cancellationDate: Date | null
     createdAt: Date | null
   }
 
@@ -1156,12 +1358,14 @@ export namespace Prisma {
     zipCode: string | null
     phoneNumber: string | null
     password: string | null
+    clubName: string | null
     currentMembershipId: number | null
     membershipStatus: string | null
     membershipStartDate: Date | null
     membershipEndDate: Date | null
     nextBillingDate: Date | null
     billingCycle: string | null
+    cancellationDate: Date | null
     createdAt: Date | null
   }
 
@@ -1173,12 +1377,14 @@ export namespace Prisma {
     zipCode: number
     phoneNumber: number
     password: number
+    clubName: number
     currentMembershipId: number
     membershipStatus: number
     membershipStartDate: number
     membershipEndDate: number
     nextBillingDate: number
     billingCycle: number
+    cancellationDate: number
     createdAt: number
     _all: number
   }
@@ -1202,12 +1408,14 @@ export namespace Prisma {
     zipCode?: true
     phoneNumber?: true
     password?: true
+    clubName?: true
     currentMembershipId?: true
     membershipStatus?: true
     membershipStartDate?: true
     membershipEndDate?: true
     nextBillingDate?: true
     billingCycle?: true
+    cancellationDate?: true
     createdAt?: true
   }
 
@@ -1219,12 +1427,14 @@ export namespace Prisma {
     zipCode?: true
     phoneNumber?: true
     password?: true
+    clubName?: true
     currentMembershipId?: true
     membershipStatus?: true
     membershipStartDate?: true
     membershipEndDate?: true
     nextBillingDate?: true
     billingCycle?: true
+    cancellationDate?: true
     createdAt?: true
   }
 
@@ -1236,12 +1446,14 @@ export namespace Prisma {
     zipCode?: true
     phoneNumber?: true
     password?: true
+    clubName?: true
     currentMembershipId?: true
     membershipStatus?: true
     membershipStartDate?: true
     membershipEndDate?: true
     nextBillingDate?: true
     billingCycle?: true
+    cancellationDate?: true
     createdAt?: true
     _all?: true
   }
@@ -1340,12 +1552,14 @@ export namespace Prisma {
     zipCode: string
     phoneNumber: string
     password: string | null
+    clubName: string
     currentMembershipId: number | null
     membershipStatus: string
     membershipStartDate: Date | null
     membershipEndDate: Date | null
     nextBillingDate: Date | null
     billingCycle: string
+    cancellationDate: Date | null
     createdAt: Date
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
@@ -1376,15 +1590,19 @@ export namespace Prisma {
     zipCode?: boolean
     phoneNumber?: boolean
     password?: boolean
+    clubName?: boolean
     currentMembershipId?: boolean
     membershipStatus?: boolean
     membershipStartDate?: boolean
     membershipEndDate?: boolean
     nextBillingDate?: boolean
     billingCycle?: boolean
+    cancellationDate?: boolean
     createdAt?: boolean
     currentMembership?: boolean | User$currentMembershipArgs<ExtArgs>
-    refreshtokens?: boolean | User$refreshtokensArgs<ExtArgs>
+    refreshTokens?: boolean | User$refreshTokensArgs<ExtArgs>
+    passwordResetTokens?: boolean | User$passwordResetTokensArgs<ExtArgs>
+    setPasswordTokens?: boolean | User$setPasswordTokensArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1396,12 +1614,14 @@ export namespace Prisma {
     zipCode?: boolean
     phoneNumber?: boolean
     password?: boolean
+    clubName?: boolean
     currentMembershipId?: boolean
     membershipStatus?: boolean
     membershipStartDate?: boolean
     membershipEndDate?: boolean
     nextBillingDate?: boolean
     billingCycle?: boolean
+    cancellationDate?: boolean
     createdAt?: boolean
     currentMembership?: boolean | User$currentMembershipArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
@@ -1414,12 +1634,14 @@ export namespace Prisma {
     zipCode?: boolean
     phoneNumber?: boolean
     password?: boolean
+    clubName?: boolean
     currentMembershipId?: boolean
     membershipStatus?: boolean
     membershipStartDate?: boolean
     membershipEndDate?: boolean
     nextBillingDate?: boolean
     billingCycle?: boolean
+    cancellationDate?: boolean
     createdAt?: boolean
     currentMembership?: boolean | User$currentMembershipArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
@@ -1432,19 +1654,23 @@ export namespace Prisma {
     zipCode?: boolean
     phoneNumber?: boolean
     password?: boolean
+    clubName?: boolean
     currentMembershipId?: boolean
     membershipStatus?: boolean
     membershipStartDate?: boolean
     membershipEndDate?: boolean
     nextBillingDate?: boolean
     billingCycle?: boolean
+    cancellationDate?: boolean
     createdAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "surname" | "email" | "zipCode" | "phoneNumber" | "password" | "currentMembershipId" | "membershipStatus" | "membershipStartDate" | "membershipEndDate" | "nextBillingDate" | "billingCycle" | "createdAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "surname" | "email" | "zipCode" | "phoneNumber" | "password" | "clubName" | "currentMembershipId" | "membershipStatus" | "membershipStartDate" | "membershipEndDate" | "nextBillingDate" | "billingCycle" | "cancellationDate" | "createdAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     currentMembership?: boolean | User$currentMembershipArgs<ExtArgs>
-    refreshtokens?: boolean | User$refreshtokensArgs<ExtArgs>
+    refreshTokens?: boolean | User$refreshTokensArgs<ExtArgs>
+    passwordResetTokens?: boolean | User$passwordResetTokensArgs<ExtArgs>
+    setPasswordTokens?: boolean | User$setPasswordTokensArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1458,7 +1684,9 @@ export namespace Prisma {
     name: "User"
     objects: {
       currentMembership: Prisma.$MembershipPayload<ExtArgs> | null
-      refreshtokens: Prisma.$RefreshTokenPayload<ExtArgs>[]
+      refreshTokens: Prisma.$RefreshTokenPayload<ExtArgs>[]
+      passwordResetTokens: Prisma.$PasswordResetTokenPayload<ExtArgs>[]
+      setPasswordTokens: Prisma.$SetPasswordTokenPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -1468,12 +1696,14 @@ export namespace Prisma {
       zipCode: string
       phoneNumber: string
       password: string | null
+      clubName: string
       currentMembershipId: number | null
       membershipStatus: string
       membershipStartDate: Date | null
       membershipEndDate: Date | null
       nextBillingDate: Date | null
       billingCycle: string
+      cancellationDate: Date | null
       createdAt: Date
     }, ExtArgs["result"]["user"]>
     composites: {}
@@ -1870,7 +2100,9 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     currentMembership<T extends User$currentMembershipArgs<ExtArgs> = {}>(args?: Subset<T, User$currentMembershipArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    refreshtokens<T extends User$refreshtokensArgs<ExtArgs> = {}>(args?: Subset<T, User$refreshtokensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RefreshTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    refreshTokens<T extends User$refreshTokensArgs<ExtArgs> = {}>(args?: Subset<T, User$refreshTokensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RefreshTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    passwordResetTokens<T extends User$passwordResetTokensArgs<ExtArgs> = {}>(args?: Subset<T, User$passwordResetTokensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PasswordResetTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    setPasswordTokens<T extends User$setPasswordTokensArgs<ExtArgs> = {}>(args?: Subset<T, User$setPasswordTokensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SetPasswordTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1907,12 +2139,14 @@ export namespace Prisma {
     readonly zipCode: FieldRef<"User", 'String'>
     readonly phoneNumber: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
+    readonly clubName: FieldRef<"User", 'String'>
     readonly currentMembershipId: FieldRef<"User", 'Int'>
     readonly membershipStatus: FieldRef<"User", 'String'>
     readonly membershipStartDate: FieldRef<"User", 'DateTime'>
     readonly membershipEndDate: FieldRef<"User", 'DateTime'>
     readonly nextBillingDate: FieldRef<"User", 'DateTime'>
     readonly billingCycle: FieldRef<"User", 'String'>
+    readonly cancellationDate: FieldRef<"User", 'DateTime'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
   }
     
@@ -2334,9 +2568,9 @@ export namespace Prisma {
   }
 
   /**
-   * User.refreshtokens
+   * User.refreshTokens
    */
-  export type User$refreshtokensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$refreshTokensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the RefreshToken
      */
@@ -2355,6 +2589,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: RefreshTokenScalarFieldEnum | RefreshTokenScalarFieldEnum[]
+  }
+
+  /**
+   * User.passwordResetTokens
+   */
+  export type User$passwordResetTokensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PasswordResetToken
+     */
+    select?: PasswordResetTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PasswordResetToken
+     */
+    omit?: PasswordResetTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordResetTokenInclude<ExtArgs> | null
+    where?: PasswordResetTokenWhereInput
+    orderBy?: PasswordResetTokenOrderByWithRelationInput | PasswordResetTokenOrderByWithRelationInput[]
+    cursor?: PasswordResetTokenWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PasswordResetTokenScalarFieldEnum | PasswordResetTokenScalarFieldEnum[]
+  }
+
+  /**
+   * User.setPasswordTokens
+   */
+  export type User$setPasswordTokensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SetPasswordToken
+     */
+    select?: SetPasswordTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SetPasswordToken
+     */
+    omit?: SetPasswordTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SetPasswordTokenInclude<ExtArgs> | null
+    where?: SetPasswordTokenWhereInput
+    orderBy?: SetPasswordTokenOrderByWithRelationInput | SetPasswordTokenOrderByWithRelationInput[]
+    cursor?: SetPasswordTokenWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SetPasswordTokenScalarFieldEnum | SetPasswordTokenScalarFieldEnum[]
   }
 
   /**
@@ -2401,7 +2683,6 @@ export namespace Prisma {
   export type MembershipMinAggregateOutputType = {
     id: number | null
     title: string | null
-    clubName: string | null
     price: number | null
     currency: string | null
     isActive: boolean | null
@@ -2411,7 +2692,6 @@ export namespace Prisma {
   export type MembershipMaxAggregateOutputType = {
     id: number | null
     title: string | null
-    clubName: string | null
     price: number | null
     currency: string | null
     isActive: boolean | null
@@ -2421,7 +2701,6 @@ export namespace Prisma {
   export type MembershipCountAggregateOutputType = {
     id: number
     title: number
-    clubName: number
     price: number
     currency: number
     isActive: number
@@ -2443,7 +2722,6 @@ export namespace Prisma {
   export type MembershipMinAggregateInputType = {
     id?: true
     title?: true
-    clubName?: true
     price?: true
     currency?: true
     isActive?: true
@@ -2453,7 +2731,6 @@ export namespace Prisma {
   export type MembershipMaxAggregateInputType = {
     id?: true
     title?: true
-    clubName?: true
     price?: true
     currency?: true
     isActive?: true
@@ -2463,7 +2740,6 @@ export namespace Prisma {
   export type MembershipCountAggregateInputType = {
     id?: true
     title?: true
-    clubName?: true
     price?: true
     currency?: true
     isActive?: true
@@ -2560,7 +2836,6 @@ export namespace Prisma {
   export type MembershipGroupByOutputType = {
     id: number
     title: string
-    clubName: string
     price: number
     currency: string
     isActive: boolean
@@ -2589,7 +2864,6 @@ export namespace Prisma {
   export type MembershipSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    clubName?: boolean
     price?: boolean
     currency?: boolean
     isActive?: boolean
@@ -2601,7 +2875,6 @@ export namespace Prisma {
   export type MembershipSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    clubName?: boolean
     price?: boolean
     currency?: boolean
     isActive?: boolean
@@ -2611,7 +2884,6 @@ export namespace Prisma {
   export type MembershipSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    clubName?: boolean
     price?: boolean
     currency?: boolean
     isActive?: boolean
@@ -2621,14 +2893,13 @@ export namespace Prisma {
   export type MembershipSelectScalar = {
     id?: boolean
     title?: boolean
-    clubName?: boolean
     price?: boolean
     currency?: boolean
     isActive?: boolean
     createdAt?: boolean
   }
 
-  export type MembershipOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "clubName" | "price" | "currency" | "isActive" | "createdAt", ExtArgs["result"]["membership"]>
+  export type MembershipOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "price" | "currency" | "isActive" | "createdAt", ExtArgs["result"]["membership"]>
   export type MembershipInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     users?: boolean | Membership$usersArgs<ExtArgs>
     _count?: boolean | MembershipCountOutputTypeDefaultArgs<ExtArgs>
@@ -2644,7 +2915,6 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       title: string
-      clubName: string
       price: number
       currency: string
       isActive: boolean
@@ -3075,7 +3345,6 @@ export namespace Prisma {
   interface MembershipFieldRefs {
     readonly id: FieldRef<"Membership", 'Int'>
     readonly title: FieldRef<"Membership", 'String'>
-    readonly clubName: FieldRef<"Membership", 'String'>
     readonly price: FieldRef<"Membership", 'Float'>
     readonly currency: FieldRef<"Membership", 'String'>
     readonly isActive: FieldRef<"Membership", 'Boolean'>
@@ -4630,6 +4899,2195 @@ export namespace Prisma {
 
 
   /**
+   * Model PasswordResetToken
+   */
+
+  export type AggregatePasswordResetToken = {
+    _count: PasswordResetTokenCountAggregateOutputType | null
+    _avg: PasswordResetTokenAvgAggregateOutputType | null
+    _sum: PasswordResetTokenSumAggregateOutputType | null
+    _min: PasswordResetTokenMinAggregateOutputType | null
+    _max: PasswordResetTokenMaxAggregateOutputType | null
+  }
+
+  export type PasswordResetTokenAvgAggregateOutputType = {
+    id: number | null
+    userId: number | null
+  }
+
+  export type PasswordResetTokenSumAggregateOutputType = {
+    id: number | null
+    userId: number | null
+  }
+
+  export type PasswordResetTokenMinAggregateOutputType = {
+    id: number | null
+    token: string | null
+    expiresAt: Date | null
+    userId: number | null
+    createdAt: Date | null
+  }
+
+  export type PasswordResetTokenMaxAggregateOutputType = {
+    id: number | null
+    token: string | null
+    expiresAt: Date | null
+    userId: number | null
+    createdAt: Date | null
+  }
+
+  export type PasswordResetTokenCountAggregateOutputType = {
+    id: number
+    token: number
+    expiresAt: number
+    userId: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type PasswordResetTokenAvgAggregateInputType = {
+    id?: true
+    userId?: true
+  }
+
+  export type PasswordResetTokenSumAggregateInputType = {
+    id?: true
+    userId?: true
+  }
+
+  export type PasswordResetTokenMinAggregateInputType = {
+    id?: true
+    token?: true
+    expiresAt?: true
+    userId?: true
+    createdAt?: true
+  }
+
+  export type PasswordResetTokenMaxAggregateInputType = {
+    id?: true
+    token?: true
+    expiresAt?: true
+    userId?: true
+    createdAt?: true
+  }
+
+  export type PasswordResetTokenCountAggregateInputType = {
+    id?: true
+    token?: true
+    expiresAt?: true
+    userId?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type PasswordResetTokenAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PasswordResetToken to aggregate.
+     */
+    where?: PasswordResetTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PasswordResetTokens to fetch.
+     */
+    orderBy?: PasswordResetTokenOrderByWithRelationInput | PasswordResetTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PasswordResetTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PasswordResetTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PasswordResetTokens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PasswordResetTokens
+    **/
+    _count?: true | PasswordResetTokenCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PasswordResetTokenAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PasswordResetTokenSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PasswordResetTokenMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PasswordResetTokenMaxAggregateInputType
+  }
+
+  export type GetPasswordResetTokenAggregateType<T extends PasswordResetTokenAggregateArgs> = {
+        [P in keyof T & keyof AggregatePasswordResetToken]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePasswordResetToken[P]>
+      : GetScalarType<T[P], AggregatePasswordResetToken[P]>
+  }
+
+
+
+
+  export type PasswordResetTokenGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PasswordResetTokenWhereInput
+    orderBy?: PasswordResetTokenOrderByWithAggregationInput | PasswordResetTokenOrderByWithAggregationInput[]
+    by: PasswordResetTokenScalarFieldEnum[] | PasswordResetTokenScalarFieldEnum
+    having?: PasswordResetTokenScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PasswordResetTokenCountAggregateInputType | true
+    _avg?: PasswordResetTokenAvgAggregateInputType
+    _sum?: PasswordResetTokenSumAggregateInputType
+    _min?: PasswordResetTokenMinAggregateInputType
+    _max?: PasswordResetTokenMaxAggregateInputType
+  }
+
+  export type PasswordResetTokenGroupByOutputType = {
+    id: number
+    token: string
+    expiresAt: Date
+    userId: number
+    createdAt: Date
+    _count: PasswordResetTokenCountAggregateOutputType | null
+    _avg: PasswordResetTokenAvgAggregateOutputType | null
+    _sum: PasswordResetTokenSumAggregateOutputType | null
+    _min: PasswordResetTokenMinAggregateOutputType | null
+    _max: PasswordResetTokenMaxAggregateOutputType | null
+  }
+
+  type GetPasswordResetTokenGroupByPayload<T extends PasswordResetTokenGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PasswordResetTokenGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PasswordResetTokenGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PasswordResetTokenGroupByOutputType[P]>
+            : GetScalarType<T[P], PasswordResetTokenGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PasswordResetTokenSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    token?: boolean
+    expiresAt?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["passwordResetToken"]>
+
+  export type PasswordResetTokenSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    token?: boolean
+    expiresAt?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["passwordResetToken"]>
+
+  export type PasswordResetTokenSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    token?: boolean
+    expiresAt?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["passwordResetToken"]>
+
+  export type PasswordResetTokenSelectScalar = {
+    id?: boolean
+    token?: boolean
+    expiresAt?: boolean
+    userId?: boolean
+    createdAt?: boolean
+  }
+
+  export type PasswordResetTokenOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "token" | "expiresAt" | "userId" | "createdAt", ExtArgs["result"]["passwordResetToken"]>
+  export type PasswordResetTokenInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type PasswordResetTokenIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type PasswordResetTokenIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $PasswordResetTokenPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PasswordResetToken"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      token: string
+      expiresAt: Date
+      userId: number
+      createdAt: Date
+    }, ExtArgs["result"]["passwordResetToken"]>
+    composites: {}
+  }
+
+  type PasswordResetTokenGetPayload<S extends boolean | null | undefined | PasswordResetTokenDefaultArgs> = $Result.GetResult<Prisma.$PasswordResetTokenPayload, S>
+
+  type PasswordResetTokenCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PasswordResetTokenFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PasswordResetTokenCountAggregateInputType | true
+    }
+
+  export interface PasswordResetTokenDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PasswordResetToken'], meta: { name: 'PasswordResetToken' } }
+    /**
+     * Find zero or one PasswordResetToken that matches the filter.
+     * @param {PasswordResetTokenFindUniqueArgs} args - Arguments to find a PasswordResetToken
+     * @example
+     * // Get one PasswordResetToken
+     * const passwordResetToken = await prisma.passwordResetToken.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PasswordResetTokenFindUniqueArgs>(args: SelectSubset<T, PasswordResetTokenFindUniqueArgs<ExtArgs>>): Prisma__PasswordResetTokenClient<$Result.GetResult<Prisma.$PasswordResetTokenPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one PasswordResetToken that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PasswordResetTokenFindUniqueOrThrowArgs} args - Arguments to find a PasswordResetToken
+     * @example
+     * // Get one PasswordResetToken
+     * const passwordResetToken = await prisma.passwordResetToken.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PasswordResetTokenFindUniqueOrThrowArgs>(args: SelectSubset<T, PasswordResetTokenFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PasswordResetTokenClient<$Result.GetResult<Prisma.$PasswordResetTokenPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PasswordResetToken that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PasswordResetTokenFindFirstArgs} args - Arguments to find a PasswordResetToken
+     * @example
+     * // Get one PasswordResetToken
+     * const passwordResetToken = await prisma.passwordResetToken.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PasswordResetTokenFindFirstArgs>(args?: SelectSubset<T, PasswordResetTokenFindFirstArgs<ExtArgs>>): Prisma__PasswordResetTokenClient<$Result.GetResult<Prisma.$PasswordResetTokenPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PasswordResetToken that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PasswordResetTokenFindFirstOrThrowArgs} args - Arguments to find a PasswordResetToken
+     * @example
+     * // Get one PasswordResetToken
+     * const passwordResetToken = await prisma.passwordResetToken.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PasswordResetTokenFindFirstOrThrowArgs>(args?: SelectSubset<T, PasswordResetTokenFindFirstOrThrowArgs<ExtArgs>>): Prisma__PasswordResetTokenClient<$Result.GetResult<Prisma.$PasswordResetTokenPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more PasswordResetTokens that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PasswordResetTokenFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PasswordResetTokens
+     * const passwordResetTokens = await prisma.passwordResetToken.findMany()
+     * 
+     * // Get first 10 PasswordResetTokens
+     * const passwordResetTokens = await prisma.passwordResetToken.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const passwordResetTokenWithIdOnly = await prisma.passwordResetToken.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PasswordResetTokenFindManyArgs>(args?: SelectSubset<T, PasswordResetTokenFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PasswordResetTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a PasswordResetToken.
+     * @param {PasswordResetTokenCreateArgs} args - Arguments to create a PasswordResetToken.
+     * @example
+     * // Create one PasswordResetToken
+     * const PasswordResetToken = await prisma.passwordResetToken.create({
+     *   data: {
+     *     // ... data to create a PasswordResetToken
+     *   }
+     * })
+     * 
+     */
+    create<T extends PasswordResetTokenCreateArgs>(args: SelectSubset<T, PasswordResetTokenCreateArgs<ExtArgs>>): Prisma__PasswordResetTokenClient<$Result.GetResult<Prisma.$PasswordResetTokenPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many PasswordResetTokens.
+     * @param {PasswordResetTokenCreateManyArgs} args - Arguments to create many PasswordResetTokens.
+     * @example
+     * // Create many PasswordResetTokens
+     * const passwordResetToken = await prisma.passwordResetToken.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PasswordResetTokenCreateManyArgs>(args?: SelectSubset<T, PasswordResetTokenCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PasswordResetTokens and returns the data saved in the database.
+     * @param {PasswordResetTokenCreateManyAndReturnArgs} args - Arguments to create many PasswordResetTokens.
+     * @example
+     * // Create many PasswordResetTokens
+     * const passwordResetToken = await prisma.passwordResetToken.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PasswordResetTokens and only return the `id`
+     * const passwordResetTokenWithIdOnly = await prisma.passwordResetToken.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PasswordResetTokenCreateManyAndReturnArgs>(args?: SelectSubset<T, PasswordResetTokenCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PasswordResetTokenPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a PasswordResetToken.
+     * @param {PasswordResetTokenDeleteArgs} args - Arguments to delete one PasswordResetToken.
+     * @example
+     * // Delete one PasswordResetToken
+     * const PasswordResetToken = await prisma.passwordResetToken.delete({
+     *   where: {
+     *     // ... filter to delete one PasswordResetToken
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PasswordResetTokenDeleteArgs>(args: SelectSubset<T, PasswordResetTokenDeleteArgs<ExtArgs>>): Prisma__PasswordResetTokenClient<$Result.GetResult<Prisma.$PasswordResetTokenPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one PasswordResetToken.
+     * @param {PasswordResetTokenUpdateArgs} args - Arguments to update one PasswordResetToken.
+     * @example
+     * // Update one PasswordResetToken
+     * const passwordResetToken = await prisma.passwordResetToken.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PasswordResetTokenUpdateArgs>(args: SelectSubset<T, PasswordResetTokenUpdateArgs<ExtArgs>>): Prisma__PasswordResetTokenClient<$Result.GetResult<Prisma.$PasswordResetTokenPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more PasswordResetTokens.
+     * @param {PasswordResetTokenDeleteManyArgs} args - Arguments to filter PasswordResetTokens to delete.
+     * @example
+     * // Delete a few PasswordResetTokens
+     * const { count } = await prisma.passwordResetToken.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PasswordResetTokenDeleteManyArgs>(args?: SelectSubset<T, PasswordResetTokenDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PasswordResetTokens.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PasswordResetTokenUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PasswordResetTokens
+     * const passwordResetToken = await prisma.passwordResetToken.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PasswordResetTokenUpdateManyArgs>(args: SelectSubset<T, PasswordResetTokenUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PasswordResetTokens and returns the data updated in the database.
+     * @param {PasswordResetTokenUpdateManyAndReturnArgs} args - Arguments to update many PasswordResetTokens.
+     * @example
+     * // Update many PasswordResetTokens
+     * const passwordResetToken = await prisma.passwordResetToken.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PasswordResetTokens and only return the `id`
+     * const passwordResetTokenWithIdOnly = await prisma.passwordResetToken.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PasswordResetTokenUpdateManyAndReturnArgs>(args: SelectSubset<T, PasswordResetTokenUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PasswordResetTokenPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one PasswordResetToken.
+     * @param {PasswordResetTokenUpsertArgs} args - Arguments to update or create a PasswordResetToken.
+     * @example
+     * // Update or create a PasswordResetToken
+     * const passwordResetToken = await prisma.passwordResetToken.upsert({
+     *   create: {
+     *     // ... data to create a PasswordResetToken
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PasswordResetToken we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PasswordResetTokenUpsertArgs>(args: SelectSubset<T, PasswordResetTokenUpsertArgs<ExtArgs>>): Prisma__PasswordResetTokenClient<$Result.GetResult<Prisma.$PasswordResetTokenPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of PasswordResetTokens.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PasswordResetTokenCountArgs} args - Arguments to filter PasswordResetTokens to count.
+     * @example
+     * // Count the number of PasswordResetTokens
+     * const count = await prisma.passwordResetToken.count({
+     *   where: {
+     *     // ... the filter for the PasswordResetTokens we want to count
+     *   }
+     * })
+    **/
+    count<T extends PasswordResetTokenCountArgs>(
+      args?: Subset<T, PasswordResetTokenCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PasswordResetTokenCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PasswordResetToken.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PasswordResetTokenAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PasswordResetTokenAggregateArgs>(args: Subset<T, PasswordResetTokenAggregateArgs>): Prisma.PrismaPromise<GetPasswordResetTokenAggregateType<T>>
+
+    /**
+     * Group by PasswordResetToken.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PasswordResetTokenGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PasswordResetTokenGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PasswordResetTokenGroupByArgs['orderBy'] }
+        : { orderBy?: PasswordResetTokenGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PasswordResetTokenGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPasswordResetTokenGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PasswordResetToken model
+   */
+  readonly fields: PasswordResetTokenFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PasswordResetToken.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PasswordResetTokenClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PasswordResetToken model
+   */
+  interface PasswordResetTokenFieldRefs {
+    readonly id: FieldRef<"PasswordResetToken", 'Int'>
+    readonly token: FieldRef<"PasswordResetToken", 'String'>
+    readonly expiresAt: FieldRef<"PasswordResetToken", 'DateTime'>
+    readonly userId: FieldRef<"PasswordResetToken", 'Int'>
+    readonly createdAt: FieldRef<"PasswordResetToken", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PasswordResetToken findUnique
+   */
+  export type PasswordResetTokenFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PasswordResetToken
+     */
+    select?: PasswordResetTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PasswordResetToken
+     */
+    omit?: PasswordResetTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordResetTokenInclude<ExtArgs> | null
+    /**
+     * Filter, which PasswordResetToken to fetch.
+     */
+    where: PasswordResetTokenWhereUniqueInput
+  }
+
+  /**
+   * PasswordResetToken findUniqueOrThrow
+   */
+  export type PasswordResetTokenFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PasswordResetToken
+     */
+    select?: PasswordResetTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PasswordResetToken
+     */
+    omit?: PasswordResetTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordResetTokenInclude<ExtArgs> | null
+    /**
+     * Filter, which PasswordResetToken to fetch.
+     */
+    where: PasswordResetTokenWhereUniqueInput
+  }
+
+  /**
+   * PasswordResetToken findFirst
+   */
+  export type PasswordResetTokenFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PasswordResetToken
+     */
+    select?: PasswordResetTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PasswordResetToken
+     */
+    omit?: PasswordResetTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordResetTokenInclude<ExtArgs> | null
+    /**
+     * Filter, which PasswordResetToken to fetch.
+     */
+    where?: PasswordResetTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PasswordResetTokens to fetch.
+     */
+    orderBy?: PasswordResetTokenOrderByWithRelationInput | PasswordResetTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PasswordResetTokens.
+     */
+    cursor?: PasswordResetTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PasswordResetTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PasswordResetTokens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PasswordResetTokens.
+     */
+    distinct?: PasswordResetTokenScalarFieldEnum | PasswordResetTokenScalarFieldEnum[]
+  }
+
+  /**
+   * PasswordResetToken findFirstOrThrow
+   */
+  export type PasswordResetTokenFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PasswordResetToken
+     */
+    select?: PasswordResetTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PasswordResetToken
+     */
+    omit?: PasswordResetTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordResetTokenInclude<ExtArgs> | null
+    /**
+     * Filter, which PasswordResetToken to fetch.
+     */
+    where?: PasswordResetTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PasswordResetTokens to fetch.
+     */
+    orderBy?: PasswordResetTokenOrderByWithRelationInput | PasswordResetTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PasswordResetTokens.
+     */
+    cursor?: PasswordResetTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PasswordResetTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PasswordResetTokens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PasswordResetTokens.
+     */
+    distinct?: PasswordResetTokenScalarFieldEnum | PasswordResetTokenScalarFieldEnum[]
+  }
+
+  /**
+   * PasswordResetToken findMany
+   */
+  export type PasswordResetTokenFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PasswordResetToken
+     */
+    select?: PasswordResetTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PasswordResetToken
+     */
+    omit?: PasswordResetTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordResetTokenInclude<ExtArgs> | null
+    /**
+     * Filter, which PasswordResetTokens to fetch.
+     */
+    where?: PasswordResetTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PasswordResetTokens to fetch.
+     */
+    orderBy?: PasswordResetTokenOrderByWithRelationInput | PasswordResetTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PasswordResetTokens.
+     */
+    cursor?: PasswordResetTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PasswordResetTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PasswordResetTokens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PasswordResetTokens.
+     */
+    distinct?: PasswordResetTokenScalarFieldEnum | PasswordResetTokenScalarFieldEnum[]
+  }
+
+  /**
+   * PasswordResetToken create
+   */
+  export type PasswordResetTokenCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PasswordResetToken
+     */
+    select?: PasswordResetTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PasswordResetToken
+     */
+    omit?: PasswordResetTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordResetTokenInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PasswordResetToken.
+     */
+    data: XOR<PasswordResetTokenCreateInput, PasswordResetTokenUncheckedCreateInput>
+  }
+
+  /**
+   * PasswordResetToken createMany
+   */
+  export type PasswordResetTokenCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PasswordResetTokens.
+     */
+    data: PasswordResetTokenCreateManyInput | PasswordResetTokenCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PasswordResetToken createManyAndReturn
+   */
+  export type PasswordResetTokenCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PasswordResetToken
+     */
+    select?: PasswordResetTokenSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PasswordResetToken
+     */
+    omit?: PasswordResetTokenOmit<ExtArgs> | null
+    /**
+     * The data used to create many PasswordResetTokens.
+     */
+    data: PasswordResetTokenCreateManyInput | PasswordResetTokenCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordResetTokenIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PasswordResetToken update
+   */
+  export type PasswordResetTokenUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PasswordResetToken
+     */
+    select?: PasswordResetTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PasswordResetToken
+     */
+    omit?: PasswordResetTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordResetTokenInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PasswordResetToken.
+     */
+    data: XOR<PasswordResetTokenUpdateInput, PasswordResetTokenUncheckedUpdateInput>
+    /**
+     * Choose, which PasswordResetToken to update.
+     */
+    where: PasswordResetTokenWhereUniqueInput
+  }
+
+  /**
+   * PasswordResetToken updateMany
+   */
+  export type PasswordResetTokenUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PasswordResetTokens.
+     */
+    data: XOR<PasswordResetTokenUpdateManyMutationInput, PasswordResetTokenUncheckedUpdateManyInput>
+    /**
+     * Filter which PasswordResetTokens to update
+     */
+    where?: PasswordResetTokenWhereInput
+    /**
+     * Limit how many PasswordResetTokens to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PasswordResetToken updateManyAndReturn
+   */
+  export type PasswordResetTokenUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PasswordResetToken
+     */
+    select?: PasswordResetTokenSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PasswordResetToken
+     */
+    omit?: PasswordResetTokenOmit<ExtArgs> | null
+    /**
+     * The data used to update PasswordResetTokens.
+     */
+    data: XOR<PasswordResetTokenUpdateManyMutationInput, PasswordResetTokenUncheckedUpdateManyInput>
+    /**
+     * Filter which PasswordResetTokens to update
+     */
+    where?: PasswordResetTokenWhereInput
+    /**
+     * Limit how many PasswordResetTokens to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordResetTokenIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PasswordResetToken upsert
+   */
+  export type PasswordResetTokenUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PasswordResetToken
+     */
+    select?: PasswordResetTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PasswordResetToken
+     */
+    omit?: PasswordResetTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordResetTokenInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PasswordResetToken to update in case it exists.
+     */
+    where: PasswordResetTokenWhereUniqueInput
+    /**
+     * In case the PasswordResetToken found by the `where` argument doesn't exist, create a new PasswordResetToken with this data.
+     */
+    create: XOR<PasswordResetTokenCreateInput, PasswordResetTokenUncheckedCreateInput>
+    /**
+     * In case the PasswordResetToken was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PasswordResetTokenUpdateInput, PasswordResetTokenUncheckedUpdateInput>
+  }
+
+  /**
+   * PasswordResetToken delete
+   */
+  export type PasswordResetTokenDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PasswordResetToken
+     */
+    select?: PasswordResetTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PasswordResetToken
+     */
+    omit?: PasswordResetTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordResetTokenInclude<ExtArgs> | null
+    /**
+     * Filter which PasswordResetToken to delete.
+     */
+    where: PasswordResetTokenWhereUniqueInput
+  }
+
+  /**
+   * PasswordResetToken deleteMany
+   */
+  export type PasswordResetTokenDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PasswordResetTokens to delete
+     */
+    where?: PasswordResetTokenWhereInput
+    /**
+     * Limit how many PasswordResetTokens to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PasswordResetToken without action
+   */
+  export type PasswordResetTokenDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PasswordResetToken
+     */
+    select?: PasswordResetTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PasswordResetToken
+     */
+    omit?: PasswordResetTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordResetTokenInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SetPasswordToken
+   */
+
+  export type AggregateSetPasswordToken = {
+    _count: SetPasswordTokenCountAggregateOutputType | null
+    _avg: SetPasswordTokenAvgAggregateOutputType | null
+    _sum: SetPasswordTokenSumAggregateOutputType | null
+    _min: SetPasswordTokenMinAggregateOutputType | null
+    _max: SetPasswordTokenMaxAggregateOutputType | null
+  }
+
+  export type SetPasswordTokenAvgAggregateOutputType = {
+    id: number | null
+    userId: number | null
+  }
+
+  export type SetPasswordTokenSumAggregateOutputType = {
+    id: number | null
+    userId: number | null
+  }
+
+  export type SetPasswordTokenMinAggregateOutputType = {
+    id: number | null
+    token: string | null
+    userId: number | null
+    createdAt: Date | null
+  }
+
+  export type SetPasswordTokenMaxAggregateOutputType = {
+    id: number | null
+    token: string | null
+    userId: number | null
+    createdAt: Date | null
+  }
+
+  export type SetPasswordTokenCountAggregateOutputType = {
+    id: number
+    token: number
+    userId: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type SetPasswordTokenAvgAggregateInputType = {
+    id?: true
+    userId?: true
+  }
+
+  export type SetPasswordTokenSumAggregateInputType = {
+    id?: true
+    userId?: true
+  }
+
+  export type SetPasswordTokenMinAggregateInputType = {
+    id?: true
+    token?: true
+    userId?: true
+    createdAt?: true
+  }
+
+  export type SetPasswordTokenMaxAggregateInputType = {
+    id?: true
+    token?: true
+    userId?: true
+    createdAt?: true
+  }
+
+  export type SetPasswordTokenCountAggregateInputType = {
+    id?: true
+    token?: true
+    userId?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type SetPasswordTokenAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SetPasswordToken to aggregate.
+     */
+    where?: SetPasswordTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SetPasswordTokens to fetch.
+     */
+    orderBy?: SetPasswordTokenOrderByWithRelationInput | SetPasswordTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SetPasswordTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SetPasswordTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SetPasswordTokens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SetPasswordTokens
+    **/
+    _count?: true | SetPasswordTokenCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SetPasswordTokenAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SetPasswordTokenSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SetPasswordTokenMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SetPasswordTokenMaxAggregateInputType
+  }
+
+  export type GetSetPasswordTokenAggregateType<T extends SetPasswordTokenAggregateArgs> = {
+        [P in keyof T & keyof AggregateSetPasswordToken]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSetPasswordToken[P]>
+      : GetScalarType<T[P], AggregateSetPasswordToken[P]>
+  }
+
+
+
+
+  export type SetPasswordTokenGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SetPasswordTokenWhereInput
+    orderBy?: SetPasswordTokenOrderByWithAggregationInput | SetPasswordTokenOrderByWithAggregationInput[]
+    by: SetPasswordTokenScalarFieldEnum[] | SetPasswordTokenScalarFieldEnum
+    having?: SetPasswordTokenScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SetPasswordTokenCountAggregateInputType | true
+    _avg?: SetPasswordTokenAvgAggregateInputType
+    _sum?: SetPasswordTokenSumAggregateInputType
+    _min?: SetPasswordTokenMinAggregateInputType
+    _max?: SetPasswordTokenMaxAggregateInputType
+  }
+
+  export type SetPasswordTokenGroupByOutputType = {
+    id: number
+    token: string
+    userId: number
+    createdAt: Date
+    _count: SetPasswordTokenCountAggregateOutputType | null
+    _avg: SetPasswordTokenAvgAggregateOutputType | null
+    _sum: SetPasswordTokenSumAggregateOutputType | null
+    _min: SetPasswordTokenMinAggregateOutputType | null
+    _max: SetPasswordTokenMaxAggregateOutputType | null
+  }
+
+  type GetSetPasswordTokenGroupByPayload<T extends SetPasswordTokenGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SetPasswordTokenGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SetPasswordTokenGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SetPasswordTokenGroupByOutputType[P]>
+            : GetScalarType<T[P], SetPasswordTokenGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SetPasswordTokenSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    token?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["setPasswordToken"]>
+
+  export type SetPasswordTokenSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    token?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["setPasswordToken"]>
+
+  export type SetPasswordTokenSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    token?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["setPasswordToken"]>
+
+  export type SetPasswordTokenSelectScalar = {
+    id?: boolean
+    token?: boolean
+    userId?: boolean
+    createdAt?: boolean
+  }
+
+  export type SetPasswordTokenOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "token" | "userId" | "createdAt", ExtArgs["result"]["setPasswordToken"]>
+  export type SetPasswordTokenInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type SetPasswordTokenIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type SetPasswordTokenIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $SetPasswordTokenPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SetPasswordToken"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      token: string
+      userId: number
+      createdAt: Date
+    }, ExtArgs["result"]["setPasswordToken"]>
+    composites: {}
+  }
+
+  type SetPasswordTokenGetPayload<S extends boolean | null | undefined | SetPasswordTokenDefaultArgs> = $Result.GetResult<Prisma.$SetPasswordTokenPayload, S>
+
+  type SetPasswordTokenCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SetPasswordTokenFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SetPasswordTokenCountAggregateInputType | true
+    }
+
+  export interface SetPasswordTokenDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SetPasswordToken'], meta: { name: 'SetPasswordToken' } }
+    /**
+     * Find zero or one SetPasswordToken that matches the filter.
+     * @param {SetPasswordTokenFindUniqueArgs} args - Arguments to find a SetPasswordToken
+     * @example
+     * // Get one SetPasswordToken
+     * const setPasswordToken = await prisma.setPasswordToken.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SetPasswordTokenFindUniqueArgs>(args: SelectSubset<T, SetPasswordTokenFindUniqueArgs<ExtArgs>>): Prisma__SetPasswordTokenClient<$Result.GetResult<Prisma.$SetPasswordTokenPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SetPasswordToken that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SetPasswordTokenFindUniqueOrThrowArgs} args - Arguments to find a SetPasswordToken
+     * @example
+     * // Get one SetPasswordToken
+     * const setPasswordToken = await prisma.setPasswordToken.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SetPasswordTokenFindUniqueOrThrowArgs>(args: SelectSubset<T, SetPasswordTokenFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SetPasswordTokenClient<$Result.GetResult<Prisma.$SetPasswordTokenPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SetPasswordToken that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SetPasswordTokenFindFirstArgs} args - Arguments to find a SetPasswordToken
+     * @example
+     * // Get one SetPasswordToken
+     * const setPasswordToken = await prisma.setPasswordToken.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SetPasswordTokenFindFirstArgs>(args?: SelectSubset<T, SetPasswordTokenFindFirstArgs<ExtArgs>>): Prisma__SetPasswordTokenClient<$Result.GetResult<Prisma.$SetPasswordTokenPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SetPasswordToken that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SetPasswordTokenFindFirstOrThrowArgs} args - Arguments to find a SetPasswordToken
+     * @example
+     * // Get one SetPasswordToken
+     * const setPasswordToken = await prisma.setPasswordToken.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SetPasswordTokenFindFirstOrThrowArgs>(args?: SelectSubset<T, SetPasswordTokenFindFirstOrThrowArgs<ExtArgs>>): Prisma__SetPasswordTokenClient<$Result.GetResult<Prisma.$SetPasswordTokenPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SetPasswordTokens that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SetPasswordTokenFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SetPasswordTokens
+     * const setPasswordTokens = await prisma.setPasswordToken.findMany()
+     * 
+     * // Get first 10 SetPasswordTokens
+     * const setPasswordTokens = await prisma.setPasswordToken.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const setPasswordTokenWithIdOnly = await prisma.setPasswordToken.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SetPasswordTokenFindManyArgs>(args?: SelectSubset<T, SetPasswordTokenFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SetPasswordTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SetPasswordToken.
+     * @param {SetPasswordTokenCreateArgs} args - Arguments to create a SetPasswordToken.
+     * @example
+     * // Create one SetPasswordToken
+     * const SetPasswordToken = await prisma.setPasswordToken.create({
+     *   data: {
+     *     // ... data to create a SetPasswordToken
+     *   }
+     * })
+     * 
+     */
+    create<T extends SetPasswordTokenCreateArgs>(args: SelectSubset<T, SetPasswordTokenCreateArgs<ExtArgs>>): Prisma__SetPasswordTokenClient<$Result.GetResult<Prisma.$SetPasswordTokenPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SetPasswordTokens.
+     * @param {SetPasswordTokenCreateManyArgs} args - Arguments to create many SetPasswordTokens.
+     * @example
+     * // Create many SetPasswordTokens
+     * const setPasswordToken = await prisma.setPasswordToken.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SetPasswordTokenCreateManyArgs>(args?: SelectSubset<T, SetPasswordTokenCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SetPasswordTokens and returns the data saved in the database.
+     * @param {SetPasswordTokenCreateManyAndReturnArgs} args - Arguments to create many SetPasswordTokens.
+     * @example
+     * // Create many SetPasswordTokens
+     * const setPasswordToken = await prisma.setPasswordToken.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SetPasswordTokens and only return the `id`
+     * const setPasswordTokenWithIdOnly = await prisma.setPasswordToken.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SetPasswordTokenCreateManyAndReturnArgs>(args?: SelectSubset<T, SetPasswordTokenCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SetPasswordTokenPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SetPasswordToken.
+     * @param {SetPasswordTokenDeleteArgs} args - Arguments to delete one SetPasswordToken.
+     * @example
+     * // Delete one SetPasswordToken
+     * const SetPasswordToken = await prisma.setPasswordToken.delete({
+     *   where: {
+     *     // ... filter to delete one SetPasswordToken
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SetPasswordTokenDeleteArgs>(args: SelectSubset<T, SetPasswordTokenDeleteArgs<ExtArgs>>): Prisma__SetPasswordTokenClient<$Result.GetResult<Prisma.$SetPasswordTokenPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SetPasswordToken.
+     * @param {SetPasswordTokenUpdateArgs} args - Arguments to update one SetPasswordToken.
+     * @example
+     * // Update one SetPasswordToken
+     * const setPasswordToken = await prisma.setPasswordToken.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SetPasswordTokenUpdateArgs>(args: SelectSubset<T, SetPasswordTokenUpdateArgs<ExtArgs>>): Prisma__SetPasswordTokenClient<$Result.GetResult<Prisma.$SetPasswordTokenPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SetPasswordTokens.
+     * @param {SetPasswordTokenDeleteManyArgs} args - Arguments to filter SetPasswordTokens to delete.
+     * @example
+     * // Delete a few SetPasswordTokens
+     * const { count } = await prisma.setPasswordToken.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SetPasswordTokenDeleteManyArgs>(args?: SelectSubset<T, SetPasswordTokenDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SetPasswordTokens.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SetPasswordTokenUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SetPasswordTokens
+     * const setPasswordToken = await prisma.setPasswordToken.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SetPasswordTokenUpdateManyArgs>(args: SelectSubset<T, SetPasswordTokenUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SetPasswordTokens and returns the data updated in the database.
+     * @param {SetPasswordTokenUpdateManyAndReturnArgs} args - Arguments to update many SetPasswordTokens.
+     * @example
+     * // Update many SetPasswordTokens
+     * const setPasswordToken = await prisma.setPasswordToken.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more SetPasswordTokens and only return the `id`
+     * const setPasswordTokenWithIdOnly = await prisma.setPasswordToken.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SetPasswordTokenUpdateManyAndReturnArgs>(args: SelectSubset<T, SetPasswordTokenUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SetPasswordTokenPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SetPasswordToken.
+     * @param {SetPasswordTokenUpsertArgs} args - Arguments to update or create a SetPasswordToken.
+     * @example
+     * // Update or create a SetPasswordToken
+     * const setPasswordToken = await prisma.setPasswordToken.upsert({
+     *   create: {
+     *     // ... data to create a SetPasswordToken
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SetPasswordToken we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SetPasswordTokenUpsertArgs>(args: SelectSubset<T, SetPasswordTokenUpsertArgs<ExtArgs>>): Prisma__SetPasswordTokenClient<$Result.GetResult<Prisma.$SetPasswordTokenPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SetPasswordTokens.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SetPasswordTokenCountArgs} args - Arguments to filter SetPasswordTokens to count.
+     * @example
+     * // Count the number of SetPasswordTokens
+     * const count = await prisma.setPasswordToken.count({
+     *   where: {
+     *     // ... the filter for the SetPasswordTokens we want to count
+     *   }
+     * })
+    **/
+    count<T extends SetPasswordTokenCountArgs>(
+      args?: Subset<T, SetPasswordTokenCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SetPasswordTokenCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SetPasswordToken.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SetPasswordTokenAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SetPasswordTokenAggregateArgs>(args: Subset<T, SetPasswordTokenAggregateArgs>): Prisma.PrismaPromise<GetSetPasswordTokenAggregateType<T>>
+
+    /**
+     * Group by SetPasswordToken.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SetPasswordTokenGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SetPasswordTokenGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SetPasswordTokenGroupByArgs['orderBy'] }
+        : { orderBy?: SetPasswordTokenGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SetPasswordTokenGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSetPasswordTokenGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SetPasswordToken model
+   */
+  readonly fields: SetPasswordTokenFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SetPasswordToken.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SetPasswordTokenClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SetPasswordToken model
+   */
+  interface SetPasswordTokenFieldRefs {
+    readonly id: FieldRef<"SetPasswordToken", 'Int'>
+    readonly token: FieldRef<"SetPasswordToken", 'String'>
+    readonly userId: FieldRef<"SetPasswordToken", 'Int'>
+    readonly createdAt: FieldRef<"SetPasswordToken", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SetPasswordToken findUnique
+   */
+  export type SetPasswordTokenFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SetPasswordToken
+     */
+    select?: SetPasswordTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SetPasswordToken
+     */
+    omit?: SetPasswordTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SetPasswordTokenInclude<ExtArgs> | null
+    /**
+     * Filter, which SetPasswordToken to fetch.
+     */
+    where: SetPasswordTokenWhereUniqueInput
+  }
+
+  /**
+   * SetPasswordToken findUniqueOrThrow
+   */
+  export type SetPasswordTokenFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SetPasswordToken
+     */
+    select?: SetPasswordTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SetPasswordToken
+     */
+    omit?: SetPasswordTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SetPasswordTokenInclude<ExtArgs> | null
+    /**
+     * Filter, which SetPasswordToken to fetch.
+     */
+    where: SetPasswordTokenWhereUniqueInput
+  }
+
+  /**
+   * SetPasswordToken findFirst
+   */
+  export type SetPasswordTokenFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SetPasswordToken
+     */
+    select?: SetPasswordTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SetPasswordToken
+     */
+    omit?: SetPasswordTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SetPasswordTokenInclude<ExtArgs> | null
+    /**
+     * Filter, which SetPasswordToken to fetch.
+     */
+    where?: SetPasswordTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SetPasswordTokens to fetch.
+     */
+    orderBy?: SetPasswordTokenOrderByWithRelationInput | SetPasswordTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SetPasswordTokens.
+     */
+    cursor?: SetPasswordTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SetPasswordTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SetPasswordTokens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SetPasswordTokens.
+     */
+    distinct?: SetPasswordTokenScalarFieldEnum | SetPasswordTokenScalarFieldEnum[]
+  }
+
+  /**
+   * SetPasswordToken findFirstOrThrow
+   */
+  export type SetPasswordTokenFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SetPasswordToken
+     */
+    select?: SetPasswordTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SetPasswordToken
+     */
+    omit?: SetPasswordTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SetPasswordTokenInclude<ExtArgs> | null
+    /**
+     * Filter, which SetPasswordToken to fetch.
+     */
+    where?: SetPasswordTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SetPasswordTokens to fetch.
+     */
+    orderBy?: SetPasswordTokenOrderByWithRelationInput | SetPasswordTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SetPasswordTokens.
+     */
+    cursor?: SetPasswordTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SetPasswordTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SetPasswordTokens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SetPasswordTokens.
+     */
+    distinct?: SetPasswordTokenScalarFieldEnum | SetPasswordTokenScalarFieldEnum[]
+  }
+
+  /**
+   * SetPasswordToken findMany
+   */
+  export type SetPasswordTokenFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SetPasswordToken
+     */
+    select?: SetPasswordTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SetPasswordToken
+     */
+    omit?: SetPasswordTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SetPasswordTokenInclude<ExtArgs> | null
+    /**
+     * Filter, which SetPasswordTokens to fetch.
+     */
+    where?: SetPasswordTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SetPasswordTokens to fetch.
+     */
+    orderBy?: SetPasswordTokenOrderByWithRelationInput | SetPasswordTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SetPasswordTokens.
+     */
+    cursor?: SetPasswordTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SetPasswordTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SetPasswordTokens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SetPasswordTokens.
+     */
+    distinct?: SetPasswordTokenScalarFieldEnum | SetPasswordTokenScalarFieldEnum[]
+  }
+
+  /**
+   * SetPasswordToken create
+   */
+  export type SetPasswordTokenCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SetPasswordToken
+     */
+    select?: SetPasswordTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SetPasswordToken
+     */
+    omit?: SetPasswordTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SetPasswordTokenInclude<ExtArgs> | null
+    /**
+     * The data needed to create a SetPasswordToken.
+     */
+    data: XOR<SetPasswordTokenCreateInput, SetPasswordTokenUncheckedCreateInput>
+  }
+
+  /**
+   * SetPasswordToken createMany
+   */
+  export type SetPasswordTokenCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SetPasswordTokens.
+     */
+    data: SetPasswordTokenCreateManyInput | SetPasswordTokenCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SetPasswordToken createManyAndReturn
+   */
+  export type SetPasswordTokenCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SetPasswordToken
+     */
+    select?: SetPasswordTokenSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SetPasswordToken
+     */
+    omit?: SetPasswordTokenOmit<ExtArgs> | null
+    /**
+     * The data used to create many SetPasswordTokens.
+     */
+    data: SetPasswordTokenCreateManyInput | SetPasswordTokenCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SetPasswordTokenIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SetPasswordToken update
+   */
+  export type SetPasswordTokenUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SetPasswordToken
+     */
+    select?: SetPasswordTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SetPasswordToken
+     */
+    omit?: SetPasswordTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SetPasswordTokenInclude<ExtArgs> | null
+    /**
+     * The data needed to update a SetPasswordToken.
+     */
+    data: XOR<SetPasswordTokenUpdateInput, SetPasswordTokenUncheckedUpdateInput>
+    /**
+     * Choose, which SetPasswordToken to update.
+     */
+    where: SetPasswordTokenWhereUniqueInput
+  }
+
+  /**
+   * SetPasswordToken updateMany
+   */
+  export type SetPasswordTokenUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SetPasswordTokens.
+     */
+    data: XOR<SetPasswordTokenUpdateManyMutationInput, SetPasswordTokenUncheckedUpdateManyInput>
+    /**
+     * Filter which SetPasswordTokens to update
+     */
+    where?: SetPasswordTokenWhereInput
+    /**
+     * Limit how many SetPasswordTokens to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SetPasswordToken updateManyAndReturn
+   */
+  export type SetPasswordTokenUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SetPasswordToken
+     */
+    select?: SetPasswordTokenSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SetPasswordToken
+     */
+    omit?: SetPasswordTokenOmit<ExtArgs> | null
+    /**
+     * The data used to update SetPasswordTokens.
+     */
+    data: XOR<SetPasswordTokenUpdateManyMutationInput, SetPasswordTokenUncheckedUpdateManyInput>
+    /**
+     * Filter which SetPasswordTokens to update
+     */
+    where?: SetPasswordTokenWhereInput
+    /**
+     * Limit how many SetPasswordTokens to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SetPasswordTokenIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SetPasswordToken upsert
+   */
+  export type SetPasswordTokenUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SetPasswordToken
+     */
+    select?: SetPasswordTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SetPasswordToken
+     */
+    omit?: SetPasswordTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SetPasswordTokenInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SetPasswordToken to update in case it exists.
+     */
+    where: SetPasswordTokenWhereUniqueInput
+    /**
+     * In case the SetPasswordToken found by the `where` argument doesn't exist, create a new SetPasswordToken with this data.
+     */
+    create: XOR<SetPasswordTokenCreateInput, SetPasswordTokenUncheckedCreateInput>
+    /**
+     * In case the SetPasswordToken was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SetPasswordTokenUpdateInput, SetPasswordTokenUncheckedUpdateInput>
+  }
+
+  /**
+   * SetPasswordToken delete
+   */
+  export type SetPasswordTokenDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SetPasswordToken
+     */
+    select?: SetPasswordTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SetPasswordToken
+     */
+    omit?: SetPasswordTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SetPasswordTokenInclude<ExtArgs> | null
+    /**
+     * Filter which SetPasswordToken to delete.
+     */
+    where: SetPasswordTokenWhereUniqueInput
+  }
+
+  /**
+   * SetPasswordToken deleteMany
+   */
+  export type SetPasswordTokenDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SetPasswordTokens to delete
+     */
+    where?: SetPasswordTokenWhereInput
+    /**
+     * Limit how many SetPasswordTokens to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SetPasswordToken without action
+   */
+  export type SetPasswordTokenDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SetPasswordToken
+     */
+    select?: SetPasswordTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SetPasswordToken
+     */
+    omit?: SetPasswordTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SetPasswordTokenInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -4651,12 +7109,14 @@ export namespace Prisma {
     zipCode: 'zipCode',
     phoneNumber: 'phoneNumber',
     password: 'password',
+    clubName: 'clubName',
     currentMembershipId: 'currentMembershipId',
     membershipStatus: 'membershipStatus',
     membershipStartDate: 'membershipStartDate',
     membershipEndDate: 'membershipEndDate',
     nextBillingDate: 'nextBillingDate',
     billingCycle: 'billingCycle',
+    cancellationDate: 'cancellationDate',
     createdAt: 'createdAt'
   };
 
@@ -4666,7 +7126,6 @@ export namespace Prisma {
   export const MembershipScalarFieldEnum: {
     id: 'id',
     title: 'title',
-    clubName: 'clubName',
     price: 'price',
     currency: 'currency',
     isActive: 'isActive',
@@ -4686,6 +7145,27 @@ export namespace Prisma {
   };
 
   export type RefreshTokenScalarFieldEnum = (typeof RefreshTokenScalarFieldEnum)[keyof typeof RefreshTokenScalarFieldEnum]
+
+
+  export const PasswordResetTokenScalarFieldEnum: {
+    id: 'id',
+    token: 'token',
+    expiresAt: 'expiresAt',
+    userId: 'userId',
+    createdAt: 'createdAt'
+  };
+
+  export type PasswordResetTokenScalarFieldEnum = (typeof PasswordResetTokenScalarFieldEnum)[keyof typeof PasswordResetTokenScalarFieldEnum]
+
+
+  export const SetPasswordTokenScalarFieldEnum: {
+    id: 'id',
+    token: 'token',
+    userId: 'userId',
+    createdAt: 'createdAt'
+  };
+
+  export type SetPasswordTokenScalarFieldEnum = (typeof SetPasswordTokenScalarFieldEnum)[keyof typeof SetPasswordTokenScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -4794,15 +7274,19 @@ export namespace Prisma {
     zipCode?: StringFilter<"User"> | string
     phoneNumber?: StringFilter<"User"> | string
     password?: StringNullableFilter<"User"> | string | null
+    clubName?: StringFilter<"User"> | string
     currentMembershipId?: IntNullableFilter<"User"> | number | null
     membershipStatus?: StringFilter<"User"> | string
     membershipStartDate?: DateTimeNullableFilter<"User"> | Date | string | null
     membershipEndDate?: DateTimeNullableFilter<"User"> | Date | string | null
     nextBillingDate?: DateTimeNullableFilter<"User"> | Date | string | null
     billingCycle?: StringFilter<"User"> | string
+    cancellationDate?: DateTimeNullableFilter<"User"> | Date | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     currentMembership?: XOR<MembershipNullableScalarRelationFilter, MembershipWhereInput> | null
-    refreshtokens?: RefreshTokenListRelationFilter
+    refreshTokens?: RefreshTokenListRelationFilter
+    passwordResetTokens?: PasswordResetTokenListRelationFilter
+    setPasswordTokens?: SetPasswordTokenListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -4813,15 +7297,19 @@ export namespace Prisma {
     zipCode?: SortOrder
     phoneNumber?: SortOrder
     password?: SortOrderInput | SortOrder
+    clubName?: SortOrder
     currentMembershipId?: SortOrderInput | SortOrder
     membershipStatus?: SortOrder
     membershipStartDate?: SortOrderInput | SortOrder
     membershipEndDate?: SortOrderInput | SortOrder
     nextBillingDate?: SortOrderInput | SortOrder
     billingCycle?: SortOrder
+    cancellationDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     currentMembership?: MembershipOrderByWithRelationInput
-    refreshtokens?: RefreshTokenOrderByRelationAggregateInput
+    refreshTokens?: RefreshTokenOrderByRelationAggregateInput
+    passwordResetTokens?: PasswordResetTokenOrderByRelationAggregateInput
+    setPasswordTokens?: SetPasswordTokenOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -4835,15 +7323,19 @@ export namespace Prisma {
     zipCode?: StringFilter<"User"> | string
     phoneNumber?: StringFilter<"User"> | string
     password?: StringNullableFilter<"User"> | string | null
+    clubName?: StringFilter<"User"> | string
     currentMembershipId?: IntNullableFilter<"User"> | number | null
     membershipStatus?: StringFilter<"User"> | string
     membershipStartDate?: DateTimeNullableFilter<"User"> | Date | string | null
     membershipEndDate?: DateTimeNullableFilter<"User"> | Date | string | null
     nextBillingDate?: DateTimeNullableFilter<"User"> | Date | string | null
     billingCycle?: StringFilter<"User"> | string
+    cancellationDate?: DateTimeNullableFilter<"User"> | Date | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     currentMembership?: XOR<MembershipNullableScalarRelationFilter, MembershipWhereInput> | null
-    refreshtokens?: RefreshTokenListRelationFilter
+    refreshTokens?: RefreshTokenListRelationFilter
+    passwordResetTokens?: PasswordResetTokenListRelationFilter
+    setPasswordTokens?: SetPasswordTokenListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -4854,12 +7346,14 @@ export namespace Prisma {
     zipCode?: SortOrder
     phoneNumber?: SortOrder
     password?: SortOrderInput | SortOrder
+    clubName?: SortOrder
     currentMembershipId?: SortOrderInput | SortOrder
     membershipStatus?: SortOrder
     membershipStartDate?: SortOrderInput | SortOrder
     membershipEndDate?: SortOrderInput | SortOrder
     nextBillingDate?: SortOrderInput | SortOrder
     billingCycle?: SortOrder
+    cancellationDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
@@ -4879,12 +7373,14 @@ export namespace Prisma {
     zipCode?: StringWithAggregatesFilter<"User"> | string
     phoneNumber?: StringWithAggregatesFilter<"User"> | string
     password?: StringNullableWithAggregatesFilter<"User"> | string | null
+    clubName?: StringWithAggregatesFilter<"User"> | string
     currentMembershipId?: IntNullableWithAggregatesFilter<"User"> | number | null
     membershipStatus?: StringWithAggregatesFilter<"User"> | string
     membershipStartDate?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     membershipEndDate?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     nextBillingDate?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     billingCycle?: StringWithAggregatesFilter<"User"> | string
+    cancellationDate?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
@@ -4894,7 +7390,6 @@ export namespace Prisma {
     NOT?: MembershipWhereInput | MembershipWhereInput[]
     id?: IntFilter<"Membership"> | number
     title?: StringFilter<"Membership"> | string
-    clubName?: StringFilter<"Membership"> | string
     price?: FloatFilter<"Membership"> | number
     currency?: StringFilter<"Membership"> | string
     isActive?: BoolFilter<"Membership"> | boolean
@@ -4905,7 +7400,6 @@ export namespace Prisma {
   export type MembershipOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
-    clubName?: SortOrder
     price?: SortOrder
     currency?: SortOrder
     isActive?: SortOrder
@@ -4919,7 +7413,6 @@ export namespace Prisma {
     OR?: MembershipWhereInput[]
     NOT?: MembershipWhereInput | MembershipWhereInput[]
     title?: StringFilter<"Membership"> | string
-    clubName?: StringFilter<"Membership"> | string
     price?: FloatFilter<"Membership"> | number
     currency?: StringFilter<"Membership"> | string
     isActive?: BoolFilter<"Membership"> | boolean
@@ -4930,7 +7423,6 @@ export namespace Prisma {
   export type MembershipOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
-    clubName?: SortOrder
     price?: SortOrder
     currency?: SortOrder
     isActive?: SortOrder
@@ -4948,7 +7440,6 @@ export namespace Prisma {
     NOT?: MembershipScalarWhereWithAggregatesInput | MembershipScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Membership"> | number
     title?: StringWithAggregatesFilter<"Membership"> | string
-    clubName?: StringWithAggregatesFilter<"Membership"> | string
     price?: FloatWithAggregatesFilter<"Membership"> | number
     currency?: StringWithAggregatesFilter<"Membership"> | string
     isActive?: BoolWithAggregatesFilter<"Membership"> | boolean
@@ -5017,6 +7508,115 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"RefreshToken"> | Date | string
   }
 
+  export type PasswordResetTokenWhereInput = {
+    AND?: PasswordResetTokenWhereInput | PasswordResetTokenWhereInput[]
+    OR?: PasswordResetTokenWhereInput[]
+    NOT?: PasswordResetTokenWhereInput | PasswordResetTokenWhereInput[]
+    id?: IntFilter<"PasswordResetToken"> | number
+    token?: StringFilter<"PasswordResetToken"> | string
+    expiresAt?: DateTimeFilter<"PasswordResetToken"> | Date | string
+    userId?: IntFilter<"PasswordResetToken"> | number
+    createdAt?: DateTimeFilter<"PasswordResetToken"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type PasswordResetTokenOrderByWithRelationInput = {
+    id?: SortOrder
+    token?: SortOrder
+    expiresAt?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type PasswordResetTokenWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    token?: string
+    AND?: PasswordResetTokenWhereInput | PasswordResetTokenWhereInput[]
+    OR?: PasswordResetTokenWhereInput[]
+    NOT?: PasswordResetTokenWhereInput | PasswordResetTokenWhereInput[]
+    expiresAt?: DateTimeFilter<"PasswordResetToken"> | Date | string
+    userId?: IntFilter<"PasswordResetToken"> | number
+    createdAt?: DateTimeFilter<"PasswordResetToken"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id" | "token">
+
+  export type PasswordResetTokenOrderByWithAggregationInput = {
+    id?: SortOrder
+    token?: SortOrder
+    expiresAt?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    _count?: PasswordResetTokenCountOrderByAggregateInput
+    _avg?: PasswordResetTokenAvgOrderByAggregateInput
+    _max?: PasswordResetTokenMaxOrderByAggregateInput
+    _min?: PasswordResetTokenMinOrderByAggregateInput
+    _sum?: PasswordResetTokenSumOrderByAggregateInput
+  }
+
+  export type PasswordResetTokenScalarWhereWithAggregatesInput = {
+    AND?: PasswordResetTokenScalarWhereWithAggregatesInput | PasswordResetTokenScalarWhereWithAggregatesInput[]
+    OR?: PasswordResetTokenScalarWhereWithAggregatesInput[]
+    NOT?: PasswordResetTokenScalarWhereWithAggregatesInput | PasswordResetTokenScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"PasswordResetToken"> | number
+    token?: StringWithAggregatesFilter<"PasswordResetToken"> | string
+    expiresAt?: DateTimeWithAggregatesFilter<"PasswordResetToken"> | Date | string
+    userId?: IntWithAggregatesFilter<"PasswordResetToken"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"PasswordResetToken"> | Date | string
+  }
+
+  export type SetPasswordTokenWhereInput = {
+    AND?: SetPasswordTokenWhereInput | SetPasswordTokenWhereInput[]
+    OR?: SetPasswordTokenWhereInput[]
+    NOT?: SetPasswordTokenWhereInput | SetPasswordTokenWhereInput[]
+    id?: IntFilter<"SetPasswordToken"> | number
+    token?: StringFilter<"SetPasswordToken"> | string
+    userId?: IntFilter<"SetPasswordToken"> | number
+    createdAt?: DateTimeFilter<"SetPasswordToken"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type SetPasswordTokenOrderByWithRelationInput = {
+    id?: SortOrder
+    token?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type SetPasswordTokenWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    token?: string
+    AND?: SetPasswordTokenWhereInput | SetPasswordTokenWhereInput[]
+    OR?: SetPasswordTokenWhereInput[]
+    NOT?: SetPasswordTokenWhereInput | SetPasswordTokenWhereInput[]
+    userId?: IntFilter<"SetPasswordToken"> | number
+    createdAt?: DateTimeFilter<"SetPasswordToken"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id" | "token">
+
+  export type SetPasswordTokenOrderByWithAggregationInput = {
+    id?: SortOrder
+    token?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    _count?: SetPasswordTokenCountOrderByAggregateInput
+    _avg?: SetPasswordTokenAvgOrderByAggregateInput
+    _max?: SetPasswordTokenMaxOrderByAggregateInput
+    _min?: SetPasswordTokenMinOrderByAggregateInput
+    _sum?: SetPasswordTokenSumOrderByAggregateInput
+  }
+
+  export type SetPasswordTokenScalarWhereWithAggregatesInput = {
+    AND?: SetPasswordTokenScalarWhereWithAggregatesInput | SetPasswordTokenScalarWhereWithAggregatesInput[]
+    OR?: SetPasswordTokenScalarWhereWithAggregatesInput[]
+    NOT?: SetPasswordTokenScalarWhereWithAggregatesInput | SetPasswordTokenScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"SetPasswordToken"> | number
+    token?: StringWithAggregatesFilter<"SetPasswordToken"> | string
+    userId?: IntWithAggregatesFilter<"SetPasswordToken"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"SetPasswordToken"> | Date | string
+  }
+
   export type UserCreateInput = {
     name: string
     surname: string
@@ -5024,14 +7624,18 @@ export namespace Prisma {
     zipCode: string
     phoneNumber: string
     password?: string | null
+    clubName: string
     membershipStatus?: string
     membershipStartDate?: Date | string | null
     membershipEndDate?: Date | string | null
     nextBillingDate?: Date | string | null
     billingCycle?: string
+    cancellationDate?: Date | string | null
     createdAt?: Date | string
     currentMembership?: MembershipCreateNestedOneWithoutUsersInput
-    refreshtokens?: RefreshTokenCreateNestedManyWithoutUserInput
+    refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
+    passwordResetTokens?: PasswordResetTokenCreateNestedManyWithoutUserInput
+    setPasswordTokens?: SetPasswordTokenCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -5042,14 +7646,18 @@ export namespace Prisma {
     zipCode: string
     phoneNumber: string
     password?: string | null
+    clubName: string
     currentMembershipId?: number | null
     membershipStatus?: string
     membershipStartDate?: Date | string | null
     membershipEndDate?: Date | string | null
     nextBillingDate?: Date | string | null
     billingCycle?: string
+    cancellationDate?: Date | string | null
     createdAt?: Date | string
-    refreshtokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
+    refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
+    passwordResetTokens?: PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+    setPasswordTokens?: SetPasswordTokenUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -5059,14 +7667,18 @@ export namespace Prisma {
     zipCode?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    clubName?: StringFieldUpdateOperationsInput | string
     membershipStatus?: StringFieldUpdateOperationsInput | string
     membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     billingCycle?: StringFieldUpdateOperationsInput | string
+    cancellationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     currentMembership?: MembershipUpdateOneWithoutUsersNestedInput
-    refreshtokens?: RefreshTokenUpdateManyWithoutUserNestedInput
+    refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
+    passwordResetTokens?: PasswordResetTokenUpdateManyWithoutUserNestedInput
+    setPasswordTokens?: SetPasswordTokenUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -5077,14 +7689,18 @@ export namespace Prisma {
     zipCode?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    clubName?: StringFieldUpdateOperationsInput | string
     currentMembershipId?: NullableIntFieldUpdateOperationsInput | number | null
     membershipStatus?: StringFieldUpdateOperationsInput | string
     membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     billingCycle?: StringFieldUpdateOperationsInput | string
+    cancellationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    refreshtokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
+    refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
+    passwordResetTokens?: PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+    setPasswordTokens?: SetPasswordTokenUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -5095,12 +7711,14 @@ export namespace Prisma {
     zipCode: string
     phoneNumber: string
     password?: string | null
+    clubName: string
     currentMembershipId?: number | null
     membershipStatus?: string
     membershipStartDate?: Date | string | null
     membershipEndDate?: Date | string | null
     nextBillingDate?: Date | string | null
     billingCycle?: string
+    cancellationDate?: Date | string | null
     createdAt?: Date | string
   }
 
@@ -5111,11 +7729,13 @@ export namespace Prisma {
     zipCode?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    clubName?: StringFieldUpdateOperationsInput | string
     membershipStatus?: StringFieldUpdateOperationsInput | string
     membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     billingCycle?: StringFieldUpdateOperationsInput | string
+    cancellationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -5127,18 +7747,19 @@ export namespace Prisma {
     zipCode?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    clubName?: StringFieldUpdateOperationsInput | string
     currentMembershipId?: NullableIntFieldUpdateOperationsInput | number | null
     membershipStatus?: StringFieldUpdateOperationsInput | string
     membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     billingCycle?: StringFieldUpdateOperationsInput | string
+    cancellationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type MembershipCreateInput = {
     title: string
-    clubName: string
     price: number
     currency?: string
     isActive?: boolean
@@ -5149,7 +7770,6 @@ export namespace Prisma {
   export type MembershipUncheckedCreateInput = {
     id?: number
     title: string
-    clubName: string
     price: number
     currency?: string
     isActive?: boolean
@@ -5159,7 +7779,6 @@ export namespace Prisma {
 
   export type MembershipUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
-    clubName?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
@@ -5170,7 +7789,6 @@ export namespace Prisma {
   export type MembershipUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
-    clubName?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
@@ -5181,7 +7799,6 @@ export namespace Prisma {
   export type MembershipCreateManyInput = {
     id?: number
     title: string
-    clubName: string
     price: number
     currency?: string
     isActive?: boolean
@@ -5190,7 +7807,6 @@ export namespace Prisma {
 
   export type MembershipUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
-    clubName?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
@@ -5200,7 +7816,6 @@ export namespace Prisma {
   export type MembershipUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
-    clubName?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
@@ -5212,7 +7827,7 @@ export namespace Prisma {
     expiresAt: Date | string
     revoked?: boolean
     createdAt?: Date | string
-    user: UserCreateNestedOneWithoutRefreshtokensInput
+    user: UserCreateNestedOneWithoutRefreshTokensInput
   }
 
   export type RefreshTokenUncheckedCreateInput = {
@@ -5229,7 +7844,7 @@ export namespace Prisma {
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     revoked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutRefreshtokensNestedInput
+    user?: UserUpdateOneRequiredWithoutRefreshTokensNestedInput
   }
 
   export type RefreshTokenUncheckedUpdateInput = {
@@ -5263,6 +7878,103 @@ export namespace Prisma {
     userId?: IntFieldUpdateOperationsInput | number
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     revoked?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PasswordResetTokenCreateInput = {
+    token: string
+    expiresAt: Date | string
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutPasswordResetTokensInput
+  }
+
+  export type PasswordResetTokenUncheckedCreateInput = {
+    id?: number
+    token: string
+    expiresAt: Date | string
+    userId: number
+    createdAt?: Date | string
+  }
+
+  export type PasswordResetTokenUpdateInput = {
+    token?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutPasswordResetTokensNestedInput
+  }
+
+  export type PasswordResetTokenUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    token?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PasswordResetTokenCreateManyInput = {
+    id?: number
+    token: string
+    expiresAt: Date | string
+    userId: number
+    createdAt?: Date | string
+  }
+
+  export type PasswordResetTokenUpdateManyMutationInput = {
+    token?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PasswordResetTokenUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    token?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SetPasswordTokenCreateInput = {
+    token: string
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutSetPasswordTokensInput
+  }
+
+  export type SetPasswordTokenUncheckedCreateInput = {
+    id?: number
+    token: string
+    userId: number
+    createdAt?: Date | string
+  }
+
+  export type SetPasswordTokenUpdateInput = {
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutSetPasswordTokensNestedInput
+  }
+
+  export type SetPasswordTokenUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    token?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SetPasswordTokenCreateManyInput = {
+    id?: number
+    token: string
+    userId: number
+    createdAt?: Date | string
+  }
+
+  export type SetPasswordTokenUpdateManyMutationInput = {
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SetPasswordTokenUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    token?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -5351,12 +8063,32 @@ export namespace Prisma {
     none?: RefreshTokenWhereInput
   }
 
+  export type PasswordResetTokenListRelationFilter = {
+    every?: PasswordResetTokenWhereInput
+    some?: PasswordResetTokenWhereInput
+    none?: PasswordResetTokenWhereInput
+  }
+
+  export type SetPasswordTokenListRelationFilter = {
+    every?: SetPasswordTokenWhereInput
+    some?: SetPasswordTokenWhereInput
+    none?: SetPasswordTokenWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
   }
 
   export type RefreshTokenOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PasswordResetTokenOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SetPasswordTokenOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -5368,12 +8100,14 @@ export namespace Prisma {
     zipCode?: SortOrder
     phoneNumber?: SortOrder
     password?: SortOrder
+    clubName?: SortOrder
     currentMembershipId?: SortOrder
     membershipStatus?: SortOrder
     membershipStartDate?: SortOrder
     membershipEndDate?: SortOrder
     nextBillingDate?: SortOrder
     billingCycle?: SortOrder
+    cancellationDate?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -5390,12 +8124,14 @@ export namespace Prisma {
     zipCode?: SortOrder
     phoneNumber?: SortOrder
     password?: SortOrder
+    clubName?: SortOrder
     currentMembershipId?: SortOrder
     membershipStatus?: SortOrder
     membershipStartDate?: SortOrder
     membershipEndDate?: SortOrder
     nextBillingDate?: SortOrder
     billingCycle?: SortOrder
+    cancellationDate?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -5407,12 +8143,14 @@ export namespace Prisma {
     zipCode?: SortOrder
     phoneNumber?: SortOrder
     password?: SortOrder
+    clubName?: SortOrder
     currentMembershipId?: SortOrder
     membershipStatus?: SortOrder
     membershipStartDate?: SortOrder
     membershipEndDate?: SortOrder
     nextBillingDate?: SortOrder
     billingCycle?: SortOrder
+    cancellationDate?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -5546,7 +8284,6 @@ export namespace Prisma {
   export type MembershipCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    clubName?: SortOrder
     price?: SortOrder
     currency?: SortOrder
     isActive?: SortOrder
@@ -5561,7 +8298,6 @@ export namespace Prisma {
   export type MembershipMaxOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    clubName?: SortOrder
     price?: SortOrder
     currency?: SortOrder
     isActive?: SortOrder
@@ -5571,7 +8307,6 @@ export namespace Prisma {
   export type MembershipMinOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    clubName?: SortOrder
     price?: SortOrder
     currency?: SortOrder
     isActive?: SortOrder
@@ -5649,6 +8384,71 @@ export namespace Prisma {
     userId?: SortOrder
   }
 
+  export type PasswordResetTokenCountOrderByAggregateInput = {
+    id?: SortOrder
+    token?: SortOrder
+    expiresAt?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type PasswordResetTokenAvgOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type PasswordResetTokenMaxOrderByAggregateInput = {
+    id?: SortOrder
+    token?: SortOrder
+    expiresAt?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type PasswordResetTokenMinOrderByAggregateInput = {
+    id?: SortOrder
+    token?: SortOrder
+    expiresAt?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type PasswordResetTokenSumOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type SetPasswordTokenCountOrderByAggregateInput = {
+    id?: SortOrder
+    token?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type SetPasswordTokenAvgOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type SetPasswordTokenMaxOrderByAggregateInput = {
+    id?: SortOrder
+    token?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type SetPasswordTokenMinOrderByAggregateInput = {
+    id?: SortOrder
+    token?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type SetPasswordTokenSumOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+  }
+
   export type MembershipCreateNestedOneWithoutUsersInput = {
     create?: XOR<MembershipCreateWithoutUsersInput, MembershipUncheckedCreateWithoutUsersInput>
     connectOrCreate?: MembershipCreateOrConnectWithoutUsersInput
@@ -5662,11 +8462,39 @@ export namespace Prisma {
     connect?: RefreshTokenWhereUniqueInput | RefreshTokenWhereUniqueInput[]
   }
 
+  export type PasswordResetTokenCreateNestedManyWithoutUserInput = {
+    create?: XOR<PasswordResetTokenCreateWithoutUserInput, PasswordResetTokenUncheckedCreateWithoutUserInput> | PasswordResetTokenCreateWithoutUserInput[] | PasswordResetTokenUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PasswordResetTokenCreateOrConnectWithoutUserInput | PasswordResetTokenCreateOrConnectWithoutUserInput[]
+    createMany?: PasswordResetTokenCreateManyUserInputEnvelope
+    connect?: PasswordResetTokenWhereUniqueInput | PasswordResetTokenWhereUniqueInput[]
+  }
+
+  export type SetPasswordTokenCreateNestedManyWithoutUserInput = {
+    create?: XOR<SetPasswordTokenCreateWithoutUserInput, SetPasswordTokenUncheckedCreateWithoutUserInput> | SetPasswordTokenCreateWithoutUserInput[] | SetPasswordTokenUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SetPasswordTokenCreateOrConnectWithoutUserInput | SetPasswordTokenCreateOrConnectWithoutUserInput[]
+    createMany?: SetPasswordTokenCreateManyUserInputEnvelope
+    connect?: SetPasswordTokenWhereUniqueInput | SetPasswordTokenWhereUniqueInput[]
+  }
+
   export type RefreshTokenUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<RefreshTokenCreateWithoutUserInput, RefreshTokenUncheckedCreateWithoutUserInput> | RefreshTokenCreateWithoutUserInput[] | RefreshTokenUncheckedCreateWithoutUserInput[]
     connectOrCreate?: RefreshTokenCreateOrConnectWithoutUserInput | RefreshTokenCreateOrConnectWithoutUserInput[]
     createMany?: RefreshTokenCreateManyUserInputEnvelope
     connect?: RefreshTokenWhereUniqueInput | RefreshTokenWhereUniqueInput[]
+  }
+
+  export type PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<PasswordResetTokenCreateWithoutUserInput, PasswordResetTokenUncheckedCreateWithoutUserInput> | PasswordResetTokenCreateWithoutUserInput[] | PasswordResetTokenUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PasswordResetTokenCreateOrConnectWithoutUserInput | PasswordResetTokenCreateOrConnectWithoutUserInput[]
+    createMany?: PasswordResetTokenCreateManyUserInputEnvelope
+    connect?: PasswordResetTokenWhereUniqueInput | PasswordResetTokenWhereUniqueInput[]
+  }
+
+  export type SetPasswordTokenUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<SetPasswordTokenCreateWithoutUserInput, SetPasswordTokenUncheckedCreateWithoutUserInput> | SetPasswordTokenCreateWithoutUserInput[] | SetPasswordTokenUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SetPasswordTokenCreateOrConnectWithoutUserInput | SetPasswordTokenCreateOrConnectWithoutUserInput[]
+    createMany?: SetPasswordTokenCreateManyUserInputEnvelope
+    connect?: SetPasswordTokenWhereUniqueInput | SetPasswordTokenWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -5709,6 +8537,34 @@ export namespace Prisma {
     deleteMany?: RefreshTokenScalarWhereInput | RefreshTokenScalarWhereInput[]
   }
 
+  export type PasswordResetTokenUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PasswordResetTokenCreateWithoutUserInput, PasswordResetTokenUncheckedCreateWithoutUserInput> | PasswordResetTokenCreateWithoutUserInput[] | PasswordResetTokenUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PasswordResetTokenCreateOrConnectWithoutUserInput | PasswordResetTokenCreateOrConnectWithoutUserInput[]
+    upsert?: PasswordResetTokenUpsertWithWhereUniqueWithoutUserInput | PasswordResetTokenUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PasswordResetTokenCreateManyUserInputEnvelope
+    set?: PasswordResetTokenWhereUniqueInput | PasswordResetTokenWhereUniqueInput[]
+    disconnect?: PasswordResetTokenWhereUniqueInput | PasswordResetTokenWhereUniqueInput[]
+    delete?: PasswordResetTokenWhereUniqueInput | PasswordResetTokenWhereUniqueInput[]
+    connect?: PasswordResetTokenWhereUniqueInput | PasswordResetTokenWhereUniqueInput[]
+    update?: PasswordResetTokenUpdateWithWhereUniqueWithoutUserInput | PasswordResetTokenUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PasswordResetTokenUpdateManyWithWhereWithoutUserInput | PasswordResetTokenUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PasswordResetTokenScalarWhereInput | PasswordResetTokenScalarWhereInput[]
+  }
+
+  export type SetPasswordTokenUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SetPasswordTokenCreateWithoutUserInput, SetPasswordTokenUncheckedCreateWithoutUserInput> | SetPasswordTokenCreateWithoutUserInput[] | SetPasswordTokenUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SetPasswordTokenCreateOrConnectWithoutUserInput | SetPasswordTokenCreateOrConnectWithoutUserInput[]
+    upsert?: SetPasswordTokenUpsertWithWhereUniqueWithoutUserInput | SetPasswordTokenUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SetPasswordTokenCreateManyUserInputEnvelope
+    set?: SetPasswordTokenWhereUniqueInput | SetPasswordTokenWhereUniqueInput[]
+    disconnect?: SetPasswordTokenWhereUniqueInput | SetPasswordTokenWhereUniqueInput[]
+    delete?: SetPasswordTokenWhereUniqueInput | SetPasswordTokenWhereUniqueInput[]
+    connect?: SetPasswordTokenWhereUniqueInput | SetPasswordTokenWhereUniqueInput[]
+    update?: SetPasswordTokenUpdateWithWhereUniqueWithoutUserInput | SetPasswordTokenUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SetPasswordTokenUpdateManyWithWhereWithoutUserInput | SetPasswordTokenUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SetPasswordTokenScalarWhereInput | SetPasswordTokenScalarWhereInput[]
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -5737,6 +8593,34 @@ export namespace Prisma {
     update?: RefreshTokenUpdateWithWhereUniqueWithoutUserInput | RefreshTokenUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: RefreshTokenUpdateManyWithWhereWithoutUserInput | RefreshTokenUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: RefreshTokenScalarWhereInput | RefreshTokenScalarWhereInput[]
+  }
+
+  export type PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PasswordResetTokenCreateWithoutUserInput, PasswordResetTokenUncheckedCreateWithoutUserInput> | PasswordResetTokenCreateWithoutUserInput[] | PasswordResetTokenUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PasswordResetTokenCreateOrConnectWithoutUserInput | PasswordResetTokenCreateOrConnectWithoutUserInput[]
+    upsert?: PasswordResetTokenUpsertWithWhereUniqueWithoutUserInput | PasswordResetTokenUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PasswordResetTokenCreateManyUserInputEnvelope
+    set?: PasswordResetTokenWhereUniqueInput | PasswordResetTokenWhereUniqueInput[]
+    disconnect?: PasswordResetTokenWhereUniqueInput | PasswordResetTokenWhereUniqueInput[]
+    delete?: PasswordResetTokenWhereUniqueInput | PasswordResetTokenWhereUniqueInput[]
+    connect?: PasswordResetTokenWhereUniqueInput | PasswordResetTokenWhereUniqueInput[]
+    update?: PasswordResetTokenUpdateWithWhereUniqueWithoutUserInput | PasswordResetTokenUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PasswordResetTokenUpdateManyWithWhereWithoutUserInput | PasswordResetTokenUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PasswordResetTokenScalarWhereInput | PasswordResetTokenScalarWhereInput[]
+  }
+
+  export type SetPasswordTokenUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SetPasswordTokenCreateWithoutUserInput, SetPasswordTokenUncheckedCreateWithoutUserInput> | SetPasswordTokenCreateWithoutUserInput[] | SetPasswordTokenUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SetPasswordTokenCreateOrConnectWithoutUserInput | SetPasswordTokenCreateOrConnectWithoutUserInput[]
+    upsert?: SetPasswordTokenUpsertWithWhereUniqueWithoutUserInput | SetPasswordTokenUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SetPasswordTokenCreateManyUserInputEnvelope
+    set?: SetPasswordTokenWhereUniqueInput | SetPasswordTokenWhereUniqueInput[]
+    disconnect?: SetPasswordTokenWhereUniqueInput | SetPasswordTokenWhereUniqueInput[]
+    delete?: SetPasswordTokenWhereUniqueInput | SetPasswordTokenWhereUniqueInput[]
+    connect?: SetPasswordTokenWhereUniqueInput | SetPasswordTokenWhereUniqueInput[]
+    update?: SetPasswordTokenUpdateWithWhereUniqueWithoutUserInput | SetPasswordTokenUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SetPasswordTokenUpdateManyWithWhereWithoutUserInput | SetPasswordTokenUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SetPasswordTokenScalarWhereInput | SetPasswordTokenScalarWhereInput[]
   }
 
   export type UserCreateNestedManyWithoutCurrentMembershipInput = {
@@ -5793,18 +8677,46 @@ export namespace Prisma {
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
-  export type UserCreateNestedOneWithoutRefreshtokensInput = {
-    create?: XOR<UserCreateWithoutRefreshtokensInput, UserUncheckedCreateWithoutRefreshtokensInput>
-    connectOrCreate?: UserCreateOrConnectWithoutRefreshtokensInput
+  export type UserCreateNestedOneWithoutRefreshTokensInput = {
+    create?: XOR<UserCreateWithoutRefreshTokensInput, UserUncheckedCreateWithoutRefreshTokensInput>
+    connectOrCreate?: UserCreateOrConnectWithoutRefreshTokensInput
     connect?: UserWhereUniqueInput
   }
 
-  export type UserUpdateOneRequiredWithoutRefreshtokensNestedInput = {
-    create?: XOR<UserCreateWithoutRefreshtokensInput, UserUncheckedCreateWithoutRefreshtokensInput>
-    connectOrCreate?: UserCreateOrConnectWithoutRefreshtokensInput
-    upsert?: UserUpsertWithoutRefreshtokensInput
+  export type UserUpdateOneRequiredWithoutRefreshTokensNestedInput = {
+    create?: XOR<UserCreateWithoutRefreshTokensInput, UserUncheckedCreateWithoutRefreshTokensInput>
+    connectOrCreate?: UserCreateOrConnectWithoutRefreshTokensInput
+    upsert?: UserUpsertWithoutRefreshTokensInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutRefreshtokensInput, UserUpdateWithoutRefreshtokensInput>, UserUncheckedUpdateWithoutRefreshtokensInput>
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutRefreshTokensInput, UserUpdateWithoutRefreshTokensInput>, UserUncheckedUpdateWithoutRefreshTokensInput>
+  }
+
+  export type UserCreateNestedOneWithoutPasswordResetTokensInput = {
+    create?: XOR<UserCreateWithoutPasswordResetTokensInput, UserUncheckedCreateWithoutPasswordResetTokensInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPasswordResetTokensInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutPasswordResetTokensNestedInput = {
+    create?: XOR<UserCreateWithoutPasswordResetTokensInput, UserUncheckedCreateWithoutPasswordResetTokensInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPasswordResetTokensInput
+    upsert?: UserUpsertWithoutPasswordResetTokensInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPasswordResetTokensInput, UserUpdateWithoutPasswordResetTokensInput>, UserUncheckedUpdateWithoutPasswordResetTokensInput>
+  }
+
+  export type UserCreateNestedOneWithoutSetPasswordTokensInput = {
+    create?: XOR<UserCreateWithoutSetPasswordTokensInput, UserUncheckedCreateWithoutSetPasswordTokensInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSetPasswordTokensInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutSetPasswordTokensNestedInput = {
+    create?: XOR<UserCreateWithoutSetPasswordTokensInput, UserUncheckedCreateWithoutSetPasswordTokensInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSetPasswordTokensInput
+    upsert?: UserUpsertWithoutSetPasswordTokensInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSetPasswordTokensInput, UserUpdateWithoutSetPasswordTokensInput>, UserUncheckedUpdateWithoutSetPasswordTokensInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -6026,7 +8938,6 @@ export namespace Prisma {
 
   export type MembershipCreateWithoutUsersInput = {
     title: string
-    clubName: string
     price: number
     currency?: string
     isActive?: boolean
@@ -6036,7 +8947,6 @@ export namespace Prisma {
   export type MembershipUncheckedCreateWithoutUsersInput = {
     id?: number
     title: string
-    clubName: string
     price: number
     currency?: string
     isActive?: boolean
@@ -6073,6 +8983,50 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type PasswordResetTokenCreateWithoutUserInput = {
+    token: string
+    expiresAt: Date | string
+    createdAt?: Date | string
+  }
+
+  export type PasswordResetTokenUncheckedCreateWithoutUserInput = {
+    id?: number
+    token: string
+    expiresAt: Date | string
+    createdAt?: Date | string
+  }
+
+  export type PasswordResetTokenCreateOrConnectWithoutUserInput = {
+    where: PasswordResetTokenWhereUniqueInput
+    create: XOR<PasswordResetTokenCreateWithoutUserInput, PasswordResetTokenUncheckedCreateWithoutUserInput>
+  }
+
+  export type PasswordResetTokenCreateManyUserInputEnvelope = {
+    data: PasswordResetTokenCreateManyUserInput | PasswordResetTokenCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SetPasswordTokenCreateWithoutUserInput = {
+    token: string
+    createdAt?: Date | string
+  }
+
+  export type SetPasswordTokenUncheckedCreateWithoutUserInput = {
+    id?: number
+    token: string
+    createdAt?: Date | string
+  }
+
+  export type SetPasswordTokenCreateOrConnectWithoutUserInput = {
+    where: SetPasswordTokenWhereUniqueInput
+    create: XOR<SetPasswordTokenCreateWithoutUserInput, SetPasswordTokenUncheckedCreateWithoutUserInput>
+  }
+
+  export type SetPasswordTokenCreateManyUserInputEnvelope = {
+    data: SetPasswordTokenCreateManyUserInput | SetPasswordTokenCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type MembershipUpsertWithoutUsersInput = {
     update: XOR<MembershipUpdateWithoutUsersInput, MembershipUncheckedUpdateWithoutUsersInput>
     create: XOR<MembershipCreateWithoutUsersInput, MembershipUncheckedCreateWithoutUsersInput>
@@ -6086,7 +9040,6 @@ export namespace Prisma {
 
   export type MembershipUpdateWithoutUsersInput = {
     title?: StringFieldUpdateOperationsInput | string
-    clubName?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
@@ -6096,7 +9049,6 @@ export namespace Prisma {
   export type MembershipUncheckedUpdateWithoutUsersInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
-    clubName?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
@@ -6131,6 +9083,59 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"RefreshToken"> | Date | string
   }
 
+  export type PasswordResetTokenUpsertWithWhereUniqueWithoutUserInput = {
+    where: PasswordResetTokenWhereUniqueInput
+    update: XOR<PasswordResetTokenUpdateWithoutUserInput, PasswordResetTokenUncheckedUpdateWithoutUserInput>
+    create: XOR<PasswordResetTokenCreateWithoutUserInput, PasswordResetTokenUncheckedCreateWithoutUserInput>
+  }
+
+  export type PasswordResetTokenUpdateWithWhereUniqueWithoutUserInput = {
+    where: PasswordResetTokenWhereUniqueInput
+    data: XOR<PasswordResetTokenUpdateWithoutUserInput, PasswordResetTokenUncheckedUpdateWithoutUserInput>
+  }
+
+  export type PasswordResetTokenUpdateManyWithWhereWithoutUserInput = {
+    where: PasswordResetTokenScalarWhereInput
+    data: XOR<PasswordResetTokenUpdateManyMutationInput, PasswordResetTokenUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type PasswordResetTokenScalarWhereInput = {
+    AND?: PasswordResetTokenScalarWhereInput | PasswordResetTokenScalarWhereInput[]
+    OR?: PasswordResetTokenScalarWhereInput[]
+    NOT?: PasswordResetTokenScalarWhereInput | PasswordResetTokenScalarWhereInput[]
+    id?: IntFilter<"PasswordResetToken"> | number
+    token?: StringFilter<"PasswordResetToken"> | string
+    expiresAt?: DateTimeFilter<"PasswordResetToken"> | Date | string
+    userId?: IntFilter<"PasswordResetToken"> | number
+    createdAt?: DateTimeFilter<"PasswordResetToken"> | Date | string
+  }
+
+  export type SetPasswordTokenUpsertWithWhereUniqueWithoutUserInput = {
+    where: SetPasswordTokenWhereUniqueInput
+    update: XOR<SetPasswordTokenUpdateWithoutUserInput, SetPasswordTokenUncheckedUpdateWithoutUserInput>
+    create: XOR<SetPasswordTokenCreateWithoutUserInput, SetPasswordTokenUncheckedCreateWithoutUserInput>
+  }
+
+  export type SetPasswordTokenUpdateWithWhereUniqueWithoutUserInput = {
+    where: SetPasswordTokenWhereUniqueInput
+    data: XOR<SetPasswordTokenUpdateWithoutUserInput, SetPasswordTokenUncheckedUpdateWithoutUserInput>
+  }
+
+  export type SetPasswordTokenUpdateManyWithWhereWithoutUserInput = {
+    where: SetPasswordTokenScalarWhereInput
+    data: XOR<SetPasswordTokenUpdateManyMutationInput, SetPasswordTokenUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type SetPasswordTokenScalarWhereInput = {
+    AND?: SetPasswordTokenScalarWhereInput | SetPasswordTokenScalarWhereInput[]
+    OR?: SetPasswordTokenScalarWhereInput[]
+    NOT?: SetPasswordTokenScalarWhereInput | SetPasswordTokenScalarWhereInput[]
+    id?: IntFilter<"SetPasswordToken"> | number
+    token?: StringFilter<"SetPasswordToken"> | string
+    userId?: IntFilter<"SetPasswordToken"> | number
+    createdAt?: DateTimeFilter<"SetPasswordToken"> | Date | string
+  }
+
   export type UserCreateWithoutCurrentMembershipInput = {
     name: string
     surname: string
@@ -6138,13 +9143,17 @@ export namespace Prisma {
     zipCode: string
     phoneNumber: string
     password?: string | null
+    clubName: string
     membershipStatus?: string
     membershipStartDate?: Date | string | null
     membershipEndDate?: Date | string | null
     nextBillingDate?: Date | string | null
     billingCycle?: string
+    cancellationDate?: Date | string | null
     createdAt?: Date | string
-    refreshtokens?: RefreshTokenCreateNestedManyWithoutUserInput
+    refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
+    passwordResetTokens?: PasswordResetTokenCreateNestedManyWithoutUserInput
+    setPasswordTokens?: SetPasswordTokenCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutCurrentMembershipInput = {
@@ -6155,13 +9164,17 @@ export namespace Prisma {
     zipCode: string
     phoneNumber: string
     password?: string | null
+    clubName: string
     membershipStatus?: string
     membershipStartDate?: Date | string | null
     membershipEndDate?: Date | string | null
     nextBillingDate?: Date | string | null
     billingCycle?: string
+    cancellationDate?: Date | string | null
     createdAt?: Date | string
-    refreshtokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
+    refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
+    passwordResetTokens?: PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+    setPasswordTokens?: SetPasswordTokenUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutCurrentMembershipInput = {
@@ -6201,32 +9214,38 @@ export namespace Prisma {
     zipCode?: StringFilter<"User"> | string
     phoneNumber?: StringFilter<"User"> | string
     password?: StringNullableFilter<"User"> | string | null
+    clubName?: StringFilter<"User"> | string
     currentMembershipId?: IntNullableFilter<"User"> | number | null
     membershipStatus?: StringFilter<"User"> | string
     membershipStartDate?: DateTimeNullableFilter<"User"> | Date | string | null
     membershipEndDate?: DateTimeNullableFilter<"User"> | Date | string | null
     nextBillingDate?: DateTimeNullableFilter<"User"> | Date | string | null
     billingCycle?: StringFilter<"User"> | string
+    cancellationDate?: DateTimeNullableFilter<"User"> | Date | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
   }
 
-  export type UserCreateWithoutRefreshtokensInput = {
+  export type UserCreateWithoutRefreshTokensInput = {
     name: string
     surname: string
     email: string
     zipCode: string
     phoneNumber: string
     password?: string | null
+    clubName: string
     membershipStatus?: string
     membershipStartDate?: Date | string | null
     membershipEndDate?: Date | string | null
     nextBillingDate?: Date | string | null
     billingCycle?: string
+    cancellationDate?: Date | string | null
     createdAt?: Date | string
     currentMembership?: MembershipCreateNestedOneWithoutUsersInput
+    passwordResetTokens?: PasswordResetTokenCreateNestedManyWithoutUserInput
+    setPasswordTokens?: SetPasswordTokenCreateNestedManyWithoutUserInput
   }
 
-  export type UserUncheckedCreateWithoutRefreshtokensInput = {
+  export type UserUncheckedCreateWithoutRefreshTokensInput = {
     id?: number
     name: string
     surname: string
@@ -6234,48 +9253,56 @@ export namespace Prisma {
     zipCode: string
     phoneNumber: string
     password?: string | null
+    clubName: string
     currentMembershipId?: number | null
     membershipStatus?: string
     membershipStartDate?: Date | string | null
     membershipEndDate?: Date | string | null
     nextBillingDate?: Date | string | null
     billingCycle?: string
+    cancellationDate?: Date | string | null
     createdAt?: Date | string
+    passwordResetTokens?: PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+    setPasswordTokens?: SetPasswordTokenUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UserCreateOrConnectWithoutRefreshtokensInput = {
+  export type UserCreateOrConnectWithoutRefreshTokensInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutRefreshtokensInput, UserUncheckedCreateWithoutRefreshtokensInput>
+    create: XOR<UserCreateWithoutRefreshTokensInput, UserUncheckedCreateWithoutRefreshTokensInput>
   }
 
-  export type UserUpsertWithoutRefreshtokensInput = {
-    update: XOR<UserUpdateWithoutRefreshtokensInput, UserUncheckedUpdateWithoutRefreshtokensInput>
-    create: XOR<UserCreateWithoutRefreshtokensInput, UserUncheckedCreateWithoutRefreshtokensInput>
+  export type UserUpsertWithoutRefreshTokensInput = {
+    update: XOR<UserUpdateWithoutRefreshTokensInput, UserUncheckedUpdateWithoutRefreshTokensInput>
+    create: XOR<UserCreateWithoutRefreshTokensInput, UserUncheckedCreateWithoutRefreshTokensInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutRefreshtokensInput = {
+  export type UserUpdateToOneWithWhereWithoutRefreshTokensInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutRefreshtokensInput, UserUncheckedUpdateWithoutRefreshtokensInput>
+    data: XOR<UserUpdateWithoutRefreshTokensInput, UserUncheckedUpdateWithoutRefreshTokensInput>
   }
 
-  export type UserUpdateWithoutRefreshtokensInput = {
+  export type UserUpdateWithoutRefreshTokensInput = {
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     zipCode?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    clubName?: StringFieldUpdateOperationsInput | string
     membershipStatus?: StringFieldUpdateOperationsInput | string
     membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     billingCycle?: StringFieldUpdateOperationsInput | string
+    cancellationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     currentMembership?: MembershipUpdateOneWithoutUsersNestedInput
+    passwordResetTokens?: PasswordResetTokenUpdateManyWithoutUserNestedInput
+    setPasswordTokens?: SetPasswordTokenUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutRefreshtokensInput = {
+  export type UserUncheckedUpdateWithoutRefreshTokensInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
@@ -6283,13 +9310,213 @@ export namespace Prisma {
     zipCode?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    clubName?: StringFieldUpdateOperationsInput | string
     currentMembershipId?: NullableIntFieldUpdateOperationsInput | number | null
     membershipStatus?: StringFieldUpdateOperationsInput | string
     membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     billingCycle?: StringFieldUpdateOperationsInput | string
+    cancellationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    passwordResetTokens?: PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+    setPasswordTokens?: SetPasswordTokenUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutPasswordResetTokensInput = {
+    name: string
+    surname: string
+    email: string
+    zipCode: string
+    phoneNumber: string
+    password?: string | null
+    clubName: string
+    membershipStatus?: string
+    membershipStartDate?: Date | string | null
+    membershipEndDate?: Date | string | null
+    nextBillingDate?: Date | string | null
+    billingCycle?: string
+    cancellationDate?: Date | string | null
+    createdAt?: Date | string
+    currentMembership?: MembershipCreateNestedOneWithoutUsersInput
+    refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
+    setPasswordTokens?: SetPasswordTokenCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutPasswordResetTokensInput = {
+    id?: number
+    name: string
+    surname: string
+    email: string
+    zipCode: string
+    phoneNumber: string
+    password?: string | null
+    clubName: string
+    currentMembershipId?: number | null
+    membershipStatus?: string
+    membershipStartDate?: Date | string | null
+    membershipEndDate?: Date | string | null
+    nextBillingDate?: Date | string | null
+    billingCycle?: string
+    cancellationDate?: Date | string | null
+    createdAt?: Date | string
+    refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
+    setPasswordTokens?: SetPasswordTokenUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutPasswordResetTokensInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutPasswordResetTokensInput, UserUncheckedCreateWithoutPasswordResetTokensInput>
+  }
+
+  export type UserUpsertWithoutPasswordResetTokensInput = {
+    update: XOR<UserUpdateWithoutPasswordResetTokensInput, UserUncheckedUpdateWithoutPasswordResetTokensInput>
+    create: XOR<UserCreateWithoutPasswordResetTokensInput, UserUncheckedCreateWithoutPasswordResetTokensInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutPasswordResetTokensInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutPasswordResetTokensInput, UserUncheckedUpdateWithoutPasswordResetTokensInput>
+  }
+
+  export type UserUpdateWithoutPasswordResetTokensInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    surname?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    zipCode?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    clubName?: StringFieldUpdateOperationsInput | string
+    membershipStatus?: StringFieldUpdateOperationsInput | string
+    membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    billingCycle?: StringFieldUpdateOperationsInput | string
+    cancellationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    currentMembership?: MembershipUpdateOneWithoutUsersNestedInput
+    refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
+    setPasswordTokens?: SetPasswordTokenUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutPasswordResetTokensInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    surname?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    zipCode?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    clubName?: StringFieldUpdateOperationsInput | string
+    currentMembershipId?: NullableIntFieldUpdateOperationsInput | number | null
+    membershipStatus?: StringFieldUpdateOperationsInput | string
+    membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    billingCycle?: StringFieldUpdateOperationsInput | string
+    cancellationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
+    setPasswordTokens?: SetPasswordTokenUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutSetPasswordTokensInput = {
+    name: string
+    surname: string
+    email: string
+    zipCode: string
+    phoneNumber: string
+    password?: string | null
+    clubName: string
+    membershipStatus?: string
+    membershipStartDate?: Date | string | null
+    membershipEndDate?: Date | string | null
+    nextBillingDate?: Date | string | null
+    billingCycle?: string
+    cancellationDate?: Date | string | null
+    createdAt?: Date | string
+    currentMembership?: MembershipCreateNestedOneWithoutUsersInput
+    refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
+    passwordResetTokens?: PasswordResetTokenCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutSetPasswordTokensInput = {
+    id?: number
+    name: string
+    surname: string
+    email: string
+    zipCode: string
+    phoneNumber: string
+    password?: string | null
+    clubName: string
+    currentMembershipId?: number | null
+    membershipStatus?: string
+    membershipStartDate?: Date | string | null
+    membershipEndDate?: Date | string | null
+    nextBillingDate?: Date | string | null
+    billingCycle?: string
+    cancellationDate?: Date | string | null
+    createdAt?: Date | string
+    refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
+    passwordResetTokens?: PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutSetPasswordTokensInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutSetPasswordTokensInput, UserUncheckedCreateWithoutSetPasswordTokensInput>
+  }
+
+  export type UserUpsertWithoutSetPasswordTokensInput = {
+    update: XOR<UserUpdateWithoutSetPasswordTokensInput, UserUncheckedUpdateWithoutSetPasswordTokensInput>
+    create: XOR<UserCreateWithoutSetPasswordTokensInput, UserUncheckedCreateWithoutSetPasswordTokensInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutSetPasswordTokensInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutSetPasswordTokensInput, UserUncheckedUpdateWithoutSetPasswordTokensInput>
+  }
+
+  export type UserUpdateWithoutSetPasswordTokensInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    surname?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    zipCode?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    clubName?: StringFieldUpdateOperationsInput | string
+    membershipStatus?: StringFieldUpdateOperationsInput | string
+    membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    billingCycle?: StringFieldUpdateOperationsInput | string
+    cancellationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    currentMembership?: MembershipUpdateOneWithoutUsersNestedInput
+    refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
+    passwordResetTokens?: PasswordResetTokenUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutSetPasswordTokensInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    surname?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    zipCode?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    clubName?: StringFieldUpdateOperationsInput | string
+    currentMembershipId?: NullableIntFieldUpdateOperationsInput | number | null
+    membershipStatus?: StringFieldUpdateOperationsInput | string
+    membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    billingCycle?: StringFieldUpdateOperationsInput | string
+    cancellationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
+    passwordResetTokens?: PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type RefreshTokenCreateManyUserInput = {
@@ -6297,6 +9524,19 @@ export namespace Prisma {
     token: string
     expiresAt: Date | string
     revoked?: boolean
+    createdAt?: Date | string
+  }
+
+  export type PasswordResetTokenCreateManyUserInput = {
+    id?: number
+    token: string
+    expiresAt: Date | string
+    createdAt?: Date | string
+  }
+
+  export type SetPasswordTokenCreateManyUserInput = {
+    id?: number
+    token: string
     createdAt?: Date | string
   }
 
@@ -6323,6 +9563,43 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type PasswordResetTokenUpdateWithoutUserInput = {
+    token?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PasswordResetTokenUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    token?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PasswordResetTokenUncheckedUpdateManyWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    token?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SetPasswordTokenUpdateWithoutUserInput = {
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SetPasswordTokenUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SetPasswordTokenUncheckedUpdateManyWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type UserCreateManyCurrentMembershipInput = {
     id?: number
     name: string
@@ -6331,11 +9608,13 @@ export namespace Prisma {
     zipCode: string
     phoneNumber: string
     password?: string | null
+    clubName: string
     membershipStatus?: string
     membershipStartDate?: Date | string | null
     membershipEndDate?: Date | string | null
     nextBillingDate?: Date | string | null
     billingCycle?: string
+    cancellationDate?: Date | string | null
     createdAt?: Date | string
   }
 
@@ -6346,13 +9625,17 @@ export namespace Prisma {
     zipCode?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    clubName?: StringFieldUpdateOperationsInput | string
     membershipStatus?: StringFieldUpdateOperationsInput | string
     membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     billingCycle?: StringFieldUpdateOperationsInput | string
+    cancellationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    refreshtokens?: RefreshTokenUpdateManyWithoutUserNestedInput
+    refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
+    passwordResetTokens?: PasswordResetTokenUpdateManyWithoutUserNestedInput
+    setPasswordTokens?: SetPasswordTokenUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCurrentMembershipInput = {
@@ -6363,13 +9646,17 @@ export namespace Prisma {
     zipCode?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    clubName?: StringFieldUpdateOperationsInput | string
     membershipStatus?: StringFieldUpdateOperationsInput | string
     membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     billingCycle?: StringFieldUpdateOperationsInput | string
+    cancellationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    refreshtokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
+    refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
+    passwordResetTokens?: PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+    setPasswordTokens?: SetPasswordTokenUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateManyWithoutCurrentMembershipInput = {
@@ -6380,11 +9667,13 @@ export namespace Prisma {
     zipCode?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    clubName?: StringFieldUpdateOperationsInput | string
     membershipStatus?: StringFieldUpdateOperationsInput | string
     membershipStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     membershipEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextBillingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     billingCycle?: StringFieldUpdateOperationsInput | string
+    cancellationDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 

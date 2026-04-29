@@ -128,19 +128,20 @@ exports.Prisma.UserScalarFieldEnum = {
   zipCode: 'zipCode',
   phoneNumber: 'phoneNumber',
   password: 'password',
+  clubName: 'clubName',
   currentMembershipId: 'currentMembershipId',
   membershipStatus: 'membershipStatus',
   membershipStartDate: 'membershipStartDate',
   membershipEndDate: 'membershipEndDate',
   nextBillingDate: 'nextBillingDate',
   billingCycle: 'billingCycle',
+  cancellationDate: 'cancellationDate',
   createdAt: 'createdAt'
 };
 
 exports.Prisma.MembershipScalarFieldEnum = {
   id: 'id',
   title: 'title',
-  clubName: 'clubName',
   price: 'price',
   currency: 'currency',
   isActive: 'isActive',
@@ -153,6 +154,21 @@ exports.Prisma.RefreshTokenScalarFieldEnum = {
   userId: 'userId',
   expiresAt: 'expiresAt',
   revoked: 'revoked',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.PasswordResetTokenScalarFieldEnum = {
+  id: 'id',
+  token: 'token',
+  expiresAt: 'expiresAt',
+  userId: 'userId',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.SetPasswordTokenScalarFieldEnum = {
+  id: 'id',
+  token: 'token',
+  userId: 'userId',
   createdAt: 'createdAt'
 };
 
@@ -175,7 +191,9 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.ModelName = {
   User: 'User',
   Membership: 'Membership',
-  RefreshToken: 'RefreshToken'
+  RefreshToken: 'RefreshToken',
+  PasswordResetToken: 'PasswordResetToken',
+  SetPasswordToken: 'SetPasswordToken'
 };
 
 /**

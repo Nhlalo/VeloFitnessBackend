@@ -20,6 +20,7 @@ model User {
   zipCode               String
   phoneNumber           String
   password              String? 
+  clubName              String
   
   currentMembershipId   Int?      
   membershipStatus      String    @default("active")
@@ -27,18 +28,20 @@ model User {
   membershipEndDate     DateTime?
   nextBillingDate       DateTime?
   billingCycle          String     @default("monthly")
+  cancellationDate      DateTime?
   
   createdAt             DateTime  @default(now())
   
   currentMembership     Membership? @relation(fields: [currentMembershipId], references: [id])
-  refreshtokens           RefreshToken[]
+  refreshTokens         RefreshToken[]
+  passwordResetTokens   PasswordResetToken[]
+  setPasswordTokens     SetPasswordToken[]
 
 }
 
 model Membership {
   id                    Int       @id @default(autoincrement())
   title                 String
-  clubName              String
   price                 Float     
   currency              String @default("USD")
   isActive              Boolean   @default(true)
@@ -54,5 +57,22 @@ model RefreshToken {
   user      User     @relation(fields: [userId], references: [id])
   expiresAt DateTime
   revoked   Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model PasswordResetToken {
+  id        Int    @id @default(autoincrement())
+  token     String   @unique
+  expiresAt DateTime
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model SetPasswordToken {
+  id        Int    @id @default(autoincrement())
+  token     String   @unique
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
 }
