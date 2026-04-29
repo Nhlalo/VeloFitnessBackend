@@ -7,13 +7,14 @@ import cookieParser from "cookie-parser";
 import { randomUUID } from "crypto";
 import logger from "./utils/logger.js";
 import seedMemberships from "./prisma/seed.js";
-import { authRouter } from "./routes/authorRouter.js";
+import { authRouter } from "./routes/authRouter.js";
 import { checkoutRouter } from "./routes/checkoutRouter.js";
-import { createUserProfileRouter } from "./routes/createUserProfileRouter.js";
 import { profileRouter } from "./routes/profileRouter.js";
+import { membershipRouter } from "./routes/membershipRouter.js";
+import { clubNameRouter } from "./routes/clubNameRouter.js";
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 const isProd = process.env.NODE_ENV === "production";
 const corsOrigin = process.env.CORS_ORIGIN
   ? process.env.CORS_ORIGIN.split(",")
@@ -50,7 +51,6 @@ app.use((err, req, res, next) => {
 });
 
 // Logging middleware with timing and status
-
 app.use((req, res, next) => {
   const start = Date.now();
 
@@ -79,8 +79,9 @@ app.use((req, res, next) => {
 // Routes
 app.use("/v1/auth", authRouter);
 app.use("/v1/checkout", checkoutRouter);
-app.use("/v1/create-user-profile", createUserProfileRouter);
 app.use("/v1/profile", profileRouter);
+app.use("/v1/membership", membershipRouter);
+app.use("/v1/club", clubNameRouter);
 
 // 404 handler
 app.use((req, res) => {
