@@ -1,9 +1,8 @@
 import express from "express";
-import authenticateToken from "../middleware/authMiddleware.js";
-import { profile } from "../controller/profileController.js";
+import { registerValidationChain } from "../validators/createUserProfileValidators.js";
+import { createUserProfile } from "../controller/profileController.js";
 
 const profileRouter = express.Router();
 
-profileRouter.post("/", authenticateToken, profile);
-
+profileRouter.post("/create", registerValidationChain, createUserProfile);
 export { profileRouter };
