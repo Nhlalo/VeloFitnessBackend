@@ -4,6 +4,10 @@ const sanitizeName = (fieldName) => {
   return body(fieldName).trim().stripLow(); // Remove control characters
 };
 
+const sanitizeClubName = (fieldName) => {
+  return body("club name").trim();
+};
+
 const sanitizeEmail = () => {
   return body("email")
     .trim()
@@ -24,8 +28,8 @@ const sanitizeZipCode = () => {
   return body("zipCode").trim().whitelist("0123456789-"); // Keep only digits and hyphen
 };
 
-const sanitizeUserClub = () => {
-  return body("userClub")
+const sanitizeMembershipTitle = () => {
+  return body("membershipTitle")
     .trim()
     .customSanitizer((value) => {
       const validClubs = [
@@ -40,7 +44,11 @@ const sanitizeUserClub = () => {
     });
 };
 const sanitizePassword = (password) => {
-  return body(password).trim().escape();
+  return body(password).trim();
+};
+
+const sanitizeToken = () => {
+  return body("token").trim();
 };
 
 const sanitizePaymentIntentId = () => {
@@ -56,7 +64,16 @@ const registerSanitizers = [
   sanitizeEmail(),
   sanitizeZipCode(),
   sanitizePhoneNumber(),
-  sanitizeUserClub(),
+  sanitizeClubName(),
+  sanitizeMembershipTitle(),
 ];
 
-export { registerSanitizers, sanitizePassword, sanitizePaymentIntentId };
+export {
+  registerSanitizers,
+  sanitizeEmail,
+  sanitizeClubName,
+  sanitizePassword,
+  sanitizePaymentIntentId,
+  sanitizeMembershipTitle,
+  sanitizeToken,
+};
