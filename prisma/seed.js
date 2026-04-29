@@ -10,20 +10,17 @@ export default async function seedMemberships() {
       await prisma.membership.createMany({
         data: [
           {
-            title: "Signature Experience",
-            clubName: "L'Ordre des Champions",
+            title: "L'Ordre des Champions",
             price: 79.99,
             currency: "USD",
           },
           {
-            title: "Elite Member Benefits",
-            clubName: "La Société Privée",
+            title: "La Société Privée",
             price: 99.99,
             currency: "USD",
           },
           {
-            title: "Premium Club Access",
-            clubName: "Le Cercle d'Or",
+            title: "Le Cercle d'Or",
             price: 129.99,
             currency: "USD",
           },
