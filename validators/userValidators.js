@@ -12,8 +12,7 @@ const validateName = (fieldName, displayName) => {
     .matches(/^[a-zA-ZÀ-ÿ\s'-]+$/)
     .withMessage(
       `${displayName} can only contain letters, spaces, apostrophes, and hyphens`,
-    )
-    .escape();
+    );
 };
 
 const validateEmail = () => {
@@ -53,8 +52,18 @@ const validatePhoneNumber = () => {
     });
 };
 
-const validateUserClub = () => {
-  return body("userClub")
+const validateClubName = () => {
+  return body("clubName")
+    .notEmpty()
+    .withMessage("Club name is required")
+    .isString()
+    .withMessage("Club name must be a string")
+    .isLength({ min: 2, max: 50 })
+    .withMessage("club name must be between 2 and 50 characters");
+};
+
+const validateMembershipTitle = () => {
+  return body("membershipTitle")
     .notEmpty()
     .withMessage("Please select a club")
     .isString()
@@ -75,7 +84,7 @@ const validatePassword = () => {
     .withMessage("Password must not exceed 100 characters");
 };
 const validateConfirmPassword = () => {
-  return body("password")
+  return body("confirmPassword")
     .notEmpty()
     .withMessage("Password is required")
     .isLength({ min: 8 })
@@ -88,6 +97,16 @@ const validateConfirmPassword = () => {
       }
       return true;
     });
+};
+
+const validateToken = () => {
+  return body("token")
+    .notEmpty()
+    .withMessage("Token is required")
+    .isString()
+    .withMessage("Token must be a string")
+    .isLength({ min: 32, max: 64 })
+    .withMessage("Invalid token format");
 };
 
 const validatePaymentIntentId = () => {
@@ -108,13 +127,17 @@ const registerValidators = [
   validateEmail(),
   validateZipCode(),
   validatePhoneNumber(),
-  validateUserClub(),
+  validateClubName(),
+  validateMembershipTitle(),
 ];
 
 export {
   registerValidators,
   validateEmail,
+  validateClubName,
   validatePassword,
   validateConfirmPassword,
   validatePaymentIntentId,
+  validateMembershipTitle,
+  validateToken,
 };
