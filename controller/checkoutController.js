@@ -30,11 +30,6 @@ const checkout = async (req, res, next) => {
       payment_method_types: ["card"],
     });
 
-    const confirmedPayment = await stripe.paymentIntents.confirm(
-      paymentIntent.id,
-      { payment_method: "pm_card_visa" },
-    );
-
     req.paymentIntentId = paymentIntent.id;
     res.json({
       clientSecret: paymentIntent.client_secret,
