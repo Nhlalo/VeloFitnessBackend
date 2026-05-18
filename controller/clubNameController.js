@@ -3,6 +3,9 @@ import userModel from "../model/userModels.js";
 
 export const changeClubName = async (req, res, next) => {
   const email = req.user.email;
+  logger.info(email);
+  const previousclubName = req.user.clubName;
+  logger.info({ previousclubName }, "Initiating club name change process");
   const { clubName } = req.validatedData;
 
   if (!email) {
@@ -11,6 +14,18 @@ export const changeClubName = async (req, res, next) => {
     return res.status(400).json({
       success: false,
       message: "User email is required",
+    });
+  }
+
+  if (previousclubName === clubName) {
+    logger.error(
+      { email },
+      "Existing club name present in the request user object",
+    );
+
+    return res.status(409).json({
+      success: false,
+      message: "Club name must be different from the current club name",
     });
   }
 
