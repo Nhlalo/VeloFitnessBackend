@@ -29,19 +29,7 @@ const sanitizeZipCode = () => {
 };
 
 const sanitizeMembershipTitle = () => {
-  return body("membershipTitle")
-    .trim()
-    .customSanitizer((value) => {
-      const validClubs = [
-        "l'ordre des champions",
-        "la société privée",
-        "le cercle d'or",
-      ];
-      const match = validClubs.find(
-        (club) => club.toLowerCase() === value.toLowerCase(),
-      );
-      return match || null;
-    });
+  return body("membershipTitle").trim();
 };
 const sanitizePassword = (password) => {
   return body(password).trim();
@@ -70,6 +58,9 @@ const registerSanitizers = [
 
 export {
   registerSanitizers,
+  sanitizeName,
+  sanitizePhoneNumber,
+  sanitizeZipCode,
   sanitizeEmail,
   sanitizeClubName,
   sanitizePassword,
