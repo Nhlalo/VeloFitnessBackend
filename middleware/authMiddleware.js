@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import logger from "../utils/logger.js";
 
 const SECRET_KEY = process.env.JWT_SECRET || "my-secret-key";
 
