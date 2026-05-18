@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import { prisma } from "../lib/prisma.js";
 import logger from "../utils/logger.js";
 import { changeClubName } from "../controller/clubNameController.js";
+import { updatePersonalDetails } from "../controller/profileController.js";
 
 const determineMemberShipID = (membershipTitle) => {
   const membershipMap = {
@@ -9,7 +10,7 @@ const determineMemberShipID = (membershipTitle) => {
     "la société privée": 2,
     "le cercle d'or": 3,
   };
-  return membershipMap[membershipTitle] || null;
+  return membershipMap[membershipTitle.toLowerCase()] || null;
 };
 
 const userModel = {
@@ -64,15 +65,7 @@ const userModel = {
       },
     });
   },
-  addPasswordResetToken: async (token, userId, expiresAt) => {
-    return await prisma.passwordResetToken.create({
-      data: {
-        token,
-        userId,
-        expiresAt,
-      },
-    });
-  },
+
   addSetPasswordToken: async (token, userId) => {
     return await prisma.setPasswordToken.create({
       data: {
@@ -100,14 +93,7 @@ const userModel = {
       },
     });
   },
-  findValidPasswordResetToken: async (token) => {
-    return await prisma.passwordResetToken.findUnique({
-      where: { token },
-      include: {
-        user: true,
-      },
-    });
-  },
+
   findValidSetPasswordToken: async (token) => {
     return await prisma.setPasswordToken.findUnique({
       where: { token },
@@ -136,6 +122,12 @@ const userModel = {
     return await prisma.user.update({
       where: { email },
       data: { password: hashedPassword },
+    });
+  },
+  updatePersonalDetails: async (email, name, surname, zipCode, phoneNumber) => {
+    return await prisma.user.update({
+      where: { email },
+      data: { name, surname, zipCode, phoneNumber },
     });
   },
   changeMembership: async (email, nextBillingDate, membershipTitle) => {
@@ -167,19 +159,10 @@ const userModel = {
       where: { token },
     });
   },
-  deletePasswordResetToken: async (token) => {
-    return await prisma.passwordResetToken.delete({
-      where: { token },
-    });
-  },
+
   deleteSetPasswordToken: async (token) => {
     return await prisma.setPasswordToken.delete({
       where: { token },
-    });
-  },
-  deleteAllPasswordResetToken: async (token) => {
-    return await prisma.passwordResetToken.deleteMany({
-      where: { expiresAt: { lt: new Date() } },
     });
   },
 
