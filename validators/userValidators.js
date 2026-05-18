@@ -32,8 +32,10 @@ const validateZipCode = () => {
     .withMessage("ZIP code is required")
     .isString()
     .withMessage("ZIP code must be a string")
-    .matches(/^\d{5}(-\d{4})?$/)
-    .withMessage("Valid ZIP code required (e.g., 12345 or 12345-6789)");
+    .matches(/^\d{4,}(?:-\d{1,})?$/)
+    .withMessage(
+      "Valid postal code required (minimum 4 digits, e.g., 1234, 12345, 12345-6789)",
+    );
 };
 
 const validatePhoneNumber = () => {
@@ -45,8 +47,8 @@ const validatePhoneNumber = () => {
     .custom((value) => {
       // Remove non-digit characters for validation
       const digitsOnly = value.replace(/\D/g, "");
-      if (digitsOnly.length < 10 || digitsOnly.length > 15) {
-        throw new Error("Phone number must have 10-15 digits");
+      if (digitsOnly.length < 4 || digitsOnly.length > 15) {
+        throw new Error("Phone number must have 4-15 digits");
       }
       return true;
     });
@@ -70,8 +72,22 @@ const validateMembershipTitle = () => {
     .withMessage("Club must be a string")
     .isLength({ min: 1, max: 100 })
     .withMessage("Club name is too long")
-    .isIn(["l'ordre des champions", "la société privée", "le cercle d'or"])
-    .withMessage("Invalid membership type");
+    .custom((value) => {
+      const validMembershipTitle = [
+        "l'ordre des champions",
+        "la société privée",
+        "le cercle d'or",
+      ];
+      const isValid = validMembershipTitle.some(
+        (club) => club.toLowerCase() === value.toLowerCase(),
+      );
+      if (!isValid) {
+        throw new Error(
+          "Invalid membership title. Must be one of the membership titles.",
+        );
+      }
+      return true;
+    });
 };
 
 const validatePassword = () => {
@@ -134,6 +150,9 @@ const registerValidators = [
 export {
   registerValidators,
   validateEmail,
+  validateName,
+  validatePhoneNumber,
+  validateZipCode,
   validateClubName,
   validatePassword,
   validateConfirmPassword,
