@@ -151,6 +151,8 @@ const login = async (req, res, next) => {
         membershipEndDate: user.membershipEndDate,
         nextBillingDate: user.nextBillingDate,
         membershipTitle: user.currentMembership.title,
+        zipCode: user.zipCode,
+        phoneNumber: user.phoneNumber,
       },
       SECRET_KEY,
       { expiresIn: "15m" },
@@ -171,7 +173,20 @@ const login = async (req, res, next) => {
     logger.info({ email }, `login successful`);
     return res.status(200).json({
       message: "Login successful",
-      userId: user.id,
+      user: {
+        userId: user.id,
+        name: user.name,
+        surname: user.surname,
+        email: user.email,
+        clubName: user.clubName,
+        membershipStatus: user.membershipStatus,
+        membershipStartDate: user.membershipStartDate,
+        membershipEndDate: user.membershipEndDate,
+        nextBillingDate: user.nextBillingDate,
+        membershipTitle: user.currentMembership.title,
+        zipCode: user.zipCode,
+        phoneNumber: user.phoneNumber,
+      },
     });
   } catch (error) {
     logger.error({ err: error, email }, "Failed to login");
@@ -231,17 +246,14 @@ const resetPasswordRequest = async (req, res, next) => {
       });
     }
 
-    const token = crypto.randomBytes(32).toString("hex");
+    const validationToken = crypto.randomBytes(32).toString("hex");
 
-    const expiresAt = new Date(Date.now() + 3600000); //in an hour
-
-    const updatedUser = await userModel.addPasswordResetToken(
-      token,
+    const updatedUser = await userModel.addSetPasswordToken(
+      validationToken,
       user.id,
-      expiresAt,
     );
 
-    const resetLink = `${process.env.APP_URL}/set-password/reset?token=${token}`;
+    const resetLink = `${process.env.APP_URL}/set-password?email=${email}&token=${validationToken}`;
 
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -286,59 +298,47 @@ const resetPasswordRequest = async (req, res, next) => {
   }
 };
 
-const resetPassword = async (req, res, next) => {
-  const { token, password, confirmPassword } = req.validatedData;
+const verify = async (req, res) => {
+  const email = req.user.email;
 
-  let email;
+  if (!email) {
+    logger.error({ email }, "No email found in request user object");
+
+    return res.status(400).json({
+      success: false,
+      message: "User email is required",
+    });
+  }
   try {
-    //Clean up expired tokens
-    await userModel.deleteAllPasswordResetToken();
+    const user = await userModel.findByEmail(email, true);
 
-    const resetTokenRecord = await userModel.findValidPasswordResetToken(token);
-
-    if (!resetTokenRecord || resetTokenRecord.expiresAt < new Date()) {
-      logger.error("Invalid or expired token");
-
-      return res.status(401).json({
-        success: false,
-        message: "Invalid or expired token",
-      });
+    if (!user) {
+      logger.error({ email }, `Login Failure, User has no profile`);
+      return res.status(401).json({ message: "Invalid email" });
     }
 
-    email = resetTokenRecord.user.email;
-
-    logger.info({ email }, `Initiating password reset`);
-
-    const hashedPassword = await userModel.hashPassword(password);
-
-    const updatedUser = await userModel.updatePassword(email, hashedPassword);
-
-    await userModel.deletePasswordResetToken(token);
-
-    logger.info({ email }, "Password setup successful");
-
-    return res.status(200).json({
+    res.status(200).json({
       success: true,
-      message: "Password set successfully",
-      data: {
-        email: updatedUser.email,
-        passwordSetAt: new Date().toISOString(),
+      message: "Authentication confirmed",
+      user: {
+        userId: user.id,
+        name: user.name,
+        surname: user.surname,
+        email: user.email,
+        clubName: user.clubName,
+        membershipStatus: user.membershipStatus,
+        membershipStartDate: user.membershipStartDate,
+        membershipEndDate: user.membershipEndDate,
+        nextBillingDate: user.nextBillingDate,
+        membershipTitle: user.currentMembership.title,
+        phoneNumber: user.phoneNumber,
+        zipCode: user.zipCode,
       },
     });
   } catch (error) {
-    logger.error({ err: error, email }, "Failed to reset email");
+    logger.error({ err: error, email }, "Failed to verify user");
     next(error);
   }
-};
-
-const verify = (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "Authentication confirmed",
-    data: {
-      user: req.user,
-    },
-  });
 };
 
 export {
@@ -347,6 +347,5 @@ export {
   generateNewAccessToken,
   logout,
   resetPasswordRequest,
-  resetPassword,
   verify,
 };
