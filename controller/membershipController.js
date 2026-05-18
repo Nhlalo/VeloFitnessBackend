@@ -45,9 +45,9 @@ const changeMembership = async (req, res, next) => {
     res.status(200).json({
       success: true,
       message: "Membership changed successfully",
-      data: {
+      user: {
         email: updatedUser.email,
-        membershipTitle: updatedUser.membershipTitle,
+        membershipTitle: updatedUser.currentMembership.title,
         nextBillingDate: updatedUser.nextBillingDate,
         changedAt: new Date().toISOString(),
       },
@@ -92,7 +92,7 @@ const cancelMembership = async (req, res, next) => {
     res.status(200).json({
       success: true,
       message: "Membership cancelled successfully",
-      data: {
+      user: {
         email: updatedUser.email,
         membershipStatus: updatedUser.membershipStatus,
         cancelledAt: new Date().toISOString(),
@@ -146,7 +146,7 @@ const reactivateMembership = async (req, res, next) => {
     res.status(200).json({
       success: true,
       message: "Membership reactivation successfully",
-      data: {
+      user: {
         email: updatedUser.email,
         membershipStatus: updatedUser.membershipStatus,
         membershipTitle: updatedUser.currentMembership.title,
