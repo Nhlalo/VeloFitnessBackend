@@ -5,7 +5,6 @@ import {
   logout,
   generateNewAccessToken,
   resetPasswordRequest,
-  resetPassword,
   verify,
 } from "../controller/authController.js";
 import {
@@ -32,7 +31,6 @@ authRouter.post(
   resetPasswordRequestValidationChain,
   resetPasswordRequest,
 );
-authRouter.post("/reset-password", resetPasswordValidationChain, resetPassword);
-authRouter.post("/verify", resetPasswordValidationChain, verify);
+authRouter.get("/verify", authenticateToken, verify);
 
 export { authRouter };
