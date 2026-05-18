@@ -34,7 +34,6 @@ model User {
   
   currentMembership     Membership? @relation(fields: [currentMembershipId], references: [id])
   refreshTokens         RefreshToken[]
-  passwordResetTokens   PasswordResetToken[]
   setPasswordTokens     SetPasswordToken[]
 
 }
@@ -60,14 +59,6 @@ model RefreshToken {
   createdAt DateTime @default(now())
 }
 
-model PasswordResetToken {
-  id        Int    @id @default(autoincrement())
-  token     String   @unique
-  expiresAt DateTime
-  userId    Int
-  user      User     @relation(fields: [userId], references: [id])
-  createdAt DateTime @default(now())
-}
 
 model SetPasswordToken {
   id        Int    @id @default(autoincrement())
