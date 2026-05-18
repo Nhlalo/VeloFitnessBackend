@@ -16,16 +16,17 @@ import { clubNameRouter } from "./routes/clubNameRouter.js";
 const app = express();
 const port = process.env.PORT;
 const isProd = process.env.NODE_ENV === "production";
+const appURL = process.env.APP_URL;
 const corsOrigin = process.env.CORS_ORIGIN
   ? process.env.CORS_ORIGIN.split(",")
   : isProd
     ? []
-    : "*";
+    : appURL;
 const gracefulShutdownTimeoutMs = 30000;
 
 // Security & performance
 app.use(helmet());
-app.use(cors({ origin: corsOrigin }));
+app.use(cors({ origin: corsOrigin, credentials: true }));
 app.use(compression());
 
 //Cookie
