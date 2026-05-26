@@ -110,10 +110,6 @@ app.use((err, req, res, next) => {
   }
 });
 
-const server = app.listen(port, () => {
-  logger.info(`Listening on port: ${port}`);
-});
-
 (async () => {
   await seedMemberships();
 
