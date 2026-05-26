@@ -29,6 +29,11 @@ export default async function seedMemberships() {
       logger.info("Memberships seeded");
     }
   } catch (error) {
-    logger.error("Failed to seed memberships:", error);
+    console.error("Failed to seed memberships:", error.message);
+    console.error("Error details:", error);
+
+    if (error.stack) {
+      console.error("Stack trace:", error.stack);
+    }
   }
 }
