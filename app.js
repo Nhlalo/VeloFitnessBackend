@@ -84,6 +84,11 @@ app.use("/v1/profile", profileRouter);
 app.use("/v1/membership", membershipRouter);
 app.use("/v1/club", clubNameRouter);
 
+//Crucial for debugging
+app.get("/health", (req, res) => {
+  res.status(200).send("ok");
+});
+
 // 404 handler
 app.use((req, res) => {
   res.status(404).json({ error: "Not found" });
