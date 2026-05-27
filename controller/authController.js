@@ -10,14 +10,15 @@ const REFRESH_SECRET_KEY = process.env.REFRESH_SECRET_KEY;
 const cookieOptions = {
   httpOnly: true,
   secure: process.env.NODE_ENV === "production",
-  sameSite: "none",
+  // Allows cookies to be sent with cross-origin requests in production
+  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
   maxAge: 15 * 60 * 1000, // 15 minutes
 };
 
 const refreshCookieOptions = {
   httpOnly: true,
   secure: process.env.NODE_ENV === "production",
-  sameSite: "none",
+  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
   maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
 };
 
