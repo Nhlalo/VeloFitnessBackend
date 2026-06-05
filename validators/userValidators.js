@@ -32,9 +32,9 @@ const validateZipCode = () => {
     .withMessage("ZIP code is required")
     .isString()
     .withMessage("ZIP code must be a string")
-    .matches(/^\d{4,}(?:-\d{1,})?$/)
+    .matches(/^[A-Za-z0-9\s\-]{3,12}$/)
     .withMessage(
-      "Valid postal code required (minimum 4 digits, e.g., 1234, 12345, 12345-6789)",
+      "Valid postal code required (3-12 characters, letters, numbers, spaces, hyphens)",
     );
 };
 
