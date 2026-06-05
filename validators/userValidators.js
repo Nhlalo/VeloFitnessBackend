@@ -42,13 +42,10 @@ const validatePhoneNumber = () => {
   return body("phoneNumber")
     .notEmpty()
     .withMessage("Phone number is required")
-    .isMobilePhone("any")
-    .withMessage("Valid phone number required")
     .custom((value) => {
-      // Remove non-digit characters for validation
       const digitsOnly = value.replace(/\D/g, "");
-      if (digitsOnly.length < 4 || digitsOnly.length > 15) {
-        throw new Error("Phone number must have 4-15 digits");
+      if (digitsOnly.length < 7 || digitsOnly.length > 15) {
+        throw new Error("Phone number must have 7-15 digits");
       }
       return true;
     });
