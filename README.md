@@ -13,7 +13,7 @@ REST backend for the Vélo Fitness class booking platform. Built with Node.js, E
 - PostgreSQL + Prisma ORM
 - JWT (access + refresh tokens)
 - Stripe SDK
-- Resend (email)
+- Brevo (email)
 
 ---
 
@@ -36,7 +36,7 @@ src/
 - Node.js 18+
 - PostgreSQL database
 - Stripe account (test mode)
-- Resend API key
+- Brevo API key
 
 ### Installation
 
@@ -57,7 +57,7 @@ DATABASE_URL=your_database_url
 SESSION_SECRET=your_session_secret_key
 JWT_SECRET = your_token_scret_key
 REFRESH_SECRET_KEY=your_refresh_token_secret_key
-RESEND_API_KEY=re_your_resend_api_key
+BREVO_API_KEY=re_your_brevo_api_key
 STRIPE_SECRET_KEY=sk_test_your_stripe_test_key
 ```
 
