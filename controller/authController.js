@@ -231,8 +231,11 @@ const resetPasswordRequest = async (req, res, next) => {
   const { email } = req.validatedData;
   logger.info({ email }, `Initiating password reset request`);
 
-  if (!process.env.APP_URL || !process.env.RESEND_API_KEY) {
-    logger.error({ email }, "APP_URL environment variable is not set");
+  if (!process.env.APP_URL || !process.env.BREVO_API_KEY) {
+    logger.error(
+      { email },
+      "APP_URL or BREVO_API_KEY environment variable is not set",
+    );
     throw new Error("Server configuration error");
   }
 
@@ -256,31 +259,35 @@ const resetPasswordRequest = async (req, res, next) => {
 
     const resetLink = `${process.env.APP_URL}/set-password?email=${email}&token=${validationToken}`;
 
-    const response = await fetch("https://api.resend.com/emails", {
+    const response = await fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-        "Content-Type": "application/json",
+        accept: "application/json",
+        "api-key": process.env.BREVO_API_KEY,
+        "content-type": "application/json",
       },
       body: JSON.stringify({
-        from: "onboarding@resend.dev",
-        to: email,
-        subject: "Reset Password",
-        html: createResetPasswordEmail(resetLink),
+        sender: {
+          name: "Velo Fitness",
+          email: "noreply.velofitness@gmail.com",
+        },
+        to: [{ email: email }],
+        subject: "Password Reset",
+        htmlContent: createResetPasswordEmail(resetLink),
       }),
     });
 
     if (!response.ok) {
       if (response.status === 401) {
-        logger.error({ email }, "Invalid or missing Resend API key");
-        throw new Error("Invalid or missing Resend API key");
+        logger.error({ email }, "Invalid or missing Brevo API key");
+        throw new Error("Invalid or missing Brevo API key");
       }
       if (response.status === 429) {
-        logger.error({ email }, "Rate limited by Resend");
-        throw new Error("Rate limited by Resend");
+        logger.error({ email }, "Rate limited by Brevo");
+        throw new Error("Rate limited by Brevo");
       }
-      logger.error({ email }, "Resend Server down");
-      throw new Error("Resend Server down");
+      logger.error({ email }, "Brevo Server down");
+      throw new Error("Brevo Server down");
     }
 
     logger.info({ email }, "Email sent successfully");

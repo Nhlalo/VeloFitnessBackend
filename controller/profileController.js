@@ -72,34 +72,6 @@ const createUserProfile = async (req, res, next) => {
       nextPaymentDate: paymentDetails.nextPaymentDate,
       invoiceNumber: paymentDetails.invoiceNumber,
     };
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: "onboarding@resend.dev",
-        to: email,
-        subject: "Payment Confirmation",
-        html: createPaymentConfirmationEmail(paymentConfirmationEmailData),
-      }),
-    });
-
-    if (!response.ok) {
-      if (response.status === 401) {
-        logger.error({ email }, "Invalid or missing Resend API key");
-        throw new Error("Invalid or missing Resend API key");
-      }
-      if (response.status === 429) {
-        logger.error({ email }, "Rate limited by Resend");
-        throw new Error("Rate limited by Resend");
-      }
-      logger.error({ email }, "Resend Server down");
-      throw new Error("Resend Server down");
-    }
-
-    logger.info({ email }, "Email sent successfully");
 
     const newUser = await userModel.createAccount(
       name,
@@ -120,7 +92,7 @@ const createUserProfile = async (req, res, next) => {
 
     logger.info(`${email}: Profile successful created`);
 
-    return res.status(201).json({
+    res.status(201).json({
       success: true,
       message: "Account created successfully after payment confirmation",
       data: {
@@ -135,11 +107,44 @@ const createUserProfile = async (req, res, next) => {
         token: validationToken,
       },
     });
+
+    const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "api-key": process.env.BREVO_API_KEY,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        sender: {
+          name: "Velo Fitness",
+          email: "noreply.velofitness@gmail.com",
+        },
+        to: [{ email: email, name: name + " " + surname }],
+        subject: "Payment Confirmation",
+        htmlContent: createPaymentConfirmationEmail(
+          paymentConfirmationEmailData,
+        ),
+      }),
+    });
+
+    if (!response.ok) {
+      if (response.status === 401) {
+        logger.error({ email }, "Invalid or missing Brevo API key");
+      }
+      if (response.status === 429) {
+        logger.error({ email }, "Rate limited by BREVO");
+      }
+      logger.error({ email }, "Brevo Server down");
+    } else {
+      logger.info({ email }, "Email sent successfully");
+    }
   } catch (error) {
     logger.error({ err: error, email }, "failed to create user profile");
     next(error);
   }
 };
+
 const updatePersonalDetails = async (req, res, next) => {
   const { name, surname, email, zipCode, phoneNumber } = req.validatedData;
 
